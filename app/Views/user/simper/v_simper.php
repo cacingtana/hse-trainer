@@ -37,67 +37,57 @@
             </div>
             <!--end row-->
 
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <!--end card-header-->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label text-right">Dari</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label text-right">Sampai</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="button-items float-right"><button type="button" class="btn btn-primary btn-rounded btn-outline waves-effect waves-light">Cari</button></div>
-                        </div>
-                        <!--end card-body-->
+            <!-- Session flash -->
+            <?php if (session()->getFlashdata('msg')) : ?>
+                <?php $data =  session()->getFlashdata('msg'); ?>
+                <div class="alert icon-custom-alert alert-outline-<?php echo $data[0] ?>" role="alert">
+                    <i class="mdi mdi-check-all alert-icon"></i>
+                    <div class="alert-text">
+                        <strong>Opps...! </strong> <?php echo $data[1] ?>
                     </div>
-                    <!--end card-->
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="mdi mdi-close text-<?php echo $data[0] ?> font-16"></i></span>
+                        </button>
+                    </div>
                 </div>
-                <!--end col-->
-            </div>
-
-            <!-- end row -->
+            <?php endif ?>
+            <!-- Session flash -->
+            <!-- end page title end breadcrumb -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+
+                        <!--end card-header-->
                         <div class="card-body">
-                            <table id="child_rows" class="table table-striped table-bordered dt-responsive nowrap" style="
+                            <table id="datatable" class="table table-bordered dt-responsive nowrap" style="
                       border-collapse: collapse;
                       border-spacing: 0;
                       width: 100%;
                     ">
                                 <thead>
                                     <tr>
+                                        <th>Simper</th>
+                                        <th>Nama</th>
+                                        <th>Departemen</th>
+                                        <th>Posisi</th>
                                         <th></th>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Salary</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Salary</th>
-                                    </tr>
+                                    <?php foreach ($simper as $s) : ?>
+                                        <tr>
+                                            <th><?php echo $s->id_simper ?></th>
+                                            <th><?php echo $s->name_emp ?></th>
+                                            <th><?php echo $s->dept_name ?></th>
+                                            <th><?php echo $s->position_name ?></th>
+                                            <th>
+                                                <a href="/simper/detail/<?php echo $s->id_simper ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
+
+                                                <a href=""><button type="button" id="edit-access" class="btn btn-soft-info btn-icon-circle ml-2"><i class="las la-trash text-danger font-18"></i></button></a>
+                                            </th>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -105,7 +95,6 @@
                 </div>
                 <!-- end col -->
             </div>
-            <!-- end row -->
         </div>
     </div>
     <!-- end row -->

@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="row">
                             <div class="col">
-                                <h4 class="page-title">Daftar Produk</h4>
+                                <h4 class="page-title">Unit / Kendaraan</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="javascript:void(0);">Beranda</a>
@@ -19,12 +19,12 @@
                                     <li class="breadcrumb-item">
                                         <a href="javascript:void(0);">Reference</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Daftar Produk</li>
+                                    <li class="breadcrumb-item active">Unit / Kendaraan</li>
                                 </ol>
                             </div>
                             <!--end col-->
                             <div class="col-auto align-self-center">
-                                <a href="/inv-back/product/create" class="btn btn-sm btn-outline-primary ml-2"><i class="fas fa-plus"></i></a>
+                                <a href="/inv-back/vehicle/create" class="btn btn-sm btn-outline-primary ml-2"><i class="fas fa-plus"></i></a>
                             </div>
                             <!--end col-->
                         </div>
@@ -69,37 +69,26 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>P-ID</th>
-                                        <th>Nama Produk</th>
-                                        <th>Deskripsi</th>
-                                        <th>Status</th>
+                                        <th>Unit</th>
+                                        <th>Kendaraan</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($products as $p) : ?>
+                                    foreach ($vehicle as $v) : ?>
                                         <tr>
-                                            <td><?php echo $no++; ?></td>
-                                            <td><?php echo $p->product_id ?></td>
-                                            <td><?php echo $p->product_name ?></td>
-                                            <td><?php echo $p->product_description ?></td>
-                                            <td><span class="badge badge-md badge-<?php if ($p->product_status == 1) {
-                                                                                        echo "success";
-                                                                                    } else {
-                                                                                        echo "danger";
-                                                                                    } ?>"><?php if ($p->product_status == 1) {
-                                                                                                echo "Aktif";
-                                                                                            } else {
-                                                                                                echo "Non Aktif";
-                                                                                            } ?></td>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $v->unit_name ?></td>
+                                            <td><?php echo $v->note ?></td>
                                             <td>
-                                                <a href="/inv-back/product/detail/<?php echo $p->product_id ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
-                                                <a href="/inv-back/product/delete/<?php echo $p->product_id ?>"><button type="button" id="delete-user" class="btn btn-soft-pink btn-icon-circle ml-2"><i class="las la-trash text-danger font-18"></i></button></a>
+                                                <a href="/inv-back/vehicle/detail/<?php echo $v->id ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
+                                                <a href="/inv-back/vehicle/delete/<?php echo $v->id ?>"><button type="button" id="delete-user" class="btn btn-soft-pink btn-icon-circle ml-2"><i class="las la-trash text-danger font-18"></i></button></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>

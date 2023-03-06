@@ -8,33 +8,5 @@ Clone the source code,
 run php spark serve to show development start
 
 
-------------------------Barang Masuk -----------------------                                            ----------------------Barang Keluar------
-PO Purchase Order -> RV terima barang masuk (Transfer Stock) -> ( Product Stock - sesuai ID barang ) -> ID Order Header / Detail -> INV (Checkout) -> Shipment (Jika ada)
+----------------------Alur Program--------------------------
 
-
-Status Nomor PO :
-0 = Tunda
-1 = Pengajuan
-2 = diterima
-
-List Routing 
-
-/transaction
-
-/inv-back/product
-/inv-back/product-in
-/inv-back/product-receive
-
-/inv-back/product-stock
-
-/inv-back/customer
-/inv-back/supplier
-
-/inv-back/role
-/inv-back/user
-
-/inv-back/category
-/inv-back/unit
-
-/inv-back/report/transaction-in
-/inv-back/report/transaction-out

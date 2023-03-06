@@ -4,20 +4,26 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ModelRefCategory extends Model
+class ModelCommisioningDetail extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'ref_category';
+    protected $table            = 'commisioning_detail';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'category_name',
-        'ref_user_id',
-        'created_at',
-        'updated_at',
+        "commisioning_id",
+        "start_date",
+        "expire_date",
+        "hm_km",
+        "employee_id",
+        "plant",
+        "safety",
+        "trainer",
+        "information",
+        "note",
     ];
 
     // Dates

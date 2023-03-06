@@ -45,8 +45,6 @@ class Employee extends BaseController
             'position' => $this->position->asObject()->findAll(),
             'employee' => $this->serviceEmployee->getAllEmployee(),
         ];
-
-        //dd($this->data);
         return view('admin/employee/v_employee', $this->data);
     }
 

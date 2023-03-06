@@ -53,6 +53,16 @@ class ModelEmployee extends Model
         return  $this->db->query($query)->getResultObject();
     }
 
+    function getEmployeeById($id)
+    {
+        $search = $this->db->escape($id);
+        $query = "SELECT a.*, b.dept_name, d.coorporate_name, e.position_name FROM employee a 
+                    JOIN departments b on a.ref_department_id = b.id
+                    JOIN ref_coorporate d on a.ref_coorporate_id = d.id
+                    JOIN position e on a.ref_position_id = e.id WHERE a.id_emp = $search";
+        return  $this->db->query($query)->getRowObject();
+    }
+
     function employeeNumber()
     {
         date_default_timezone_set('Asia/Jakarta');

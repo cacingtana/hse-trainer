@@ -15,5 +15,6 @@ class Commisioning extends BaseController
 
     public function index()
     {
+        return view('admin/report/commisioning/v_report_commisioning');
     }
 }

@@ -64,13 +64,13 @@ $routes->add('/simper/detail/(:segment)', 'User\Simper::detail/$1');
 $routes->post('/simper/detail-order', 'User\Simper::detailOrder');
 $routes->post('/simper/store', 'User\Simper::store');
 
-$routes->post('/simper/add-to-cart-transaction', 'User\Simper::addCartProductTransactionOut');
+$routes->post('/simper/add-to-cart', 'User\Simper::storeSimperDetail');
 $routes->add('/simper/update-to-cart-transaction/(:segment)', 'User\Simper::updateCartProductTransactionOut/$1');
-$routes->add('/simper/delete/(:segment)', 'User\Simper::delete/$1');
+$routes->post('/simper/delete', 'User\Simper::deleteSimperDetail');
 
 //Commisioning
 $routes->get('/commisioning', 'User\Commisioning::index');
-$routes->post('/commisioning/new-request', 'User\Commisioning::create');
+$routes->get('/commisioning/new-request', 'User\Commisioning::create');
 $routes->add('/commisioning/detail/(:segment)', 'User\Commisioning::detail/$1');
 $routes->post('/commisioning/detail-order', 'User\Commisioning::detailOrder');
 $routes->post('/commisioning/store', 'User\Commisioning::store');
@@ -95,6 +95,15 @@ $routes->post('/inv-back/employee/update', 'Admin\Employee::update');
 
 $routes->add('/inv-back/employee/delete/(:segment)', 'Admin\Employee::store/$1');
 
+//Employee
+$routes->get('/inv-back/vehicle', 'Admin\Vehicle::index');
+$routes->get('/inv-back/vehicle/create', 'Admin\Vehicle::create');
+$routes->post('/inv-back/vehicle/store', 'Admin\Vehicle::store');
+$routes->add('/inv-back/vehicle/detail/(:segment)', 'Admin\Vehicle::detail/$1');
+$routes->post('/inv-back/vehicle/update', 'Admin\Vehicle::update');
+
+$routes->add('/inv-back/employee/delete/(:segment)', 'Admin\Vehicle::store/$1');
+
 //Role
 $routes->get('/inv-back/role', 'Admin\Auth\Role::index');
 $routes->post('/inv-back/role/store', 'Admin\Auth\Role::store');
@@ -118,11 +127,8 @@ $routes->post('/inv-back/privacy/update', 'Admin\Auth\Privacy::update');
 
 
 //Reference -----------------------------------------------------------------------------------------------------------------------------
-$routes->get('/inv-back/category', 'Admin\Reference\Category::index');
-$routes->post('/inv-back/category/store', 'Admin\Reference\Category::store');
-
-$routes->get('/inv-back/type', 'Admin\Reference\Type::index');
-$routes->post('/inv-back/type/store', 'Admin\Reference\Type::store');
+$routes->get('/inv-back/position', 'Admin\Reference\Position::index');
+$routes->post('/inv-back/position/store', 'Admin\Reference\Position::store');
 
 //Coorporate
 $routes->get('/inv-back/coorporate', 'Admin\Reference\Coorporate::index');
@@ -140,9 +146,8 @@ $routes->add('/inv-back/departments/delete/(:segment)', 'Admin\Reference\Departm
 //end reference -------------------------------------------------------------------------------------------------------------------------
 
 //Report
-$routes->get('/inv-back/report/transaction-in', 'Admin\Report\TransactionIn::index');
-$routes->get('/inv-back/report/transaction-out', 'Admin\Report\TransactionOut::index');
-$routes->get('/inv-back/report/stock', 'Admin\Report\Stock::index');
+$routes->get('/inv-back/report/simper', 'Admin\Report\Simper::index');
+$routes->get('/inv-back/report/commisioning', 'Admin\Report\Commisioning::index');
 
 /*
  * --------------------------------------------------------------------

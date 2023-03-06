@@ -8,7 +8,6 @@ class XexecuteSeeder extends Seeder
 {
     public function run()
     {
-        $this->call('Category');
         $this->call('Coorporate');
         $this->call('Role');
         $this->call('User');

@@ -11,18 +11,18 @@
                     <div class="page-title-box">
                         <div class="row">
                             <div class="col">
-                                <h4 class="page-title">Transaksi Baru</h4>
+                                <h4 class="page-title">Simper</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="javascript:void(0);">Transaksi</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Transaksi Baru</li>
+                                    <li class="breadcrumb-item active">Simper</li>
                                 </ol>
                             </div>
                             <!--end col-->
 
                             <div class="col-auto align-self-center">
-                                <a href="#" class="btn btn-sm btn-outline-primary" id=""><span class="day-name" id="">Tanggal Transaksi:</span>&nbsp;
+                                <a href="#" class="btn btn-sm btn-outline-primary" id=""><span class="day-name" id="">Tanggal :</span>&nbsp;
                                     <span class="" id="Select_date"><?php echo date('d / M / y'); ?></span>
                                     <i data-feather="calendar" class="align-self-center icon-xs ml-1"></i> </a>
                             </div>
@@ -58,15 +58,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-md-6 col-lg-4">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Karyawan
+                                                NIK
                                             </p>
-                                            <h3 class="my-0"><?php echo $data['employeeId'] ?> | <?php echo $data['employeeName'] ?></h3>
+                                            <h3 class="my-0"> <?php echo $employee->nik ?> </h3>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -79,16 +79,36 @@
                             </div>
                             <!--end card-->
                         </div>
-                        <!--end col-->
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-md-6 col-lg-4">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Tanggal
+                                                Departemen
                                             </p>
-                                            <h3 class="my-0"><?php echo date('d / M / y'); ?></h3>
+                                            <h3 class="my-0"><?php echo $employee->dept_name ?></h3>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="package" class="align-self-center text-muted icon-md"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col">
+                                            <p class="text-dark mb-1 font-weight-semibold">
+                                                Posisi
+                                            </p>
+                                            <h3 class="my-0"><?php echo $employee->position_name ?></h3>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -156,7 +176,7 @@
                                                             <tr>
                                                                 <td>
                                                                     <p class="d-inline-block align-middle mb-0">
-                                                                        <a href="#" class="d-inline-block align-middle mb-0 product-name">Test</a><br /><span class="text-muted font-13"><?php echo $cc['id'] ?></span>
+                                                                        <a href="#" class="d-inline-block align-middle mb-0 product-name">Test</a><br /><span class="text-muted font-13">test</span>
                                                                     </p>
                                                                 </td>
                                                                 <td>Test</td>
@@ -171,55 +191,6 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="row justify-content-center">
-                                                    <div class="col-md-6 align-self-center">
-                                                        <div class="text-center cart-promo">
-                                                            <img src="/assets/images/logo-sm.png" alt="" height="50" class="mb-2" />
-                                                            <h4 class="">Have a promo code ?</h4>
-                                                            <p class="font-13">
-                                                                If you have a promocode, You can take discount !
-                                                            </p>
-                                                            <div class="input-group w-75 mx-auto">
-                                                                <input type="text" class="form-control" placeholder="Use Promocode" aria-describedby="button-addon2" />
-                                                                <div class="input-group-append">
-                                                                    <button class="btn btn-gradient-primary" type="button" id="button-addon2">
-                                                                        Apply
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mt-4">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <a href="/transaction" class="apps-ecommerce-products.html"><i class="fas fa-long-arrow-alt-left mr-1"></i>
-                                                                        Kembali</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-md-6">
-
-                                                        <?php csrf_field() ?>
-                                                        <div class="total-payment p-3">
-                                                            <h4 class="header-title">Total Pembayaran</h4>
-
-                                                            <table class="table">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="payment-title">Total</td>
-                                                                        <td class="text-dark">
-                                                                            <strong>Test</strong>
-                                                                            <input type="hidden" id="total" value="test" name="total">
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
                                             </div>
                                             <!--end card-->
                                         </div>
@@ -283,7 +254,7 @@
                         <!--end card-->
                         <div class="form-group mb-0 row float-right">
                             <div class="col-sm-12">
-                                <input type="hidden" name="order-id" value="<?php echo $orderId ?>" />
+                                <input type="hidden" name="order-id" value="" />
                                 <button type="submit" class="btn btn-primary btn-md"> Proses <i class="fas fa-sign-in-alt ml-1"></i></button>
                             </div>
                         </div>
@@ -314,106 +285,39 @@
                     <div class="row">
                         <div class="col-lg-12 col-xl-12">
                             <!--end card-header-->
-                            <form method="post" action="/transaction/add-to-cart-transaction">
+                            <form method="post" action="/simper/add-to-cart">
                                 <?php csrf_field() ?>
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Produk</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input list="browsers" name="product-cart-id" id="browser" class="form-control custom-select" autocomplete="off">
-                                            <datalist id="browsers">
-                                                <?php foreach ($products as $ps) :
-                                                ?>
-                                                    <option value="<?php echo $ps->ref_product_id
-                                                                    ?>"><?php echo $ps->product_name
-                                                                        ?>
-                                                    <?php endforeach;
-                                                    ?>
-                                            </datalist>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Stok</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input type="number" id="stock-product" class="form-control" disabled>
-                                            <input type="hidden" id="stock-product-hide" name="stock-product-hide">
-                                            <input type="hidden" id="price-product-hide" name="price-product-hide">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Qty Order</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input type="number" name="product-qty" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-9 col-xl-8 offset-lg-3">
-                                            <button type="submit" class="btn btn-dark btn-sm">
-                                                Tambah Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!--end modal-footer-->
-            </div>
-            <!--end modal-content-->
-        </div>
-        <!--end modal-dialog-->
-    </div>
-    <!--end modal-->
 
-    <!--end modal-->
-    <div class="modal fade" id="edit-transaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalDark1" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-dark">
-                    <h6 class="modal-title m-0 text-white" id="exampleModalDark1">
-                        Produk
-                    </h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="la la-times text-white"></i></span>
-                    </button>
-                </div>
-                <!--end modal-header-->
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-12 col-xl-12">
-                            <!--end card-header-->
-                            <form method="post" action="/transaction/add-to-cart-transaction">
-                                <?php csrf_field() ?>
+                                <input type="hidden" name="id-emp" class="form-control" value="<?php echo $employee->id_emp ?>">
+                                <input type="hidden" name="nik" class="form-control" value="<?php echo $employee->nik ?>">
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Produk</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Unit</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="number" name="product-qty" class="form-control">
+                                            <select name="id-vehicle" id="id-vehicle" class="form-control">
+                                                <option value="1">--Pilih--</option>
+                                                <?php foreach ($vehicle as $v) : ?>
+                                                    <option value="<?php echo $v->id ?>"><?php echo $v->unit_name ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Produk</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Issue Date</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="number" name="product-qty" class="form-control">
+                                            <input type="date" name="issue-date" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Produk</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Keterangan</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="number" name="product-qty" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Produk</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input type="number" name="product-qty" class="form-control">
+                                            <input type="text" name="note" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-9 col-xl-8 offset-lg-3">
                                             <button type="submit" class="btn btn-dark btn-sm">
-                                                Tambah Cart
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

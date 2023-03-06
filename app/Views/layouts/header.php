@@ -106,10 +106,10 @@
                             <a href="#"><span><i data-feather="box" class="align-self-center hori-menu-icon"></i>Report</span></a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="#"><i class="ti ti-minus"></i>Simper</a>
+                                    <a href="/inv-back/report/simper"><i class="ti ti-minus"></i>Simper</a>
                                 </li>
                                 <li>
-                                    <a href="/commisioning"><i class="ti ti-minus"></i>Commisioning</a>
+                                    <a href="/inv-back/report/commisioning"><i class="ti ti-minus"></i>Commisioning</a>
                                 </li>
                             </ul>
                             <!--end submenu-->
@@ -154,7 +154,7 @@
                                     <a href="/inv-back/employee"><i class="ti ti-minus"></i>Karyawan</a>
                                 </li>
                                 <li>
-                                    <a href="/inv-back/product"><i class="ti ti-minus"></i>Unit / Kendaraan</a>
+                                    <a href="/inv-back/vehicle"><i class="ti ti-minus"></i>Unit / Kendaraan</a>
                                 </li>
                             </ul>
                             <!--end submenu-->

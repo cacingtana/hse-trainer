@@ -18,49 +18,13 @@ class Simper extends Migration
             ],
             'id_simper'      => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 20,
+                'constraint'     => 50,
             ],
-            'nik'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'ref_user_id'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'ref_coorporate_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_dept_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_unit_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_position_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'name_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 100,
-            ],
-            'address_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 200,
-            ],
-            'phone_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'email_emp'      => [
+            'employee_id'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
             ],
-            'status'      => [
+            'note'      => [
                 'type'           => 'INT',
                 'constraint'     => 11,
             ],
@@ -75,12 +39,12 @@ class Simper extends Migration
         ]);
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('employee');
+        $this->forge->createTable('simper');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('employee');
+        $this->forge->dropTable('simper');
     }
 }

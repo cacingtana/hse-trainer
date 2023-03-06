@@ -37,7 +37,16 @@ class ServiceEmployee
     function getEmployeeActive()
     {
         try {
-            return $this->modelEmployee->asObject()->Where('status', 1)->findAll();
+            return $this->modelEmployee->asObject()->Where('status_emp', 1)->findAll();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    function getEmployeeJoinId($employeeId)
+    {
+        try {
+            return $this->modelEmployee->getEmployeeById($employeeId);
         } catch (\Throwable $th) {
             throw $th;
         }

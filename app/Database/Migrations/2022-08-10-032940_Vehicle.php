@@ -16,29 +16,13 @@ class Vehicle extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'vehicle_id'       => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'employee_id'       => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'vehicle_name'      => [
+            'unit_name'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
             ],
-            'issue_date' => [
-                'type' => 'DATETIME',
-                'null' => NULL,
-            ],
             'note'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_user_id'      => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 20,
+                'constraint'     => 255,
             ],
             'created_at' => [
                 'type'           => 'DATETIME',

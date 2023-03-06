@@ -31,12 +31,12 @@ class RefStatusRequest extends Migration
         ]);
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('ref_status');
+        $this->forge->createTable('ref_status_request');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('ref_status');
+        $this->forge->dropTable('ref_status_request');
     }
 }

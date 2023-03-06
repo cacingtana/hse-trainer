@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class RefCategory extends Migration
+class SimperDetail extends Migration
 {
     public function up()
     {
@@ -16,13 +16,25 @@ class RefCategory extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'category_name'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 50,
-            ],
-            'ref_user_id'      => [
+            'id_simper'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,
+            ],
+            'vehicle_id'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 20,
+            ],
+            'issue_date'      => [
+                'type'           => 'DATE',
+                'constraint'     => null,
+            ],
+            'note'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+            ],
+            'status'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
             ],
             'created_at' => [
                 'type'           => 'DATETIME',
@@ -35,12 +47,11 @@ class RefCategory extends Migration
         ]);
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('ref_category');
+        $this->forge->createTable('simper_detail');
     }
 
     public function down()
     {
-        //
-        $this->forge->dropTable('ref_category');
+        $this->forge->dropTable('simper_detail');
     }
 }

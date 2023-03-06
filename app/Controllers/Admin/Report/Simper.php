@@ -16,5 +16,6 @@ class Simper extends BaseController
 
     public function index()
     {
+        return view('admin/report/simper/v_report_simper');
     }
 }

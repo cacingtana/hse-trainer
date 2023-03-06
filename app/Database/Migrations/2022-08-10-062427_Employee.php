@@ -29,8 +29,8 @@ class Employee extends Migration
                 'constraint'     => 50,
             ],
             'name_emp'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
+                'type'           => 'VARCHAR',
+                'constraint'     => 100,
             ],
             'sex'      => [
                 'type'           => 'INT',
@@ -45,19 +45,19 @@ class Employee extends Migration
                 'constraint'     => 11,
             ],
             'date_request' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'date_eye_test' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'date_write_test' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'date_practice_test' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'sim_sio'      => [
@@ -69,11 +69,11 @@ class Employee extends Migration
                 'constraint'     => 50,
             ],
             'date_expired_request' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'date_expired_sim_sio' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'status_emp'      => [
@@ -89,11 +89,11 @@ class Employee extends Migration
                 'constraint'     => 20,
             ],
             'created_at' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'updated_at' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
         ]);

@@ -42,7 +42,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col">
                                     <p class="text-dark mb-1 font-weight-semibold">
-                                        Pengajuan Simper
+                                        Total Penganjuan Simper
                                     </p>
                                     <h3 class="my-2">0</h3>
                                     <p class="mb-0 text-truncate text-muted">
@@ -68,7 +68,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col">
                                     <p class="text-dark mb-1 font-weight-semibold">
-                                        Simper Gagal
+                                        Total Pengajuan Commisioning
                                     </p>
                                     <h3 class="my-2">0</h3>
                                     <p class="mb-0 text-truncate text-muted">
@@ -94,7 +94,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col">
                                     <p class="text-dark mb-1 font-weight-semibold">
-                                        Pengajuan Commisioning
+                                        Unit Terdaftar
                                     </p>
                                     <h3 class="my-2">0</h3>
                                     <p class="mb-0 text-truncate text-muted">
@@ -121,7 +121,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col">
                                     <p class="text-dark mb-1 font-weight-semibold">
-                                        Commisioning Gagal
+                                        Total Karyawan
                                     </p>
                                     <h3 class="my-2">0</h3>
                                     <p class="mb-0 text-truncate text-muted">

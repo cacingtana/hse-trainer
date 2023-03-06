@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Employee extends Migration
+class Commisioning extends Migration
 {
     public function up()
     {
@@ -16,53 +16,33 @@ class Employee extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'id_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'nik'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'ref_user_id'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'ref_coorporate_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_dept_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_unit_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'ref_position_id'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'name_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 100,
-            ],
-            'address_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 200,
-            ],
-            'phone_emp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-            ],
-            'email_emp'      => [
+            'id_commisioning'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
             ],
-            'status'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
+            'vehicle_id'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 50,
+            ],
+            'no_unit'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 50,
+            ],
+            'no_mesin'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 50,
+            ],
+            'type_unit'      => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'ref_coorporate_id'      => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'ref_department_id' => [
+                'type' => 'INT',
+                'constraint' => 11,
             ],
             'created_at' => [
                 'type'           => 'DATETIME',
@@ -75,12 +55,11 @@ class Employee extends Migration
         ]);
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('employee');
+        $this->forge->createTable('commisioning');
     }
 
     public function down()
     {
-        //
-        $this->forge->dropTable('employee');
+        $this->forge->dropTable('commisioning');
     }
 }

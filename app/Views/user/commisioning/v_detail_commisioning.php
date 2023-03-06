@@ -178,20 +178,4 @@
 <!-- end page content -->
 </div>
 
-
-<script>
-    //cek if stock > order stock // Modal
-    const idProduct = document.getElementById('browser');
-    idProduct.addEventListener('change', function() {
-        let id = idProduct.value;
-        const product = fetch('/transaction/get-product/' + id)
-            .then(response => response.json())
-            .then(stock => {
-                document.getElementById('stock-product').value = stock.product_stock_qty;
-                document.getElementById('stock-product-hide').value = stock.product_stock_qty;
-                document.getElementById('price-product-hide').value = stock.sale_price;
-            })
-    });
-</script>
-
 <?php echo $this->endSection(); ?>
