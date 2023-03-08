@@ -15,6 +15,7 @@ class ModelCommisioningDetail extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         "commisioning_id",
+        "type_commisioning",
         "start_date",
         "expire_date",
         "hm_km",
@@ -28,4 +29,12 @@ class ModelCommisioningDetail extends Model
 
     // Dates
     protected $useTimestamps = false;
+
+    public function getCommisioningDetailById()
+    {
+        $query = "SELECT a.*, b.*, c.unit_name FROM commisioning_detail a 
+                    JOIN commisioning b on a.id_commisioning = b.commisioning_id
+                    JOIN vehicle c on a.type_unit = b.id";
+        return  $this->db->query($query)->getRowObject();
+    }
 }

@@ -20,19 +20,15 @@ class CommisioningDetail extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
             ],
+            'type_commisioning'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 200,
+            ],
             'date_commisioning'      => [
                 'type'           => 'DATE',
                 'DEFAULT'     => NULL,
             ],
             'date_recommisioning'      => [
-                'type'           => 'DATE',
-                'DEFAULT'     => NULL,
-            ],
-            'date_expired_commisioning'      => [
-                'type'           => 'DATE',
-                'DEFAULT'     => NULL,
-            ],
-            'date_expired_recommisioning'      => [
                 'type'           => 'DATE',
                 'DEFAULT'     => NULL,
             ],

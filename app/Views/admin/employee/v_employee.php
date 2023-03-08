@@ -312,18 +312,4 @@
         <!--end modal-dialog-->
     </div>
 </div>
-
-<script>
-    //cek if stock > order stock // Modal
-    const idProduct = document.getElementById('browser');
-    idProduct.addEventListener('change', function() {
-        let id = idProduct.value;
-        const product = fetch('/transaction/get-product/' + id)
-            .then(response => response.json())
-            .then(stock => {
-                return stock;
-            })
-    });
-</script>
-
 <?php echo $this->endSection(); ?>

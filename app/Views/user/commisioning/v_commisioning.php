@@ -22,7 +22,7 @@
                             </div>
                             <!--end col-->
                             <div class="col-auto align-self-center">
-                                <a href="/commisioning/new-request" class="btn btn-sm btn-outline-primary ml-2"><i class="fas fa-plus"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-primary ml-2" data-toggle="modal" data-target="#search-commisioning"><i class="fas fa-plus"></i></a>
                             </div>
                             <!--end col-->
                         </div>
@@ -113,6 +113,93 @@
     </div>
     <!-- end row -->
     <!-- end page content -->
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="search-commisioning" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title m-0" id="myLargeModalLabel">
+                    Form Karyawan Baru
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="la la-times"></i></span>
+                </button>
+            </div>
+            <!--end modal-header-->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form method="post" action="/commisioning/store-header">
+                            <?php csrf_field() ?>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group row">
+                                            <label for="example-email-input" class="col-sm-2 col-form-label text-right">Unit Business</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="ref-coorporate-id" required>
+                                                    <option>---Pilih---</option>
+                                                    <?php foreach ($bu as $cat) : ?>
+                                                        <option value="<?php echo $cat->id ?>"><?php echo $cat->coorporate_name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-email-input" class="col-sm-2 col-form-label text-right">Departemen</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="ref-department-id" required>
+                                                    <option>---Pilih---</option>
+                                                    <?php foreach ($dept as $cat) : ?>
+                                                        <option value="<?php echo $cat->id ?>"><?php echo $cat->dept_name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="example-email-input" class="col-sm-2 col-form-label text-right">Type Unit</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="ref-vehicle-id" required>
+                                                    <option>---Pilih---</option>
+                                                    <?php foreach ($vehicle as $v) : ?>
+                                                        <option value="<?php echo $v->id ?>"><?php echo $v->unit_name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label for="example-email-input" class="col-sm-2 col-form-label text-right">No Unit</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="no-unit" required autocomplete="off" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-email-input" class="col-sm-2 col-form-label text-right">No Mesin</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="no-machine" required autocomplete="off" />
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary ml-2 float-right">
+                                            Simpan
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--end card-body-->
+                    </div>
+                    <!--end col-->
+                </div>
+            </div>
+
+        </div>
+        <!--end modal-content-->
+    </div>
+    <!--end modal-dialog-->
 </div>
 
 

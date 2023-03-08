@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Dastyle - Admin & Dashboard Template</title>
+    <title>HSE Trainer</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->

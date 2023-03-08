@@ -2,30 +2,22 @@
 
 namespace App\Core\Services;
 
-use App\Models\ModelCommisioning;
 use App\Models\ModelCommisioningDetail;
 use App\Core\Services\ServiceAuth;
 use CodeIgniter\I18n\Time;
 
-class ServiceCommisioning
+class ServiceCommisioningDetail
 {
     protected $commisioning;
-    protected $commisioningDetail;
     protected $data = [];
     protected $userActive;
     protected $createDate;
 
     function __construct()
     {
-        $this->commisioning = new ModelCommisioning();
-        $this->commisioningDetail = new ModelCommisioningDetail();
+        $this->commisioning = new ModelCommisioningDetail();
         $this->userActive = new ServiceAuth();
         $this->createDate = Time::now('Asia/Jakarta', 'id_ID');
-    }
-
-    function generateId()
-    {
-        return $this->commisioning->commisioningNumber();
     }
 
     function getCommisining()
@@ -33,12 +25,12 @@ class ServiceCommisioning
         return $this->commisioning->getAllCommisioning();
     }
 
-    function getCommisioningDetailById($id)
+    function getCommisiningDetailById($id)
     {
-        return $this->commisioningDetail->getCommisioningDetailById($id);
+        return $this->commisioning->getCommisioningById($id);
     }
 
-    public function store($data)
+    public function storeDetail($data)
     {
         try {
             return $this->commisioning->save($data);

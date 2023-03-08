@@ -35,7 +35,7 @@
                         <div class="col-md-8">
                             <div class="mb-4">
                                 <h3>Sign In</h3>
-                                <p class="mb-4">ASSETS / INV SYSTEM</p>
+
                             </div>
                             <form action="/credential/login" method="post">
                                 <?= csrf_field(); ?>
@@ -57,22 +57,7 @@
                                     </label>
                                     <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
                                 </div>
-
                                 <input type="submit" value="Log In" class="btn btn-block btn-primary">
-
-                                <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
-
-                                <div class="social-login">
-                                    <a href="#" class="facebook">
-                                        <span class="icon-facebook mr-3"></span>
-                                    </a>
-                                    <a href="#" class="twitter">
-                                        <span class="icon-twitter mr-3"></span>
-                                    </a>
-                                    <a href="#" class="google">
-                                        <span class="icon-google mr-3"></span>
-                                    </a>
-                                </div>
                             </form>
                         </div>
                     </div>
