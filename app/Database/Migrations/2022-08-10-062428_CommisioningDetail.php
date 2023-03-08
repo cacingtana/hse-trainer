@@ -20,6 +20,10 @@ class CommisioningDetail extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
             ],
+            'vehicle_id'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
             'type_commisioning'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 200,

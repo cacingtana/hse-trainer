@@ -141,7 +141,7 @@
                                                 <div class="row">
                                                     <!--end col-->
                                                     <div class="col-auto align-self-center">
-                                                        <a href="#" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#add-transaction">
+                                                        <a href="#" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#add-commisioning-detail">
                                                             <i class="fas fa-plus mr-2"></i>Cari</a>
                                                     </div>
                                                     <!--end col-->
@@ -253,7 +253,7 @@
 
 
     <!--end modal-->
-    <div class="modal fade" id="add-transaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalDark1" aria-hidden="true">
+    <div class="modal fade" id="add-commisioning-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalDark1" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-dark">
@@ -269,40 +269,93 @@
                     <div class="row">
                         <div class="col-lg-12 col-xl-12">
                             <!--end card-header-->
-                            <form method="post" action="/simper/add-to-cart">
+                            <form method="post" action="/commisioning/add-to-cart">
                                 <?php csrf_field() ?>
                                 <input type="hidden" name="id-emp" class="form-control" value="test">
                                 <input type="hidden" name="id-simper" class="form-control" value="test">
                                 <input type="hidden" name="nik" class="form-control" value="test">
                                 <div class="card-body">
                                     <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">No Unit</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="text" name="no-unit" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">No Mesin</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="text" name="no-machine" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Unit</label>
                                         <div class="col-lg-9 col-xl-8">
                                             <select name="id-vehicle" id="id-vehicle" class="form-control">
-                                                <option value="1">--Pilih--</option>
-                                                <option value="test">test</option>
+                                                <option>--Pilih--</option>
+                                                <?php foreach ($vehicle as $v) : ?>
+                                                    <option value="<?php echo $v->id ?>"><?php echo $v->unit_name ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Issue Date</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Jenis</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="date" name="issue-date" class="form-control">
+                                            <select name="type" id="type" class="form-control">
+                                                <option>--Pilih--</option>
+                                                <option value="Commisioning">Commisioning</option>
+                                                <option value="Recommisioning">Recommisioning</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Tanggal Aktif</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="date" name="start-date" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Status</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Tanggal Expire</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <select name="status-request" id="status-request" class="form-control">
-                                                <option value="1">--Pilih--</option>
-                                                <option value="test">test</option>
-                                            </select>
+                                            <input type="date" name="end-date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">HM / KM</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="text" name="hm-km" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Plant</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="text" name="plant" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Safety</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="text" name="safety" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Trainer</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="text" name="trainer" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Informasi</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <textarea class="form-control" name="information"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Keterangan</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="note" class="form-control">
+                                            <textarea class="form-control" name="note"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">

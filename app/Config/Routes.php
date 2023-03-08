@@ -75,7 +75,7 @@ $routes->add('/commisioning/detail/(:segment)', 'User\Commisioning::detail/$1');
 $routes->post('/commisioning/detail-order', 'User\Commisioning::detailOrder');
 $routes->post('/commisioning/store-header', 'User\Commisioning::storeHeader');
 
-$routes->post('/commisioning/add-to-cart-transaction', 'User\Commisioning::addCartProductTransactionOut');
+$routes->post('/commisioning/add-to-cart', 'User\Commisioning::storeCommisioningDetail');
 $routes->add('/commisioning/update-to-cart-transaction/(:segment)', 'User\Commisioning::updateCartProductTransactionOut/$1');
 $routes->add('/commisioning/delete/(:segment)', 'User\Commisioning::delete/$1');
 

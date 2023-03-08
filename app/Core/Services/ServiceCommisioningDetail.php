@@ -27,7 +27,7 @@ class ServiceCommisioningDetail
 
     function getCommisiningDetailById($id)
     {
-        return $this->commisioning->getCommisioningById($id);
+        return $this->commisioning->getCommisioningDetailById($id);
     }
 
     public function storeDetail($data)
