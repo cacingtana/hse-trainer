@@ -31,13 +31,21 @@ class ModelCommisioningDetail extends Model
     // Dates
     protected $useTimestamps = false;
 
-    public function getCommisioningDetailById()
+    // public function getCommisioningDetailById()
+    // {
+    //     $query = "SELECT a.*, b.*, e.unit_name, d.coorporate_name, c.dept_name FROM commisioning_detail a 
+    //                 JOIN commisioning b on a.commisioning_id = b.id_commisioning
+    //                 JOIN departments c on b.ref_department_id = c.id
+    //                 JOIN ref_coorporate d on b.ref_coorporate_id = d.id
+    //                 JOIN vehicle e on a.vehicle_id = e.id";
+    //     return  $this->db->query($query)->getResultObject();
+    // }
+
+    public function getCommisioningDetailById($idCommisioning)
     {
-        $query = "SELECT a.*, b.*, e.unit_name, d.coorporate_name, c.dept_name FROM commisioning_detail a 
-                    JOIN commisioning b on a.commisioning_id = b.id_commisioning
-                    JOIN departments c on b.ref_department_id = c.id
-                    JOIN ref_coorporate d on b.ref_coorporate_id = d.id
-                    JOIN vehicle e on a.type_unit = e.id";
-        return  $this->db->query($query)->getRowObject();
+        $search = $this->db->escape($idCommisioning);
+        $query = "SELECT a.*, b.* FROM commisioning_detail a 
+                    JOIN commisioning b on a.commisioning_id = b.id_commisioning WHERE a.commisioning_id=$search";
+        return  $this->db->query($query)->getResultObject();
     }
 }

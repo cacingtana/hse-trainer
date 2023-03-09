@@ -11,12 +11,12 @@
                     <div class="page-title-box">
                         <div class="row">
                             <div class="col">
-                                <h4 class="page-title">Simper</h4>
+                                <h4 class="page-title">Commisioning</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Transaksi</a>
+                                        <a href="javascript:void(0);">Beranda</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Simper</li>
+                                    <li class="breadcrumb-item active">Commisioning</li>
                                 </ol>
                             </div>
                             <!--end col-->
@@ -56,15 +56,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                NIK
+                                                No Unit
                                             </p>
-                                            <h3 class="my-0"> test </h3>
+                                            <h3 class="my-0"> <?php echo $header->no_unit ?> </h3>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -77,15 +77,15 @@
                             </div>
                             <!--end card-->
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Departemen
+                                                No Mesin
                                             </p>
-                                            <h3 class="my-0"> test </h3>
+                                            <h3 class="my-0"> <?php echo $header->no_unit ?> </h3>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -98,7 +98,7 @@
                             </div>
                             <!--end card-->
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
@@ -106,7 +106,28 @@
                                             <p class="text-dark mb-1 font-weight-semibold">
                                                 Posisi
                                             </p>
-                                            <h3 class="my-0"> test </h3>
+                                            <h3 class="my-0"> <?php echo $header->unit_name ?> </h3>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="package" class="align-self-center text-muted icon-md"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col">
+                                            <p class="text-dark mb-1 font-weight-semibold">
+                                                Departemen
+                                            </p>
+                                            <h3 class="my-0"> <?php echo $header->dept_name ?> </h3>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -193,7 +214,7 @@
                                             <div class="card-header">
                                                 <div class="row align-items-center">
                                                     <div class="col">
-                                                        <h4 class="card-title">Pelanggan</h4>
+                                                        <h4 class="card-title"></h4>
                                                     </div>
                                                     <!--end col-->
                                                 </div>
@@ -275,29 +296,6 @@
                                 <input type="hidden" name="id-simper" class="form-control" value="test">
                                 <input type="hidden" name="nik" class="form-control" value="test">
                                 <div class="card-body">
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">No Unit</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="no-unit" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">No Mesin</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="no-machine" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Unit</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <select name="id-vehicle" id="id-vehicle" class="form-control">
-                                                <option>--Pilih--</option>
-                                                <?php foreach ($vehicle as $v) : ?>
-                                                    <option value="<?php echo $v->id ?>"><?php echo $v->unit_name ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Jenis</label>
                                         <div class="col-lg-9 col-xl-8">

@@ -33,9 +33,9 @@ class ServiceCommisioning
         return $this->commisioning->getAllCommisioning();
     }
 
-    function getCommisioningDetailById($id)
+    function getCommisioningById($id)
     {
-        return $this->commisioningDetail->getCommisioningDetailById($id);
+        return $this->commisioning->getCommisioningById($id);
     }
 
     public function store($data)

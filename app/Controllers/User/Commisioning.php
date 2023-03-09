@@ -41,6 +41,7 @@ class Commisioning extends BaseController
             'bu' => $this->coorporate->asObject()->findAll(),
             'dept' => $this->departments->asObject()->findAll(),
         ];
+
         return view('user/commisioning/v_commisioning', $this->data);
     }
 
@@ -72,9 +73,6 @@ class Commisioning extends BaseController
     public function storeCommisioningDetail()
     {
         $this->data = [
-            "no_unit" => $this->request->getPost('no-unit'),
-            "no_mesin" => $this->request->getPost('no-machine'),
-            "vehicle_id" => $this->request->getPost('id-vehicle'),
             "type_commisioning" => $this->request->getPost('type'),
             "date_commisioning" => $this->request->getPost('start-date'),
             "date_expired_commisioning" => $this->request->getPost('end-date'),
@@ -85,23 +83,25 @@ class Commisioning extends BaseController
             "informasi" => $this->request->getPost('information'),
             "keterangan" => $this->request->getPost('note'),
         ];
+        $isSuccess = $this->commisioningDetail->storeDetail($this->data);
+        if ($isSuccess) {
+            session()->setFlashdata('msg', ["success", "Data Commisioning berhasil di simpan"]);
+        } else {
+            session()->setFlashdata('msg', ["danger", "Gagal"]);
+        }
 
-        // $isSuccess = $this->commisioning->store($this->data);
-        // if ($isSuccess) {
-        //     session()->setFlashdata('msg', ["success", "Data Commisioning berhasil di simpan"]);
-        // } else {
-        //     session()->setFlashdata('msg', ["danger", "Gagal"]);
-        // }
-        // return redirect()->to('/commisioning/detail/' . $idCommisioning);
+        $idCommisioning = "CM23030900001";
+        return redirect()->to('/commisioning/detail/' . $idCommisioning);
     }
 
     public function detail($id)
     {
         $this->data = [
-            'vehicle' => $this->commisioningDetail->getCommisiningDetailById($id),
+            'header' => $this->commisioning->getCommisioningById($id),
+            'detail' => $this->commisioningDetail->getCommisiningDetailById($id),
         ];
 
-        dd($this->data);
+
         return view('user/commisioning/v_detail_commisioning', $this->data);
     }
 

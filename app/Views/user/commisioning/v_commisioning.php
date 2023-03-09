@@ -82,6 +82,7 @@
                                         <th>No</th>
                                         <th>ID Commisioning</th>
                                         <th>No Unit</th>
+                                        <th>No Mesin</th>
                                         <th>Nama Unit</th>
                                         <th>Perusahaan</th>
                                         <th>Departemen</th>
@@ -96,10 +97,11 @@
                                             <th><?php echo $no++ ?></th>
                                             <th><?php echo $c->id_commisioning ?></th>
                                             <th><?php echo $c->no_unit ?></th>
+                                            <th><?php echo $c->no_mesin ?></th>
                                             <th><?php echo $c->unit_name ?></th>
                                             <th><?php echo $c->coorporate_name ?></th>
                                             <th><?php echo $c->dept_name ?></th>
-                                            <th><a href="#"><i class="las la-pen text-info font-18"></i></a></th>
+                                            <th><a href="/commisioning/detail/<?php echo $c->id_commisioning ?>"><i class="las la-pen text-info font-18"></i></a></th>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

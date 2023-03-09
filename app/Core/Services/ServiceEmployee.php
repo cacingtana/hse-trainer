@@ -65,7 +65,7 @@ class ServiceEmployee
     {
         try {
             $this->data = $data;
-            $this->modelEmployee->save($this->data);
+            return $this->modelEmployee->save($this->data);
         } catch (\Throwable $th) {
             dd($th);
         }

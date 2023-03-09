@@ -55,10 +55,20 @@ class ModelCommisioning extends Model
 
     function getCommisioningById($id)
     {
+        $search = $this->db->escape($id);
         $query = "SELECT a.*, b.unit_name, c.dept_name, d.coorporate_name FROM commisioning a 
                     JOIN vehicle b on a.type_unit = b.id
                     JOIN departments c on a.ref_department_id = c.id
-                    JOIN ref_coorporate d on a.ref_coorporate_id = d.id";
-        return  $this->db->query($query)->getResultObject();
+                    JOIN ref_coorporate d on a.ref_coorporate_id = d.id WHERE a.id_commisioning=$search";
+        return  $this->db->query($query)->getRowObject();
+    }
+
+    //Kebutuhan report commisioning
+    function getReportCommisioning($id)
+    {
+    }
+
+    function getReportCommisioningById($id)
+    {
     }
 }

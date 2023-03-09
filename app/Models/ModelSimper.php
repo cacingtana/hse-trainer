@@ -63,4 +63,14 @@ class ModelSimper extends Model
                     JOIN position e on b.ref_position_id = e.id WHERE a.id_simper = $search";
         return  $this->db->query($query)->getRowObject();
     }
+
+
+    //Kebutuhan report simper
+    function getReportSimper($id)
+    {
+    }
+
+    function getReportSimperById($id)
+    {
+    }
 }
