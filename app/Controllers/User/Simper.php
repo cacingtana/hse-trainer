@@ -13,7 +13,6 @@ use App\Models\ModelStatusRequest;
 class Simper extends BaseController
 {
     protected $data = [];
-    protected $cart;
     protected $serviceReference;
     protected $serviceEmployee;
     protected $vehicle;

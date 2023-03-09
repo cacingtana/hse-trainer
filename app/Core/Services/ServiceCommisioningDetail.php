@@ -30,10 +30,24 @@ class ServiceCommisioningDetail
         return $this->commisioning->getCommisioningDetailById($id);
     }
 
+    function getCommisioningDetailDetailById($id)
+    {
+        return $this->commisioning->getCommisioningDetailDetailById($id);
+    }
+
     public function storeDetail($data)
     {
         try {
             return $this->commisioning->save($data);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function updateDetail($id, $data)
+    {
+        try {
+            return $this->commisioning->update($id, $data);
         } catch (\Throwable $th) {
             throw $th;
         }

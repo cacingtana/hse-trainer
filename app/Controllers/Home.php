@@ -3,13 +3,23 @@
 namespace App\Controllers;
 
 use App\Core\Services\ServiceAuth;
+use App\Models\ModelSimper;
+use App\Models\ModelCommisioning;
 
 class Home extends BaseController
 {
+
     protected $userAktif;
+    protected $simper;
+    protected $commisioning;
+    protected $data = [];
+
     public function index()
     {
         $this->userAktif = new ServiceAuth();
+        $this->simper = new ModelSimper();
+        $this->commisioning = new ModelCommisioning();
+
         $session = \Config\Services::session();
         if ($this->userAktif->checkStatusLogin()) {
             $session->set("profile", [
@@ -18,6 +28,10 @@ class Home extends BaseController
                 'fullname' => $this->userAktif->checkStatusLogin()['name'],
             ]);
         }
-        return view('home');
+        $this->data = [
+            'simper' => $this->simper->totalSimper(),
+            'commisioning' => $this->commisioning->totalCommisioning(),
+        ];
+        return view('home', $this->data);
     }
 }

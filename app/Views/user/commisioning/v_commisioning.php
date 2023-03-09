@@ -34,39 +34,6 @@
             </div>
             <!--end row-->
 
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <!--end card-header-->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label text-right">Dari</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label text-right">Sampai</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="button-items float-right"><button type="button" class="btn btn-primary btn-rounded btn-outline waves-effect waves-light">Cari</button></div>
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
-                </div>
-                <!--end col-->
-            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -94,14 +61,14 @@
                                     $no = 1;
                                     foreach ($comm as $c) : ?>
                                         <tr>
-                                            <th><?php echo $no++ ?></th>
-                                            <th><?php echo $c->id_commisioning ?></th>
-                                            <th><?php echo $c->no_unit ?></th>
-                                            <th><?php echo $c->no_mesin ?></th>
-                                            <th><?php echo $c->unit_name ?></th>
-                                            <th><?php echo $c->coorporate_name ?></th>
-                                            <th><?php echo $c->dept_name ?></th>
-                                            <th><a href="/commisioning/detail/<?php echo $c->id_commisioning ?>"><i class="las la-pen text-info font-18"></i></a></th>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $c->id_commisioning ?></td>
+                                            <td><?php echo $c->no_unit ?></td>
+                                            <td><?php echo $c->no_mesin ?></td>
+                                            <td><?php echo $c->unit_name ?></td>
+                                            <td><?php echo $c->coorporate_name ?></td>
+                                            <td><?php echo $c->dept_name ?></td>
+                                            <td><a href="/commisioning/detail/<?php echo $c->id_commisioning ?>"><i class="las la-pen text-info font-18"></i></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

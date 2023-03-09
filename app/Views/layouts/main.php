@@ -21,14 +21,6 @@
     <!-- Responsive datatable examples -->
     <link href="/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- Calendar -->
-    <!-- <link href="/plugins/fullcalendar/packages/core/main.css" rel="stylesheet" />
-    <link href="/plugins/fullcalendar/packages/daygrid/main.css" rel="stylesheet" />
-    <link href="/plugins/fullcalendar/packages/bootstrap/main.css" rel="stylesheet" />
-    <link href="/plugins/fullcalendar/packages/timegrid/main.css" rel="stylesheet" />
-    <link href="/plugins/fullcalendar/packages/list/main.css" rel="stylesheet" />
-    <link href="/plugins/lightpick/lightpick.css" rel="stylesheet" /> -->
-
     <!-- App css -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/jquery-ui.min.css" rel="stylesheet" />
@@ -77,15 +69,6 @@
     <script src="/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="/plugins/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
     <script src="/assets/pages/jquery.analytics_dashboard.init.js"></script>
-
-    <!-- Calendar -->
-    <!-- <script src="/plugins/fullcalendar/packages/core/main.js"></script>
-    <script src="/plugins/fullcalendar/packages/daygrid/main.js"></script>
-    <script src="/plugins/fullcalendar/packages/timegrid/main.js"></script>
-    <script src="/plugins/fullcalendar/packages/interaction/main.js"></script>
-    <script src="/plugins/fullcalendar/packages/list/main.js"></script>
-    <script src="/plugins/lightpick/lightpick.js"></script>
-    <script src="/assets/pages/jquery.calendar.js"></script> -->
 
     <!-- Required datatable js -->
     <script src="/plugins/datatables/jquery.dataTables.min.js"></script>

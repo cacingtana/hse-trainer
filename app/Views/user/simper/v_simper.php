@@ -67,7 +67,9 @@
                     ">
                                 <thead>
                                     <tr>
-                                        <th>Simper</th>
+                                        <th>No</th>
+                                        <th>NIK</th>
+                                        <th>ID CARD</th>
                                         <th>Nama</th>
                                         <th>Departemen</th>
                                         <th>Posisi</th>
@@ -77,15 +79,15 @@
                                 <tbody>
                                     <?php foreach ($simper as $s) : ?>
                                         <tr>
-                                            <th><?php echo $s->id_simper ?></th>
-                                            <th><?php echo $s->name_emp ?></th>
-                                            <th><?php echo $s->dept_name ?></th>
-                                            <th><?php echo $s->position_name ?></th>
-                                            <th>
+                                            <td><?php echo $s->id_simper ?></td>
+                                            <td><?php echo $s->nik ?></td>
+                                            <td><?php echo $s->nip ?></td>
+                                            <td><?php echo $s->name_emp ?></td>
+                                            <td><?php echo $s->dept_name ?></td>
+                                            <td><?php echo $s->position_name ?></td>
+                                            <td>
                                                 <a href="/simper/detail/<?php echo $s->id_simper ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
-
-                                                <a href=""><button type="button" id="edit-access" class="btn btn-soft-info btn-icon-circle ml-2"><i class="las la-trash text-danger font-18"></i></button></a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

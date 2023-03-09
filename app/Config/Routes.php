@@ -65,18 +65,18 @@ $routes->post('/simper/detail-order', 'User\Simper::detailOrder');
 $routes->post('/simper/store', 'User\Simper::store');
 
 $routes->post('/simper/add-to-cart', 'User\Simper::storeSimperDetail');
-$routes->add('/simper/update-to-cart-transaction/(:segment)', 'User\Simper::updateCartProductTransactionOut/$1');
 $routes->post('/simper/delete', 'User\Simper::deleteSimperDetail');
 
 //Commisioning
 $routes->get('/commisioning', 'User\Commisioning::index');
 $routes->get('/commisioning/new-request', 'User\Commisioning::create');
 $routes->add('/commisioning/detail/(:segment)', 'User\Commisioning::detail/$1');
-$routes->post('/commisioning/detail-order', 'User\Commisioning::detailOrder');
 $routes->post('/commisioning/store-header', 'User\Commisioning::storeHeader');
 
+$routes->add('/commisioning/detail-detail/(:segment)', 'User\Commisioning::detail_detail/$1');
+$routes->post('/commisioning/store-detail-detail', 'User\Commisioning::update_detail_detail');
+
 $routes->post('/commisioning/add-to-cart', 'User\Commisioning::storeCommisioningDetail');
-$routes->add('/commisioning/update-to-cart-transaction/(:segment)', 'User\Commisioning::updateCartProductTransactionOut/$1');
 $routes->add('/commisioning/delete/(:segment)', 'User\Commisioning::delete/$1');
 
 //RestFull

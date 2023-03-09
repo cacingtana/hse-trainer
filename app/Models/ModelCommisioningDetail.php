@@ -15,17 +15,14 @@ class ModelCommisioningDetail extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         "commisioning_id",
-        "no_unit",
-        "no_mesin",
         "type_commisioning",
-        "start_date",
-        "expire_date",
+        "date_commisioning",
+        "date_expired_commisioning",
         "hm_km",
-        "employee_id",
         "plant",
         "safety",
         "trainer",
-        "information",
+        "informasi",
         "note",
     ];
     // Dates
@@ -41,11 +38,23 @@ class ModelCommisioningDetail extends Model
     //     return  $this->db->query($query)->getResultObject();
     // }
 
+    public function update($id = null, $data = null): bool
+    {
+        return $this->db->table($this->table)->update($data, ['id' => $id]);
+    }
+
     public function getCommisioningDetailById($idCommisioning)
     {
         $search = $this->db->escape($idCommisioning);
         $query = "SELECT a.*, b.* FROM commisioning_detail a 
                     JOIN commisioning b on a.commisioning_id = b.id_commisioning WHERE a.commisioning_id=$search";
         return  $this->db->query($query)->getResultObject();
+    }
+
+    public function getCommisioningDetailDetailById($id)
+    {
+        $search = $this->db->escape($id);
+        $query = "SELECT * FROM commisioning_detail WHERE id=$search";
+        return  $this->db->query($query)->getRowObject();
     }
 }

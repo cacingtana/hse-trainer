@@ -70,4 +70,13 @@ class ServiceSimper
             throw $th;
         }
     }
+
+    function getReportSimper()
+    {
+        try {
+            return $this->simper->getReportSimper();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

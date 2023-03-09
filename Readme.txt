@@ -10,3 +10,20 @@ run php spark serve to show development start
 
 ----------------------Alur Program--------------------------
 
+Status Simper
+- Training
+- Full
+- Instruktur
+- Probation
+- Restricted
+- Moving
+
+Status Pelanggaran
+- Hijau
+- Kuning
+- Merah
+
+Hasil Test
+- Kimper detail
+- commisioning detail
+

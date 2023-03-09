@@ -28,17 +28,13 @@ class CommisioningDetail extends Migration
                 'type'           => 'DATE',
                 'DEFAULT'     => NULL,
             ],
-            'date_recommisioning'      => [
+            'date_expired_commisioning'      => [
                 'type'           => 'DATE',
                 'DEFAULT'     => NULL,
             ],
             'hm_km'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,
-            ],
-            'employee_id'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 50,
             ],
             'plant'      => [
                 'type'           => 'VARCHAR',

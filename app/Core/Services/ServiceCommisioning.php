@@ -46,4 +46,13 @@ class ServiceCommisioning
             throw $th;
         }
     }
+
+    function getReportCommisioning()
+    {
+        try {
+            return $this->commisioning->getReportCommisioning();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

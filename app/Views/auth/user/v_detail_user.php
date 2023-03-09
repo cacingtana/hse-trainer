@@ -14,12 +14,11 @@
                                 <h4 class="page-title">Detail User</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Dastyle</a>
+                                        <a href="javascript:void(0);">Beranda</a>
                                     </li>
                                     <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Tables</a>
+                                        <a href="javascript:void(0);">User</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Datatables</li>
                                 </ol>
                             </div>
                             <!--end col-->

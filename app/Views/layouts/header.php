@@ -62,7 +62,9 @@
                         <img src="/assets/images/users/user-5.jpg" alt="profile-user" class="rounded-circle" /></a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#"><i data-feather="user" class="align-self-center icon-xs icon-dual mr-1"></i>
-                            <?php echo session()->get('profile')['fullname'] ?></a>
+                            <?php echo session()->get('profile')['role'] ?></a>
+
+
 
                         <div class="dropdown-divider mb-0"></div>
                         <a class="dropdown-item" href="/inv-back/privacy"><i data-feather="settings" class="align-self-center icon-xs icon-dual mr-1"></i>

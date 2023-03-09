@@ -36,7 +36,7 @@
             <!--end row-->
             <!-- end page title end breadcrumb -->
             <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-6">
                     <div class="card report-card">
                         <div class="card-body">
                             <div class="row d-flex justify-content-center">
@@ -44,29 +44,7 @@
                                     <p class="text-dark mb-1 font-weight-semibold">
                                         Total Simper
                                     </p>
-                                    <h3 class="my-2">0</h3>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <div class="report-main-icon bg-light-alt">
-                                        <i data-feather="users" class="align-self-center text-muted icon-md"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card report-card">
-                        <div class="card-body">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col">
-                                    <p class="text-dark mb-1 font-weight-semibold">
-                                        Total Commisioning
-                                    </p>
-                                    <h3 class="my-2">0</h3>
+                                    <h3 class="my-2"><?php echo $simper->total ?></h3>
                                 </div>
                                 <div class="col-auto align-self-center">
                                     <div class="report-main-icon bg-light-alt">
@@ -79,20 +57,20 @@
                     </div>
                     <!--end card-->
                 </div>
-                <!--end col-->
-                <div class="col-md-6 col-lg-3">
+
+                <div class="col-md-6 col-lg-6">
                     <div class="card report-card">
                         <div class="card-body">
                             <div class="row d-flex justify-content-center">
                                 <div class="col">
                                     <p class="text-dark mb-1 font-weight-semibold">
-                                        Unit Terdaftar
+                                        Total Commisioning
                                     </p>
-                                    <h3 class="my-2">0</h3>
+                                    <h3 class="my-2"><?php echo $commisioning->total ?></h3>
                                 </div>
                                 <div class="col-auto align-self-center">
                                     <div class="report-main-icon bg-light-alt">
-                                        <i data-feather="clock" class="align-self-center text-muted icon-md"></i>
+                                        <i data-feather="activity" class="align-self-center text-muted icon-md"></i>
                                     </div>
                                 </div>
                             </div>
@@ -101,30 +79,6 @@
                     </div>
                     <!--end card-->
                 </div>
-                <!--end col-->
-                <!--end col-->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card report-card">
-                        <div class="card-body">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col">
-                                    <p class="text-dark mb-1 font-weight-semibold">
-                                        Total Karyawan
-                                    </p>
-                                    <h3 class="my-2">0</h3>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <div class="report-main-icon bg-light-alt">
-                                        <i data-feather="briefcase" class="align-self-center text-muted icon-md"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
-                </div>
-                <!--end col-->
             </div>
             <!--end row-->
             <div class="row">

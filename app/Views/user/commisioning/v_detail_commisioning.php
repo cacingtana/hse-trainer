@@ -171,28 +171,35 @@
                                                     <table class="table mb-0">
                                                         <thead>
                                                             <tr>
-                                                                <th class="border-top-0">No</th>
-                                                                <th class="border-top-0">Unit</th>
-                                                                <th class="border-top-0">Issue Date</th>
-                                                                <th class="border-top-0">Status</th>
+                                                                <th class="border-top-0">Jenis</th>
+                                                                <th class="border-top-0">Tanggal Aktif</th>
+                                                                <th class="border-top-0">Tanggal Expire</th>
+                                                                <th class="border-top-0">HM/KM</th>
+                                                                <th class="border-top-0">Plant</th>
+                                                                <th class="border-top-0">safety</th>
+                                                                <th class="border-top-0">Trainer</th>
+                                                                <th class="border-top-0">Informasi</th>
+                                                                <th class="border-top-0">Keterangan</th>
                                                                 <th class="border-top-0"></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>test</td>
-                                                                <td>test</td>
-                                                                <td>test</td>
-                                                                <td><span class="badge badge-md badge-success">test</span></td>
-                                                                <td>
-                                                                    <form method="post" action="/simper/delete">
-                                                                        <?php echo csrf_field() ?>
-                                                                        <input type="hidden" name="id-simper" value="test">
-                                                                        <input type="hidden" name="id-detail" value="test">
-                                                                        <button type="submit" class="transparant"><i class="mdi mdi-close-circle-outline font-18"></i></button>
-                                                                    </form>
-                                                                </td>
-                                                            </tr>
+                                                            <?php foreach ($detail as $d) : ?>
+                                                                <tr>
+                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->type_commisioning ?></span></td>
+                                                                    <td><?php echo $d->date_commisioning ?></td>
+                                                                    <td><?php echo $d->date_expired_commisioning ?></td>
+                                                                    <td><?php echo $d->hm_km ?></td>
+                                                                    <td><?php echo $d->plant ?></td>
+                                                                    <td><?php echo $d->safety ?></td>
+                                                                    <td><?php echo $d->trainer ?></td>
+                                                                    <td><?php echo $d->informasi ?></td>
+                                                                    <td><?php echo $d->note ?></td>
+                                                                    <td>
+                                                                        <a href="/commisioning/detail-detail/<?php echo $d->id ?>" class="text-dark"><i class="mdi mdi-check-box-outline font-18"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -292,9 +299,7 @@
                             <!--end card-header-->
                             <form method="post" action="/commisioning/add-to-cart">
                                 <?php csrf_field() ?>
-                                <input type="hidden" name="id-emp" class="form-control" value="test">
-                                <input type="hidden" name="id-simper" class="form-control" value="test">
-                                <input type="hidden" name="nik" class="form-control" value="test">
+                                <input type="hidden" name="id-commisioning" class="form-control" value="<?php echo $header->id_commisioning ?>">
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Jenis</label>

@@ -73,6 +73,7 @@ class Commisioning extends BaseController
     public function storeCommisioningDetail()
     {
         $this->data = [
+            "commisioning_id" => $this->request->getPost('id-commisioning'),
             "type_commisioning" => $this->request->getPost('type'),
             "date_commisioning" => $this->request->getPost('start-date'),
             "date_expired_commisioning" => $this->request->getPost('end-date'),
@@ -81,7 +82,7 @@ class Commisioning extends BaseController
             "safety" => $this->request->getPost('safety'),
             "trainer" => $this->request->getPost('trainer'),
             "informasi" => $this->request->getPost('information'),
-            "keterangan" => $this->request->getPost('note'),
+            "note" => $this->request->getPost('note'),
         ];
         $isSuccess = $this->commisioningDetail->storeDetail($this->data);
         if ($isSuccess) {
@@ -89,9 +90,7 @@ class Commisioning extends BaseController
         } else {
             session()->setFlashdata('msg', ["danger", "Gagal"]);
         }
-
-        $idCommisioning = "CM23030900001";
-        return redirect()->to('/commisioning/detail/' . $idCommisioning);
+        return redirect()->to('/commisioning/detail/' . $this->request->getPost('id-commisioning'));
     }
 
     public function detail($id)
@@ -100,12 +99,37 @@ class Commisioning extends BaseController
             'header' => $this->commisioning->getCommisioningById($id),
             'detail' => $this->commisioningDetail->getCommisiningDetailById($id),
         ];
-
-
         return view('user/commisioning/v_detail_commisioning', $this->data);
     }
 
-    public function addCartProductTransactionOut()
+    public function detail_detail($id)
     {
+        $this->data = [
+            'detail' => $this->commisioningDetail->getCommisioningDetailDetailById($id),
+        ];
+
+        return view('user/commisioning/v_detail', $this->data);
+    }
+
+    public function update_detail_detail()
+    {
+        $this->data = [
+            "date_commisioning" => $this->request->getPost('start-date'),
+            "date_expired_commisioning" => $this->request->getPost('end-date'),
+            "hm_km" => $this->request->getPost('hm-km'),
+            "plant" => $this->request->getPost('plant'),
+            "safety" => $this->request->getPost('safety'),
+            "trainer" => $this->request->getPost('trainer'),
+            "informasi" => $this->request->getPost('information'),
+            "note" => $this->request->getPost('note'),
+        ];
+
+        $isSuccess = $this->commisioningDetail->updateDetail($this->request->getPost('id-commisioning'), $this->data);
+        if ($isSuccess) {
+            session()->setFlashdata('msg', ["success", "Data Commisioning berhasil di update"]);
+        } else {
+            session()->setFlashdata('msg', ["danger", "Gagal"]);
+        }
+        return redirect()->to('/commisioning/detail-detail/' . $this->request->getPost('id-commisioning'));
     }
 }
