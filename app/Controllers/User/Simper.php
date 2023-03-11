@@ -77,7 +77,6 @@ class Simper extends BaseController
             'note' => $this->request->getPost('note'),
             'status_simper' => $this->request->getPost('status-simper'),
             'status_test' => $this->request->getPost('status-test'),
-
         ];
 
         $isSuccess = $this->simperDetail->storeDetail($this->data);
@@ -113,9 +112,19 @@ class Simper extends BaseController
         return view('user/simper/v_detail', $this->data);
     }
 
-    public function update_detail_detail($idEmp)
+    public function update_detail_detail()
     {
-        return redirect()->to('/simper/detail/' . $this->request->getPost('id-simper'));
+        $this->data = [
+            'id_simper' => $this->request->getPost('id-detail'),
+            'vehicle_id' => $this->request->getPost('id-vehicle'),
+            'issue_date' => $this->request->getPost('issue-date'),
+            'note' => $this->request->getPost('note'),
+            'status_simper' => $this->request->getPost('status-simper'),
+            'status_test' => $this->request->getPost('status-test'),
+        ];
+
+        dd($this->data);
+        return redirect()->to('/simper/detail/detail' . $this->request->getPost('id-detail'));
     }
 
     public function deleteSimperDetail()
