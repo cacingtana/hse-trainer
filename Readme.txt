@@ -19,9 +19,9 @@ Status Simper
 - Moving
 
 Status Pelanggaran
-- Hijau
-- Kuning
-- Merah
+- 1 = Hijau
+- 2 = Kuning
+- 3 = Merah
 
 Hasil Test
 - Kimper detail

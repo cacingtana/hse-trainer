@@ -56,6 +56,10 @@ class CommisioningDetail extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
             ],
+            'status_test'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
             'created_at' => [
                 'type'           => 'DATETIME',
                 'DEFAULT'        => NULL,

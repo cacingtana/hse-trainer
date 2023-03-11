@@ -40,7 +40,7 @@ class ModelSimper extends Model
         } else {
             $kode = $tgl . "00001";
         }
-        return  "ID" . $tgl . $kode;
+        return  "A-" . $tgl . $kode;
     }
 
     function getSimper()

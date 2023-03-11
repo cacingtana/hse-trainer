@@ -64,6 +64,9 @@ $routes->add('/simper/detail/(:segment)', 'User\Simper::detail/$1');
 $routes->post('/simper/detail-order', 'User\Simper::detailOrder');
 $routes->post('/simper/store', 'User\Simper::store');
 
+$routes->add('/simper/detail-detail/(:segment)', 'User\Simper::detail_detail/$1');
+$routes->post('/simper/store-detail-detail', 'User\Simper::update_detail_detail');
+
 $routes->post('/simper/add-to-cart', 'User\Simper::storeSimperDetail');
 $routes->post('/simper/delete', 'User\Simper::deleteSimperDetail');
 

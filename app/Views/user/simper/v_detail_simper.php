@@ -56,15 +56,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                NIK
+                                                Nama
                                             </p>
-                                            <h3 class="my-0"> <?php echo $simper->nik ?> </h3>
+                                            <h5 class="my-0"> <?php echo $simper->name_emp ?> </h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -77,7 +77,28 @@
                             </div>
                             <!--end card-->
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col">
+                                            <p class="text-dark mb-1 font-weight-semibold">
+                                                NIK
+                                            </p>
+                                            <h5 class="my-0"> <?php echo $simper->nik ?> </h5>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="tag" class="align-self-center text-muted icon-md"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <div class="col-md-6 col-lg-3">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
@@ -85,7 +106,7 @@
                                             <p class="text-dark mb-1 font-weight-semibold">
                                                 Departemen
                                             </p>
-                                            <h3 class="my-0"><?php echo $simper->dept_name ?></h3>
+                                            <h5 class="my-0"><?php echo $simper->dept_name ?></h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -98,7 +119,7 @@
                             </div>
                             <!--end card-->
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             <div class="card report-card">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
@@ -106,7 +127,7 @@
                                             <p class="text-dark mb-1 font-weight-semibold">
                                                 Posisi
                                             </p>
-                                            <h3 class="my-0"><?php echo $simper->position_name ?></h3>
+                                            <h5 class="my-0"><?php echo $simper->position_name ?></h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -153,7 +174,9 @@
                                                                 <th class="border-top-0">No</th>
                                                                 <th class="border-top-0">Unit</th>
                                                                 <th class="border-top-0">Issue Date</th>
-                                                                <th class="border-top-0">Status</th>
+                                                                <th class="border-top-0">Status Simper</th>
+                                                                <th class="border-top-0">Status Test</th>
+                                                                <th class="border-top-0">Pelanggaran</th>
                                                                 <th class="border-top-0"></th>
                                                             </tr>
                                                         </thead>
@@ -166,13 +189,10 @@
                                                                     <td><?php echo $d->unit_name ?></td>
                                                                     <td><?php echo $d->issue_date ?></td>
                                                                     <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
+                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
+                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
                                                                     <td>
-                                                                        <form method="post" action="/simper/delete">
-                                                                            <?php echo csrf_field() ?>
-                                                                            <input type="hidden" name="id-simper" value="<?php echo $simper->id_simper ?>">
-                                                                            <input type="hidden" name="id-detail" value="<?php echo $d->id ?>">
-                                                                            <button type="submit" class="transparant"><i class="mdi mdi-close-circle-outline font-18"></i></button>
-                                                                        </form>
+                                                                        <a href="/simper/detail-detail/<?php echo $d->id ?>" class="text-dark"><i class="mdi mdi-check-box-outline font-18"></i></a>
                                                                     </td>
                                                                 </tr>
                                                             <?php endforeach; ?>
@@ -187,57 +207,6 @@
                                     <!--end col-->
                                 </div>
                             </div>
-
-
-                            <!-- Pembayaran ///////////////////////////////////////// -->
-                            <div class="tab-pane fade" id="Profile_Settings" role="tabpanel" aria-labelledby="settings_detail_tab">
-                                <div class="row">
-                                    <div class="col-lg-6 col-xl-6">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <h4 class="card-title">Pelanggan</h4>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <div class="card-body">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label text-right"></label>
-                                                    <div class="col-sm-10">
-                                                        <div class="custom-control custom-switch switch-success">
-                                                            <input type="checkbox" class="custom-control-input type-supplier" id="customSwitchSuccess" />
-                                                            <label class="custom-control-label text-dark" for="customSwitchSuccess">Pelanggan</label>
-                                                            <span class="form-text text-muted font-12 mt-0">Pelanggan tidak terdaftar</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label text-right">ID</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="custom-select" name="id-pelanggan" id="id-pelanggan">
-                                                            <option>--Pilih--</option>
-                                                            <option value="test">test</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="example-text-input" class="col-sm-2 col-form-label text-right">Pelanggan</label>
-                                                    <div class="col-sm-10">
-                                                        <input class="form-control" type="text" id="pelanggan" name="company" disabled>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!--end row-->
                         </div>
                         <!--end card-->
                         <div class="form-group mb-0 row float-right">
@@ -282,7 +251,7 @@
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Unit</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <select name="id-vehicle" id="id-vehicle" class="form-control">
+                                            <select name="id-vehicle" id="id-vehicle" class="form-control" required>
                                                 <option value="1">--Pilih--</option>
                                                 <?php foreach ($vehicle as $v) : ?>
                                                     <option value="<?php echo $v->id ?>"><?php echo $v->unit_name ?></option>
@@ -293,16 +262,25 @@
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Issue Date</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="date" name="issue-date" class="form-control">
+                                            <input type="date" name="issue-date" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Status</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Status Simper</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <select name="status-request" id="status-request" class="form-control">
-                                                <option value="1">--Pilih--</option>
+                                            <select name="status-simper" id="status-simper" class="form-control" required>
                                                 <?php foreach ($status as $v) : ?>
                                                     <option value="<?php echo $v->id ?>"><?php echo $v->status_name ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Status Test</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <select name="status-test" id="status-test" class="form-control" required>
+                                                <?php foreach ($test as $t) : ?>
+                                                    <option value="<?php echo $t->id ?>"> <?php echo $t->test_name ?> </option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>

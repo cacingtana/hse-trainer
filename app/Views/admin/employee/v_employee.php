@@ -156,7 +156,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="example-email-input" class="col-sm-2 col-form-label text-right">NIP</label>
+                                                <label for="example-email-input" class="col-sm-2 col-form-label text-right">ID CARD</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text" name="nip" required autocomplete="off" />
                                                 </div>

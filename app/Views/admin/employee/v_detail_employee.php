@@ -68,7 +68,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="projectName">NIP</label>
+                                            <label for="projectName">ID CARD</label>
                                             <input type="text" class="form-control" name="name" value="<?php echo $employee->nip ?>" />
                                         </div>
                                         <div class="form-group">

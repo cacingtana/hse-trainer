@@ -32,7 +32,15 @@ class SimperDetail extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
             ],
-            'status'      => [
+            'status_simper'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
+            'status_test'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
+            'status_violation'      => [
                 'type'           => 'INT',
                 'constraint'     => 11,
             ],

@@ -18,7 +18,10 @@ class ModelSimperDetail extends Model
         'vehicle_id',
         'issue_date',
         'note',
-        'status',
+        'status_simper',
+        'status_test', //Status 1 lulus, status 2 tidak lulus
+        'status_violation', //- Training - Full - Instruktur - Probation - Restricted - Moving
+
     ];
 
     // Dates
@@ -45,8 +48,17 @@ class ModelSimperDetail extends Model
         $search = $this->db->escape($id);
         $query = "SELECT a.*, c.status_name, d.unit_name FROM simper_detail a 
                     JOIN simper b on a.id_simper = b.id_simper
-                    JOIN ref_status_request c on a.status = c.id
+                    JOIN ref_status_request c on a.status_simper = c.id
                     JOIN vehicle d on a.vehicle_id = d.id WHERE b.id_simper = $search";
         return  $this->db->query($query)->getResultObject();
+    }
+
+    function getSimperDetailDetailById($id)
+    {
+        $search = $this->db->escape($id);
+        $query = "SELECT a.*, c.status_name, d.unit_name FROM simper_detail a 
+                    JOIN ref_status_request c on a.status_simper = c.id
+                    JOIN vehicle d on a.vehicle_id = d.id WHERE a.id = $search";
+        return  $this->db->query($query)->getRowObject();
     }
 }

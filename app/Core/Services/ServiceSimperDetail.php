@@ -47,6 +47,15 @@ class ServiceSimperDetail
         }
     }
 
+    function getSimperDetailDetailById($id)
+    {
+        try {
+            return $this->simperDetail->getSimperDetailDetailById($id);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     function deleteSimperDetail($id)
     {
         try {

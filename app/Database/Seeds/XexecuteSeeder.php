@@ -15,5 +15,9 @@ class XexecuteSeeder extends Seeder
         $this->call('Departments');
         $this->call('Position');
         $this->call('Sex');
+        $this->call('Vehicle');
+        $this->call('StatusRequest');
+        $this->call('StatusTest');
+        $this->call('StatusViolation');
     }
 }
