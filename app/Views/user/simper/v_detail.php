@@ -59,20 +59,23 @@
                     <!--end card-header-->
                     <form method="post" action="/simper/update-detail-detail">
                         <?php csrf_field() ?>
-                        <input type="hidden" name="id-simper" class="form-control" value="<?php echo $detail->id ?>">
+                        <input type="hidden" name="id-simper" class="form-control" value="<?php echo $detail->id_simper ?>">
+                        <input type="hidden" name="id-detail" class="form-control" value="<?php echo $detail->id ?>">
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label">No Simper</label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="text" class="form-control" value="" disabled>
+                                    <input type="text" class="form-control" value="<?php echo $detail->id_simper ?>" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label">Unit / Kendaraan</label>
                                 <div class="col-lg-9 col-xl-8">
                                     <select class="custom-select" name="id-vehicle" id="id-vehicle">
-                                        <?php foreach ($status as $s) : ?>
-                                            <option value="<?php echo $s->id ?>"><?php echo $s->status_name ?></option>
+                                        <?php foreach ($vehicle as $s) : ?>
+                                            <option value="<?php echo $s->id ?>" <?php if (intval($detail->vehicle_id) == intval($s->id)) {
+                                                                                        echo "selected";
+                                                                                    } ?>><?php echo $s->unit_name ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -82,7 +85,9 @@
                                 <div class="col-lg-9 col-xl-8">
                                     <select class="custom-select" name="status-simper" id="status-simper">
                                         <?php foreach ($status as $s) : ?>
-                                            <option value="<?php echo $s->id ?>"><?php echo $s->status_name ?></option>
+                                            <option value="<?php echo $s->id ?>" <?php if (intval($detail->status_simper) == intval($s->id)) {
+                                                                                        echo "selected";
+                                                                                    } ?>><?php echo $s->status_name ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -90,17 +95,7 @@
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label">Issue Date</label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="date" name="issue-date" class="form-control" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-lg-3 col-form-label">Status Simper</label>
-                                <div class="col-lg-9 col-xl-8">
-                                    <select class="custom-select" name="status-simper" id="status-simper">
-                                        <?php foreach ($status as $s) : ?>
-                                            <option value="<?php echo $s->id ?>"><?php echo $s->status_name ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input type="date" name="issue-date" class="form-control" value="<?php echo $detail->issue_date ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -108,7 +103,9 @@
                                 <div class="col-lg-9 col-xl-8">
                                     <select class="custom-select" name="status-test" id="status-test">
                                         <?php foreach ($test as $t) : ?>
-                                            <option value="<?php echo $t->id ?>"><?php echo $t->test_name ?></option>
+                                            <option value="<?php echo $t->id ?>" <?php if (intval($detail->status_test) == intval($t->id)) {
+                                                                                        echo "selected";
+                                                                                    } ?>><?php echo $t->test_name ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -117,8 +114,11 @@
                                 <label class="col-xl-3 col-lg-3 col-form-label">Status Pelanggaran</label>
                                 <div class="col-lg-9 col-xl-8">
                                     <select class="custom-select" name="status-violation" id="status-violation">
+                                        <option> ---Pilih--- </option>
                                         <?php foreach ($violation as $v) : ?>
-                                            <option value="<?php echo $v->id ?>"> <?php echo $v->violation_name ?> </option>
+                                            <option value="<?php echo $v->id ?>" <?php if (intval($detail->status_violation) == intval($v->id)) {
+                                                                                        echo "selected";
+                                                                                    } ?>> <?php echo $v->violation_name ?> </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -126,7 +126,7 @@
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label">Keterangan</label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <textarea class="form-control" name="note"></textarea>
+                                    <textarea class="form-control" name="note"><?php echo $detail->note ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

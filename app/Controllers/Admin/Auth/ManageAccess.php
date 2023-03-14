@@ -23,6 +23,8 @@ class ManageAccess extends BaseController
             'user' => $this->serviceManageAccess->getCredential($id),
             'access' => $this->serviceManageAccess->getAccessByUserId($id),
         ];
+
+
         return view('auth/manage-access/v_manage_access', $this->data);
     }
 

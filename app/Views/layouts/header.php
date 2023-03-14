@@ -62,7 +62,7 @@
                         <img src="/assets/images/users/user-5.jpg" alt="profile-user" class="rounded-circle" /></a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#"><i data-feather="user" class="align-self-center icon-xs icon-dual mr-1"></i>
-                            <?php echo session()->get('profile')['role'] ?></a>
+                            <?php echo session()->get('profile')['fullname'] ?></a>
 
 
 
@@ -117,51 +117,52 @@
                             <!--end submenu-->
                         </li>
 
-                        <li class="has-submenu">
-                            <a href="#"><span><i data-feather="lock" class="align-self-center hori-menu-icon"></i>Authentikasi</span></a>
-                            <ul class="submenu">
-                                <li class="has-submenu">
-                                    <a href="#"><i class="ti ti-minus"></i>Pengguna</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="/inv-back/user"><i class="ti ti-minus"></i>User</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="/inv-back/role"><i class="ti ti-minus"></i>Level Pengguna</a>
-                                </li>
-                            </ul>
-                            <!--end submenu-->
-                        </li>
+                        <?php if (intval(session()->get('profile')['role']) == 1) { ?>
+                            <li class="has-submenu">
+                                <a href="#"><span><i data-feather="lock" class="align-self-center hori-menu-icon"></i>Authentikasi</span></a>
+                                <ul class="submenu">
+                                    <li class="has-submenu">
+                                        <a href="#"><i class="ti ti-minus"></i>Pengguna</a>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="/inv-back/user"><i class="ti ti-minus"></i>User</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/inv-back/role"><i class="ti ti-minus"></i>Level Pengguna</a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
 
-                        <li class="has-submenu">
-                            <a href="#"><span><i data-feather="layers" class="align-self-center hori-menu-icon"></i>Ref & Pengaturan</span></a>
-                            <ul class="submenu">
-                                <li class="has-submenu">
-                                    <a href="#"><i class="ti ti-minus"></i>Reference</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="/inv-back/coorporate"><i class="ti ti-minus"></i>Unit Business</a>
-                                        </li>
-                                        <li>
-                                            <a href="/inv-back/departments"><i class="ti ti-minus"></i>Departemen</a>
-                                        </li>
-                                        <li>
-                                            <a href="/inv-back/position"><i class="ti ti-minus"></i>Posisi</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="/inv-back/employee"><i class="ti ti-minus"></i>Karyawan</a>
-                                </li>
-                                <li>
-                                    <a href="/inv-back/vehicle"><i class="ti ti-minus"></i>Unit / Kendaraan</a>
-                                </li>
-                            </ul>
-                            <!--end submenu-->
-                        </li>
-
+                            <li class="has-submenu">
+                                <a href="#"><span><i data-feather="layers" class="align-self-center hori-menu-icon"></i>Ref & Pengaturan</span></a>
+                                <ul class="submenu">
+                                    <li class="has-submenu">
+                                        <a href="#"><i class="ti ti-minus"></i>Reference</a>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="/inv-back/coorporate"><i class="ti ti-minus"></i>Unit Business</a>
+                                            </li>
+                                            <li>
+                                                <a href="/inv-back/departments"><i class="ti ti-minus"></i>Departemen</a>
+                                            </li>
+                                            <li>
+                                                <a href="/inv-back/position"><i class="ti ti-minus"></i>Posisi</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/inv-back/employee"><i class="ti ti-minus"></i>Karyawan</a>
+                                    </li>
+                                    <li>
+                                        <a href="/inv-back/vehicle"><i class="ti ti-minus"></i>Unit / Kendaraan</a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                        <?php } ?></a>
                     </ul>
                     <!-- End navigation menu -->
                 </div>

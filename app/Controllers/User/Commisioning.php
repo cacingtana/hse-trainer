@@ -9,6 +9,7 @@ use App\Models\ModelVehicle;
 use App\Core\Services\ServiceCommisioning;
 use App\Core\Services\ServiceCommisioningDetail;
 use App\Models\ModelSex;
+use App\Models\ModelStatusTest;
 
 class Commisioning extends BaseController
 {
@@ -21,6 +22,7 @@ class Commisioning extends BaseController
     protected $commisioning;
     protected $commisioningDetail;
     protected $sex;
+    protected $statusTest;
 
     public function __construct()
     {
@@ -30,6 +32,7 @@ class Commisioning extends BaseController
         $this->commisioningDetail = new ServiceCommisioningDetail();
         $this->vehicle = new ModelVehicle();
         $this->sex = new ModelSex();
+        $this->statusTest = new ModelStatusTest();
     }
 
     public function index()
@@ -83,6 +86,7 @@ class Commisioning extends BaseController
             "trainer" => $this->request->getPost('trainer'),
             "informasi" => $this->request->getPost('information'),
             "note" => $this->request->getPost('note'),
+            "status_test" => $this->request->getPost('status-test'),
         ];
         $isSuccess = $this->commisioningDetail->storeDetail($this->data);
         if ($isSuccess) {
@@ -96,6 +100,7 @@ class Commisioning extends BaseController
     public function detail($id)
     {
         $this->data = [
+            'test' => $this->statusTest->asObject()->findAll(),
             'header' => $this->commisioning->getCommisioningById($id),
             'detail' => $this->commisioningDetail->getCommisiningDetailById($id),
         ];
@@ -105,9 +110,9 @@ class Commisioning extends BaseController
     public function detail_detail($id)
     {
         $this->data = [
+            'test' => $this->statusTest->asObject()->findAll(),
             'detail' => $this->commisioningDetail->getCommisioningDetailDetailById($id),
         ];
-
         return view('user/commisioning/v_detail', $this->data);
     }
 
@@ -122,6 +127,7 @@ class Commisioning extends BaseController
             "trainer" => $this->request->getPost('trainer'),
             "informasi" => $this->request->getPost('information'),
             "note" => $this->request->getPost('note'),
+            "status_test" => $this->request->getPost('status-test'),
         ];
 
         $isSuccess = $this->commisioningDetail->updateDetail($this->request->getPost('id-commisioning'), $this->data);

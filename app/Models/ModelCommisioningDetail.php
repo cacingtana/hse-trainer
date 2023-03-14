@@ -24,6 +24,7 @@ class ModelCommisioningDetail extends Model
         "trainer",
         "informasi",
         "note",
+        "status_test",
     ];
     // Dates
     protected $useTimestamps = false;
@@ -46,8 +47,9 @@ class ModelCommisioningDetail extends Model
     public function getCommisioningDetailById($idCommisioning)
     {
         $search = $this->db->escape($idCommisioning);
-        $query = "SELECT a.*, b.* FROM commisioning_detail a 
-                    JOIN commisioning b on a.commisioning_id = b.id_commisioning WHERE a.commisioning_id=$search";
+        $query = "SELECT a.*, b.*, c.test_name FROM commisioning_detail a 
+                    JOIN commisioning b on a.commisioning_id = b.id_commisioning
+                    JOIN ref_status_test c on a.status_test = c.id WHERE a.commisioning_id=$search";
         return  $this->db->query($query)->getResultObject();
     }
 

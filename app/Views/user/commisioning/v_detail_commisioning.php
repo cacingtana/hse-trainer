@@ -85,7 +85,7 @@
                                             <p class="text-dark mb-1 font-weight-semibold">
                                                 No Mesin
                                             </p>
-                                            <h3 class="my-0"> <?php echo $header->no_unit ?> </h3>
+                                            <h3 class="my-0"> <?php echo $header->no_mesin ?> </h3>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -179,14 +179,13 @@
                                                                 <th class="border-top-0">safety</th>
                                                                 <th class="border-top-0">Trainer</th>
                                                                 <th class="border-top-0">Informasi</th>
-                                                                <th class="border-top-0">Keterangan</th>
                                                                 <th class="border-top-0"></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <?php foreach ($detail as $d) : ?>
                                                                 <tr>
-                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->type_commisioning ?></span></td>
+                                                                    <td><span class="badge badge-md badge-warning"><?php echo $d->type_commisioning ?></span></td>
                                                                     <td><?php echo $d->date_commisioning ?></td>
                                                                     <td><?php echo $d->date_expired_commisioning ?></td>
                                                                     <td><?php echo $d->hm_km ?></td>
@@ -194,7 +193,11 @@
                                                                     <td><?php echo $d->safety ?></td>
                                                                     <td><?php echo $d->trainer ?></td>
                                                                     <td><?php echo $d->informasi ?></td>
-                                                                    <td><?php echo $d->note ?></td>
+                                                                    <td><span class="badge badge-md badge-<?php if (intval($d->status_test) == 1) {
+                                                                                                                echo "success";
+                                                                                                            } else {
+                                                                                                                echo "danger";
+                                                                                                            } ?>"><?php echo $d->test_name ?></span></td>
                                                                     <td>
                                                                         <a href="/commisioning/detail-detail/<?php echo $d->id ?>" class="text-dark"><i class="mdi mdi-check-box-outline font-18"></i></a>
                                                                     </td>
@@ -211,57 +214,6 @@
                                     <!--end col-->
                                 </div>
                             </div>
-
-
-                            <!-- Pembayaran ///////////////////////////////////////// -->
-                            <div class="tab-pane fade" id="Profile_Settings" role="tabpanel" aria-labelledby="settings_detail_tab">
-                                <div class="row">
-                                    <div class="col-lg-6 col-xl-6">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <h4 class="card-title"></h4>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <div class="card-body">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label text-right"></label>
-                                                    <div class="col-sm-10">
-                                                        <div class="custom-control custom-switch switch-success">
-                                                            <input type="checkbox" class="custom-control-input type-supplier" id="customSwitchSuccess" />
-                                                            <label class="custom-control-label text-dark" for="customSwitchSuccess">Pelanggan</label>
-                                                            <span class="form-text text-muted font-12 mt-0">Pelanggan tidak terdaftar</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label text-right">ID</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="custom-select" name="id-pelanggan" id="id-pelanggan">
-                                                            <option>--Pilih--</option>
-                                                            <option value="test">test</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="example-text-input" class="col-sm-2 col-form-label text-right">Pelanggan</label>
-                                                    <div class="col-sm-10">
-                                                        <input class="form-control" type="text" id="pelanggan" name="company" disabled>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!--end row-->
                         </div>
                         <!--end card-->
                         <div class="form-group mb-0 row float-right">
@@ -286,7 +238,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-dark">
                     <h6 class="modal-title m-0 text-white" id="exampleModalDark1">
-                        Produk
+                        Data
                     </h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="la la-times text-white"></i></span>
@@ -359,6 +311,16 @@
                                         <label class="col-xl-3 col-lg-3 col-form-label">Keterangan</label>
                                         <div class="col-lg-9 col-xl-8">
                                             <textarea class="form-control" name="note"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Status Test</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <select class="custom-select" name="status-test" id="status-test">
+                                                <?php foreach ($test as $t) : ?>
+                                                    <option value="<?php echo $t->id ?>"><?php echo $t->test_name ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">

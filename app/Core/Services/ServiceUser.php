@@ -54,6 +54,8 @@ class ServiceUser
                 'user_status' => $this->active,
                 'ref_role_id' => $dataUser['roleUser'],
             ];
+
+            // dd($this->user);
             $isSuccess = $this->modelUser->save($this->user);
             if ($isSuccess) {
                 return true;

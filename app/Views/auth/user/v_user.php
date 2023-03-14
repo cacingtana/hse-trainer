@@ -118,7 +118,7 @@
                                             <td>
                                                 <div class="button-list btn-social-icon">
                                                     <a href="/inv-back/user/detail/<?php echo $u->users_id; ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
-                                                    <a href="#"><button type="button" id="delete-user" class="btn btn-soft-pink btn-icon-circle ml-2"><i class="las la-trash text-danger font-18"></i></button></a>
+                                                    <a href="/inv-back/manage-access/<?php echo $u->users_id; ?>"><button type="button" id="delete-user" class="btn btn-soft-pink btn-icon-circle ml-2"><i class="las la-edit text-danger font-18"></i></button></a>
 
                                                 </div>
                                             </td>

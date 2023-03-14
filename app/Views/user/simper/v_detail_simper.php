@@ -189,8 +189,8 @@
                                                                     <td><?php echo $d->unit_name ?></td>
                                                                     <td><?php echo $d->issue_date ?></td>
                                                                     <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
-                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
-                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
+                                                                    <td><span class="badge badge-md badge-warning"><?php echo $d->test_name ?></span></td>
+                                                                    <td><span class="badge badge-md badge-danger"><?php echo $d->violation_name ?></span></td>
                                                                     <td>
                                                                         <a href="/simper/detail-detail/<?php echo $d->id ?>" class="text-dark"><i class="mdi mdi-check-box-outline font-18"></i></a>
                                                                     </td>

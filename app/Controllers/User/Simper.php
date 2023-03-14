@@ -97,7 +97,6 @@ class Simper extends BaseController
             'simper' => $this->simper->getHeaderById($idEmp),
             'detail' => $this->simperDetail->getSimperDetailById($idEmp),
         ];
-
         return view('user/simper/v_detail_simper', $this->data);
     }
 
@@ -107,6 +106,7 @@ class Simper extends BaseController
             'test' => $this->statusTest->asObject()->findAll(),
             'violation' => $this->statusViolation->asObject()->findAll(),
             'status' => $this->statusRequest->asObject()->findAll(),
+            'vehicle' => $this->vehicle->asObject()->findAll(),
             'detail' => $this->simperDetail->getSimperDetailDetailById($id),
         ];
         return view('user/simper/v_detail', $this->data);
@@ -115,16 +115,20 @@ class Simper extends BaseController
     public function update_detail_detail()
     {
         $this->data = [
-            'id_simper' => $this->request->getPost('id-detail'),
             'vehicle_id' => $this->request->getPost('id-vehicle'),
             'issue_date' => $this->request->getPost('issue-date'),
             'note' => $this->request->getPost('note'),
             'status_simper' => $this->request->getPost('status-simper'),
             'status_test' => $this->request->getPost('status-test'),
+            'status_violation' => $this->request->getPost('status-violation'),
         ];
-
-        dd($this->data);
-        return redirect()->to('/simper/detail/detail' . $this->request->getPost('id-detail'));
+        $isSuccess = $this->simperDetail->updateDetail($this->request->getPost('id-detail'), $this->data);
+        if ($isSuccess) {
+            session()->setFlashdata('msg', ["success", "Data berhasil di tambahkan"]);
+        } else {
+            session()->setFlashdata('msg', ["danger", "Gagal"]);
+        }
+        return redirect()->to('/simper/detail/' . $this->request->getPost('id-simper'));
     }
 
     public function deleteSimperDetail()

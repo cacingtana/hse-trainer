@@ -65,6 +65,10 @@ class User extends BaseController
         return view('auth/user/v_detail_user', $this->data);
     }
 
+    public function storeCredential()
+    {
+    }
+
     public function update()
     {
         $this->data = [

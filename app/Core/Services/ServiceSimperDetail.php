@@ -56,6 +56,15 @@ class ServiceSimperDetail
         }
     }
 
+    public function updateDetail($id, $data)
+    {
+        try {
+            return $this->simperDetail->update($id, $data);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     function deleteSimperDetail($id)
     {
         try {

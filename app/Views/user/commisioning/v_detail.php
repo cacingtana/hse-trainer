@@ -117,6 +117,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">Status Test</label>
+                                <div class="col-lg-9 col-xl-8">
+                                    <select class="custom-select" name="status-test" id="status-test">
+                                        <?php foreach ($test as $t) : ?>
+                                            <option value="<?php echo $t->id ?>" <?php if (intval($detail->status_test) == intval($t->id)) {
+                                                                                        echo "selected";
+                                                                                    } ?>><?php echo $t->test_name ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <div class="col-lg-9 col-xl-8 offset-lg-3">
                                     <button type="submit" class="btn btn-dark btn-sm">
                                         Update
