@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Simper extends Migration
+class Notification extends Migration
 {
     public function up()
     {
@@ -16,39 +16,34 @@ class Simper extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'id_simper'      => [
+            'notification_id'      => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 50,
+                'constraint'     => 20,
             ],
-            'employee_id'      => [
+            'message'      => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 50,
+                'constraint'     => 255,
             ],
-            'status_violation'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'note'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
+            'status'      => [
+                'type' => 'INT',
+                'constraint' => 11,
             ],
             'created_at' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
             'updated_at' => [
-                'type'           => 'DATETIME',
+                'type'           => 'DATE',
                 'DEFAULT'        => NULL,
             ],
         ]);
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('simper');
+        $this->forge->createTable('notification');
     }
 
     public function down()
     {
-        //
-        $this->forge->dropTable('simper');
+        $this->forge->dropTable('notification');
     }
 }

@@ -44,22 +44,6 @@ class Employee extends Migration
                 'type'           => 'INT',
                 'constraint'     => 11,
             ],
-            'date_request' => [
-                'type'           => 'DATE',
-                'DEFAULT'        => NULL,
-            ],
-            'date_eye_test' => [
-                'type'           => 'DATE',
-                'DEFAULT'        => NULL,
-            ],
-            'date_write_test' => [
-                'type'           => 'DATE',
-                'DEFAULT'        => NULL,
-            ],
-            'date_practice_test' => [
-                'type'           => 'DATE',
-                'DEFAULT'        => NULL,
-            ],
             'sim_sio'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,

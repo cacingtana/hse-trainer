@@ -50,6 +50,12 @@ class Employee extends BaseController
 
     public function store()
     {
+
+        if ($this->serviceEmployee->findById($this->request->getPost('nik'))) {
+            session()->setFlashdata('msg', ["danger", "Karyawan sudah terdaftar"]);
+            return redirect()->to('/inv-back/employee');
+        }
+
         $this->data = [
             'id_emp' => $this->serviceEmployee->generateId('id-emp'),
             'nik' => $this->request->getPost('nik'),
@@ -58,10 +64,6 @@ class Employee extends BaseController
             'sex' => $this->request->getPost('sex'),
             'ref_department_id' => $this->request->getPost('ref-department-id'),
             'ref_position_id' => $this->request->getPost('ref-position-id'),
-            'date_request' => $this->request->getPost('date-request'),
-            'date_eye_test' => $this->request->getPost('date-eye-test'),
-            'date_write_test' => $this->request->getPost('date-write-test'),
-            'date_practice_test' => $this->request->getPost('date-practice-test'),
             'sim_sio' => $this->request->getPost('sim-sio'),
             'license_number' => $this->request->getPost('license-number'),
             'date_expired_request' => $this->request->getPost('date-expired-request'),

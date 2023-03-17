@@ -61,6 +61,15 @@ class ServiceEmployee
         }
     }
 
+    function findById($nik)
+    {
+        try {
+            return $this->modelEmployee->findById($nik);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     function storeEmployee($data)
     {
         try {

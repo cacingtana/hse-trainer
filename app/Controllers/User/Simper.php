@@ -77,7 +77,10 @@ class Simper extends BaseController
             'note' => $this->request->getPost('note'),
             'status_simper' => $this->request->getPost('status-simper'),
             'status_test' => $this->request->getPost('status-test'),
+            'status_violaton' => "2",
         ];
+
+
 
         $isSuccess = $this->simperDetail->storeDetail($this->data);
         if ($isSuccess) {
@@ -97,6 +100,8 @@ class Simper extends BaseController
             'simper' => $this->simper->getHeaderById($idEmp),
             'detail' => $this->simperDetail->getSimperDetailById($idEmp),
         ];
+
+        //dd($this->data);
         return view('user/simper/v_detail_simper', $this->data);
     }
 

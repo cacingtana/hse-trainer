@@ -21,10 +21,6 @@ class ModelEmployee extends Model
         'sex',
         'ref_department_id',
         'ref_position_id',
-        'date_request',
-        'date_eye_test',
-        'date_write_test',
-        'date_practice_test',
         'sim_sio',
         'license_number',
         'date_expired_request',
@@ -42,6 +38,12 @@ class ModelEmployee extends Model
     public function update($id = null, $data = null): bool
     {
         return $this->db->table($this->table)->update($data, ['id_emp' => $id]);
+    }
+
+    function findById($nik)
+    {
+        $sql = "SELECT * FROM employee WHERE nik='$nik'";
+        return $this->db->query($sql)->getRowObject();
     }
 
     public function getAllEmployee()

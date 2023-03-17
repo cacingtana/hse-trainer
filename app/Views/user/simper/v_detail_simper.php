@@ -66,6 +66,13 @@
                                             </p>
                                             <h5 class="my-0"> <?php echo $simper->name_emp ?> </h5>
                                         </div>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-success"></i></li>
+                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-danger"></i></li>
+                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-info"></i></li>
+                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-dark"></i></li>
+                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-warning"></i></li>
+                                        </ul>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
                                                 <i data-feather="tag" class="align-self-center text-muted icon-md"></i>
@@ -176,7 +183,7 @@
                                                                 <th class="border-top-0">Issue Date</th>
                                                                 <th class="border-top-0">Status Simper</th>
                                                                 <th class="border-top-0">Status Test</th>
-                                                                <th class="border-top-0">Pelanggaran</th>
+                                                                <!-- <th class="border-top-0">Pelanggaran</th> -->
                                                                 <th class="border-top-0"></th>
                                                             </tr>
                                                         </thead>
@@ -190,7 +197,8 @@
                                                                     <td><?php echo $d->issue_date ?></td>
                                                                     <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
                                                                     <td><span class="badge badge-md badge-warning"><?php echo $d->test_name ?></span></td>
-                                                                    <td><span class="badge badge-md badge-danger"><?php echo $d->violation_name ?></span></td>
+                                                                    <!-- <td><span class="badge badge-md badge-danger"><? //php echo $d->violation_name 
+                                                                                                                        ?></span></td> -->
                                                                     <td>
                                                                         <a href="/simper/detail-detail/<?php echo $d->id ?>" class="text-dark"><i class="mdi mdi-check-box-outline font-18"></i></a>
                                                                     </td>
@@ -286,9 +294,49 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-3 col-form-label">Test Praktek</label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="date" name="practice-test-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-3 col-form-label">Hasil Test Praktek</label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="number" name="practice-test-result" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-3 col-form-label">Test Tulis</label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="date" name="theory-test-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label">Hasil Test Tulis</label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="number" name="theory-test-result" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label">Test Mata</label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="date" name="eye-test-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label">Hasil Test Mata</label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <select name="status-test" id="eye-test-result" class="form-control" required>
+                                                <?php foreach ($test as $t) : ?>
+                                                    <option value="<?php echo $t->id ?>"> <?php echo $t->test_name ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Keterangan</label>
-                                        <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="note" class="form-control">
+                                        <div class="col-lg-10 col-xl-8">
+                                            <textarea class="form-control" name="note"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">

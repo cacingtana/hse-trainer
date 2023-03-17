@@ -71,6 +71,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Unit Business</th>
+                                        <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Departemen</th>
                                         <th>Unit Kerja</th>
@@ -86,6 +87,7 @@
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $c->coorporate_name ?></td>
+                                            <td><?php echo $c->nik ?></td>
                                             <td><?php echo $c->name_emp ?></td>
                                             <td><?php echo $c->dept_name ?></td>
                                             <td><?php echo $c->position_name ?></td>
@@ -224,31 +226,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Test Mata</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <input type="date" class="form-control" name="date-eye-test">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Test Tulis</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <input type="date" class="form-control" name="date-write-test">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Test Praktek</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <input type="date" class="form-control" name="date-practice-test">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
                                                 <label for="example-number-input" class="col-sm-2 col-form-label text-right">SIM / SIO</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
@@ -265,7 +242,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Exipre Pengajuan</label>
+                                                <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Exipre Probation</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="date" class="form-control" name="date-expired-request">

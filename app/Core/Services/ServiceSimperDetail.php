@@ -38,6 +38,15 @@ class ServiceSimperDetail
         }
     }
 
+    function findByNic($nik)
+    {
+        try {
+            return $this->simperDetail->findByNic($nik);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     function getSimperDetailById($id)
     {
         try {

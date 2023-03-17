@@ -113,7 +113,7 @@
                                             <div class="row">
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
-                                                    <label for="projectName">Tanggal Expire Pengajuan</label>
+                                                    <label for="projectName">Tanggal Expire Probation</label>
                                                     <input type="date" class="form-control" name="date-expired-request" value="<?php echo $employee->date_expired_request ?>" />
                                                 </div>
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">

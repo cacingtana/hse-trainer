@@ -16,10 +16,8 @@ class ModelSimper extends Model
     protected $allowedFields    = [
         'id_simper',
         'employee_id',
-        'vehicle_id',
-        'issue_date',
+        'status_violation',
         'note',
-        'status',
     ];
 
     // Dates

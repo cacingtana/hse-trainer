@@ -28,9 +28,29 @@ class SimperDetail extends Migration
                 'type'           => 'DATE',
                 'constraint'     => null,
             ],
-            'note'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 255,
+            'theory_test_date'      => [
+                'type'           => 'DATE',
+                'constraint'     => null,
+            ],
+            'theory_test_value'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
+            'practice_test_date'      => [
+                'type'           => 'DATE',
+                'constraint'     => null,
+            ],
+            'practice_test_value'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
+            'eye_test_date'      => [
+                'type'           => 'DATE',
+                'constraint'     => null,
+            ],
+            'eye_test_value'      => [
+                'type' => 'INT',
+                'constraint' => 11,
             ],
             'status_simper'      => [
                 'type'           => 'INT',
@@ -40,9 +60,9 @@ class SimperDetail extends Migration
                 'type'           => 'INT',
                 'constraint'     => 11,
             ],
-            'status_violation'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
+            'note'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
             ],
             'created_at' => [
                 'type'           => 'DATETIME',

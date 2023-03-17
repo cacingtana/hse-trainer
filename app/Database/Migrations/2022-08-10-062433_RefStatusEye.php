@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Simper extends Migration
+class RefStatusEye extends Migration
 {
     public function up()
     {
@@ -16,21 +16,9 @@ class Simper extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'id_simper'      => [
+            'eye_name'       => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 50,
-            ],
-            'employee_id'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 50,
-            ],
-            'status_violation'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-            ],
-            'note'      => [
-                'type'           => 'INT',
-                'constraint'     => 11,
+                'constraint'     => 20,
             ],
             'created_at' => [
                 'type'           => 'DATETIME',
@@ -43,12 +31,12 @@ class Simper extends Migration
         ]);
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('simper');
+        $this->forge->createTable('ref_status_eye');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('simper');
+        $this->forge->dropTable('ref_status_eye');
     }
 }
