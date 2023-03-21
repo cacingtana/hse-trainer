@@ -26,6 +26,13 @@ class ModelCommisioning extends Model
     // Dates
     protected $useTimestamps = false;
 
+    function findById($idMachine)
+    {
+        $search = $this->db->escape($idMachine);
+        $sql = "SELECT * FROM commisioning WHERE no_mesin=$search";
+        return $this->db->query($sql)->getRowObject();
+    }
+
     function commisioningNumber()
     {
         date_default_timezone_set('Asia/Jakarta');

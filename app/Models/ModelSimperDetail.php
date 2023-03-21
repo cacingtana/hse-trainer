@@ -17,10 +17,15 @@ class ModelSimperDetail extends Model
         'id_simper',
         'vehicle_id',
         'issue_date',
-        'note',
+        "theory_test_date",
+        "theory_test_value",
+        "practice_test_date",
+        "practice_test_value",
+        "eye_test_date",
+        "eye_test_value",
         'status_simper',
         'status_test', //Status 1 lulus, status 2 tidak lulus
-        'status_violation', //- Training - Full - Instruktur - Probation - Restricted - Moving
+        'note',
     ];
 
     // Dates
@@ -53,26 +58,14 @@ class ModelSimperDetail extends Model
     function getSimperDetailById($id)
     {
         $search = $this->db->escape($id);
-        $query = "SELECT a.*, c.status_name, e.test_name, f.unit_name FROM simper_detail a 
+        $query = "SELECT a.*, c.status_name, d.eye_name, e.test_name, f.unit_name FROM simper_detail a 
                     JOIN simper b on a.id_simper = b.id_simper
                     JOIN ref_status_request c on a.status_simper = c.id
-                    -- JOIN ref_status_violation d on a.status_violation = d.id
+                    JOIN ref_status_eye d on a.eye_test_value = d.id
                     JOIN ref_status_test e on a.status_test = e.id
                     JOIN vehicle f on a.vehicle_id = f.id WHERE b.id_simper = $search";
         return  $this->db->query($query)->getResultObject();
     }
-
-    // function getSimperDetailById($id)
-    // {
-    //     $search = $this->db->escape($id);
-    //     $query = "SELECT a.*, c.status_name, d.violation_name, d.id as id_violation, e.test_name, f.unit_name FROM simper_detail a 
-    //                 JOIN simper b on a.id_simper = b.id_simper
-    //                 JOIN ref_status_request c on a.status_simper = c.id
-    //                 JOIN ref_status_violation d on a.status_violation = d.id
-    //                 JOIN ref_status_test e on a.status_test = e.id
-    //                 JOIN vehicle f on a.vehicle_id = f.id WHERE b.id_simper = $search";
-    //     return  $this->db->query($query)->getResultObject();
-    // }
 
     function getSimperDetailDetailById($id)
     {

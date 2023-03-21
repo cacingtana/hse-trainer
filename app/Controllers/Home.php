@@ -29,7 +29,8 @@ class Home extends BaseController
             ]);
         }
         $this->data = [
-            'simper' => $this->simper->totalSimper(),
+            'simperTki' => $this->simper->totalSimper(1),
+            'simperTka' => $this->simper->totalSimper(2),
             'commisioning' => $this->commisioning->totalCommisioning(),
         ];
         return view('home', $this->data);

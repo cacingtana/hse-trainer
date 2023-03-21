@@ -17,9 +17,6 @@
                                     <li class="breadcrumb-item">
                                         <a href="javascript:void(0);">Beranda</a>
                                     </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Laporan</a>
-                                    </li>
                                     <li class="breadcrumb-item active">Simper</li>
                                 </ol>
                             </div>
@@ -36,6 +33,46 @@
                 <!--end col-->
             </div>
             <!--end row-->
+
+            <!--end row--><!-- end page title end breadcrumb -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h5 class="mt-0">
+
+                                <span class="badge badge-pink"></span>
+                            </h5>
+                        </li>
+                    </ul>
+                </div>
+                <!--end col-->
+                <div class="col-lg-6 text-right">
+                    <div class="text-right">
+                        <ul class="list-inline">
+                            <form method="post" action="/simper">
+                                <?php csrf_field(); ?>
+                                <li class="list-inline-item">
+                                    <div class="input-group">
+                                        <input type="date" id="example-input1-group2" name="start-date" class="form-control form-control-sm" />
+                                    </div>
+                                </li>
+                                <li class="list-inline-item">
+                                    <div class="input-group">
+                                        <input type="date" id="example-input1-group2" name="end-date" class="form-control form-control-sm" />
+                                    </div>
+                                </li>
+                                <li class="list-inline-item">
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </li>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
 
             <!-- Session flash -->
             <?php if (session()->getFlashdata('msg')) : ?>
@@ -73,6 +110,7 @@
                                         <th>Nama</th>
                                         <th>Departemen</th>
                                         <th>Posisi</th>
+                                        <th>Expire SIM/SIO</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -85,6 +123,7 @@
                                             <td><?php echo $s->name_emp ?></td>
                                             <td><?php echo $s->dept_name ?></td>
                                             <td><?php echo $s->position_name ?></td>
+                                            <td><?php echo $s->date_expired_sim_sio ?></td>
                                             <td>
                                                 <a href="/simper/detail/<?php echo $s->id_simper ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
                                             </td>

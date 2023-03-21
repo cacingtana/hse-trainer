@@ -71,6 +71,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Unit Business</th>
+                                        <th>Warga Negara</th>
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Departemen</th>
@@ -87,6 +88,7 @@
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $c->coorporate_name ?></td>
+                                            <td><?php echo $c->type_employee ?></td>
                                             <td><?php echo $c->nik ?></td>
                                             <td><?php echo $c->name_emp ?></td>
                                             <td><?php echo $c->dept_name ?></td>
@@ -147,6 +149,17 @@
                                                         <option>---Pilih---</option>
                                                         <?php foreach ($bu as $cat) : ?>
                                                             <option value="<?php echo $cat->id ?>"><?php echo $cat->coorporate_name ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-email-input" class="col-sm-2 col-form-label text-right">Warga Negara</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" name="type-emp" required>
+                                                        <option>---Pilih---</option>
+                                                        <?php foreach ($typeEmployee as $cat) : ?>
+                                                            <option value="<?php echo $cat->id ?>"><?php echo $cat->type_employee ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -214,15 +227,6 @@
                                                             <option value="<?php echo $cat->id ?>"><?php echo $cat->dept_name ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Pengajuan</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <input type="date" class="form-control" name="date-request" required autocomplete="off">
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

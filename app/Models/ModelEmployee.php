@@ -15,6 +15,7 @@ class ModelEmployee extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'id_emp',
+        'type_emp',
         'nik',
         'nip',
         'name_emp',
@@ -48,8 +49,9 @@ class ModelEmployee extends Model
 
     public function getAllEmployee()
     {
-        $query = "SELECT a.*, b.dept_name, d.coorporate_name, e.position_name FROM employee a 
+        $query = "SELECT a.*, b.dept_name, c.type_employee, d.coorporate_name, e.position_name FROM employee a 
                     JOIN departments b on a.ref_department_id = b.id
+                    JOIN ref_type_employee c on a.type_emp = b.id
                     JOIN ref_coorporate d on a.ref_coorporate_id = d.id
                     JOIN position e on a.ref_position_id = e.id";
         return  $this->db->query($query)->getResultObject();

@@ -23,6 +23,11 @@ class ModelSimper extends Model
     // Dates
     protected $useTimestamps = false;
 
+    public function update($id = null, $data = null): bool
+    {
+        return $this->db->table($this->table)->update($data, ['id_simper' => $id]);
+    }
+
     function simperNumber()
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -43,7 +48,7 @@ class ModelSimper extends Model
 
     function getSimper()
     {
-        $query = "SELECT a.*, b.name_emp, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 
+        $query = "SELECT a.*, b.name_emp, b.date_expired_sim_sio, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 
                     JOIN employee b on a.employee_id = b.id_emp
                     JOIN departments c on b.ref_department_id = c.id
                     JOIN ref_coorporate d on b.ref_coorporate_id = d.id
@@ -51,10 +56,20 @@ class ModelSimper extends Model
         return  $this->db->query($query)->getResultObject();
     }
 
+    function getSimperByPostDate($start, $end)
+    {
+        $query = "SELECT a.*, b.name_emp, b.date_expired_sim_sio, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 
+                    JOIN employee b on a.employee_id = b.id_emp
+                    JOIN departments c on b.ref_department_id = c.id
+                    JOIN ref_coorporate d on b.ref_coorporate_id = d.id
+                    JOIN position e on b.ref_position_id = e.id WHERE b.date_expired_sim_sio BETWEEN '$start' AND '$end' ORDER BY b.date_expired_sim_sio";
+        return  $this->db->query($query)->getResultObject();
+    }
+
     function getSimperById($id)
     {
         $search = $this->db->escape($id);
-        $query = "SELECT a.*, b.id_emp, b.name_emp, b.nik, b.nip, c.dept_name, d.coorporate_name, e.position_name FROM simper a 
+        $query = "SELECT a.*, b.id_emp, b.name_emp, b.nik, b.nip, b.date_expired_sim_sio, c.dept_name, d.coorporate_name, e.position_name FROM simper a 
                     JOIN employee b on a.employee_id = b.id_emp
                     JOIN departments c on b.ref_department_id = c.id
                     JOIN ref_coorporate d on b.ref_coorporate_id = d.id
@@ -76,9 +91,10 @@ class ModelSimper extends Model
 
 
     //Dashboad
-    function totalSimper()
+    function totalSimper($type)
     {
-        $query = "SELECT COUNT(id_simper) as total FROM simper";
-        return  $this->db->query($query)->getRowObject();;
+        $query = "SELECT COUNT(id_simper) as total FROM simper a 
+        JOIN employee b ON b.id_emp = a.employee_id WHERE b.type_emp='$type'";
+        return  $this->db->query($query)->getRowObject();
     }
 }

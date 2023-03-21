@@ -24,6 +24,14 @@ class Notification extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
             ],
+            'start_at' => [
+                'type'           => 'DATE',
+                'DEFAULT'        => NULL,
+            ],
+            'expire_at' => [
+                'type'           => 'DATE',
+                'DEFAULT'        => NULL,
+            ],
             'status'      => [
                 'type' => 'INT',
                 'constraint' => 11,

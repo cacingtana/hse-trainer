@@ -16,7 +16,6 @@ class Commisioning extends BaseController
     protected $data = [];
     protected $vehicle;
     protected $serviceEmployee;
-    protected $rules = [];
     protected $coorporate;
     protected $departments;
     protected $commisioning;
@@ -60,6 +59,10 @@ class Commisioning extends BaseController
 
     public function storeHeader()
     {
+        if ($this->commisioning->findById($this->request->getPost('no-machine'))) {
+            session()->setFlashdata('msg', ["danger", "Unit/No Mesin sudah terdaftar"]);
+            return redirect()->to('/commisioning');
+        }
         $idCommisioning = $this->commisioning->generateId();
         $this->data = [
             "id_commisioning" => $idCommisioning,

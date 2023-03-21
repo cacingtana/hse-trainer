@@ -59,6 +59,8 @@ $routes->add('/transaction/delete/(:segment)', 'User\Transaction::delete/$1');
 
 //Simper
 $routes->get('/simper', 'User\Simper::index');
+$routes->post('/simper', 'User\Simper::index');
+
 $routes->post('/simper/new-request', 'User\Simper::create');
 $routes->add('/simper/detail/(:segment)', 'User\Simper::detail/$1');
 $routes->post('/simper/detail-order', 'User\Simper::detailOrder');
@@ -67,6 +69,7 @@ $routes->post('/simper/store', 'User\Simper::store');
 $routes->add('/simper/detail-detail/(:segment)', 'User\Simper::detail_detail/$1');
 $routes->post('/simper/update-detail-detail', 'User\Simper::update_detail_detail');
 
+$routes->post('/simper/update-violation', 'User\Simper::updateViolation');
 $routes->post('/simper/add-to-cart', 'User\Simper::storeSimperDetail');
 $routes->post('/simper/delete', 'User\Simper::deleteSimperDetail');
 

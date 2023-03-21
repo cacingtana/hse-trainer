@@ -174,11 +174,12 @@
                                                                 <th class="border-top-0">Jenis</th>
                                                                 <th class="border-top-0">Tanggal Aktif</th>
                                                                 <th class="border-top-0">Tanggal Expire</th>
-                                                                <th class="border-top-0">HM/KM</th>
+                                                                <th class="border-top-0">Hm/Km</th>
                                                                 <th class="border-top-0">Plant</th>
                                                                 <th class="border-top-0">safety</th>
                                                                 <th class="border-top-0">Trainer</th>
                                                                 <th class="border-top-0">Informasi</th>
+                                                                <th class="border-top-0"></th>
                                                                 <th class="border-top-0"></th>
                                                             </tr>
                                                         </thead>
@@ -256,7 +257,7 @@
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Jenis</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <select name="type" id="type" class="form-control">
+                                            <select name="type" id="type" class="form-control" required>
                                                 <option>--Pilih--</option>
                                                 <option value="Commisioning">Commisioning</option>
                                                 <option value="Recommisioning">Recommisioning</option>
@@ -268,37 +269,37 @@
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Tanggal Aktif</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="date" name="start-date" class="form-control">
+                                            <input type="date" name="start-date" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Tanggal Expire</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="date" name="end-date" class="form-control">
+                                            <input type="date" name="end-date" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">HM / KM</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="hm-km" class="form-control">
+                                            <input type="text" name="hm-km" class="form-control" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Plant</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="plant" class="form-control">
+                                            <input type="text" name="plant" class="form-control" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Safety</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="safety" class="form-control">
+                                            <input type="text" name="safety" class="form-control" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Trainer</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <input type="text" name="trainer" class="form-control">
+                                            <input type="text" name="trainer" class="form-control" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -316,7 +317,7 @@
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Status Test</label>
                                         <div class="col-lg-9 col-xl-8">
-                                            <select class="custom-select" name="status-test" id="status-test">
+                                            <select class="custom-select" name="status-test" id="status-test" required>
                                                 <?php foreach ($test as $t) : ?>
                                                     <option value="<?php echo $t->id ?>"><?php echo $t->test_name ?></option>
                                                 <?php endforeach; ?>

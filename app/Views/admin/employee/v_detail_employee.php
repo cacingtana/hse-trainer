@@ -63,7 +63,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="far fa-user"></i></span>
                                                 </div>
-                                                <input type="text" id="example-input1-group1" value="<?php echo $employee->nik ?>" class="form-control">
+                                                <input type="text" id="example-input1-group1" value="<?php echo $employee->nik ?>" class="form-control" disabled>
                                                 <input type="hidden" name="employee-id" value="<?php echo $employee->id_emp ?>">
                                             </div>
                                         </div>
@@ -75,31 +75,6 @@
                                             <label for="projectName">Nama</label>
                                             <input type="text" class="form-control" name="name" value="<?php echo $employee->name_emp ?>" />
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <!--end col-->
-                                                <div class="col-lg-3 col-6 mb-2 mb-lg-0">
-                                                    <label for="projectName">Tanggal Pengajuan</label>
-                                                    <input type="date" class="form-control" name="date-request" value="<?php echo $employee->date_request ?>" />
-                                                </div>
-                                                <div class="col-lg-3 col-6 mb-2 mb-lg-0">
-                                                    <label for="projectName">Tanggal Test Mata</label>
-                                                    <input type="date" class="form-control" name="date-eye-test" value="<?php echo $employee->date_eye_test ?>" />
-                                                </div>
-                                                <div class="col-lg-3 col-6 mb-2 mb-lg-0">
-                                                    <label for="projectName">Tanggal Test Tulis</label>
-                                                    <input type="date" class="form-control" name="date-write-test" value="<?php echo $employee->date_write_test ?>" />
-                                                </div>
-                                                <div class="col-lg-3 col-6 mb-2 mb-lg-0">
-                                                    <label for="projectName">Tanggal Test Praktek</label>
-                                                    <input type="date" class="form-control" name="date-practice-test" value="<?php echo $employee->date_practice_test ?>" />
-                                                </div>
-                                                <!--end col-->
-                                                <!--end col-->
-                                            </div>
-                                            <!--end row-->
-                                        </div>
-
                                         <div class="form-group">
                                             <label for="projectName">SIM / SIO</label>
                                             <input type="text" class="form-control" name="name" value="<?php echo $employee->sim_sio ?>" />
@@ -137,6 +112,19 @@
                                                                 <option value="<?php echo $s->id ?>" <?php if ($employee->ref_coorporate_id == $s->id) {
                                                                                                             echo "selected";
                                                                                                         } ?>><?php echo $s->coorporate_name ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-6 mb-2 mb-lg-0">
+                                                    <label for="pro-start-date">Warga Negara</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="custom-select" name="bu">
+                                                            <option>--Pilih--</option>
+                                                            <?php foreach ($typeEmployee as $s) : ?>
+                                                                <option value="<?php echo $s->id ?>" <?php if ($employee->type_emp == $s->id) {
+                                                                                                            echo "selected";
+                                                                                                        } ?>><?php echo $s->type_employee ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>

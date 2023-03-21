@@ -67,15 +67,20 @@
                                             <h5 class="my-0"> <?php echo $simper->name_emp ?> </h5>
                                         </div>
                                         <ul class="list-inline mb-0">
-                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-success"></i></li>
-                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-danger"></i></li>
-                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-info"></i></li>
-                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-dark"></i></li>
-                                            <li class="list-inline-item align-middle"><i class="fas fa-circle text-warning"></i></li>
+                                            <?php if (intval($simper->status_violation) == 2) { ?>
+                                                <li class="list-inline-item align-middle"><i class="fas fa-circle text-success"></i></li>
+                                            <?php } elseif (intval($simper->status_violation) == 3) { ?>
+                                                <li class="list-inline-item align-middle"><i class="fas fa-circle text-warning"></i></li>
+                                            <?php  } elseif (intval($simper->status_violation) == 4) { ?>
+                                                <li class="list-inline-item align-middle"><i class="fas fa-circle text-danger"></i></li>
+                                            <?php  } else { ?>
+                                            <?php } ?>
                                         </ul>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
-                                                <i data-feather="tag" class="align-self-center text-muted icon-md"></i>
+                                                <a href="#" class="btn btn-sm btn-outline-primary transparant" data-toggle="modal" data-target="#status-violation">
+                                                    <i data-feather="tag" class="align-self-center text-muted icon-md"></i></a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +101,7 @@
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
-                                                <i data-feather="tag" class="align-self-center text-muted icon-md"></i>
+                                                <i data-feather="package" class="align-self-center text-muted icon-md"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -111,9 +116,9 @@
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Departemen
+                                                Departemen | Posisi
                                             </p>
-                                            <h5 class="my-0"><?php echo $simper->dept_name ?></h5>
+                                            <h5 class="my-0"><?php echo $simper->dept_name ?> | <?php echo $simper->position_name ?></h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -132,9 +137,9 @@
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Posisi
+                                                Expire SIM / SIO
                                             </p>
-                                            <h5 class="my-0"><?php echo $simper->position_name ?></h5>
+                                            <h5 class="my-0"><?php echo $simper->date_expired_sim_sio ?></h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -183,7 +188,7 @@
                                                                 <th class="border-top-0">Issue Date</th>
                                                                 <th class="border-top-0">Status Simper</th>
                                                                 <th class="border-top-0">Status Test</th>
-                                                                <!-- <th class="border-top-0">Pelanggaran</th> -->
+                                                                <th class="border-top-0">Keterangan</th>
                                                                 <th class="border-top-0"></th>
                                                             </tr>
                                                         </thead>
@@ -195,10 +200,23 @@
                                                                     <td><?php echo $no++ ?></td>
                                                                     <td><?php echo $d->unit_name ?></td>
                                                                     <td><?php echo $d->issue_date ?></td>
-                                                                    <td><span class="badge badge-md badge-success"><?php echo $d->status_name ?></span></td>
-                                                                    <td><span class="badge badge-md badge-warning"><?php echo $d->test_name ?></span></td>
-                                                                    <!-- <td><span class="badge badge-md badge-danger"><? //php echo $d->violation_name 
-                                                                                                                        ?></span></td> -->
+                                                                    <td><span class="badge badge-md badge-<?php if (intval($d->status_simper) == 1) {
+                                                                                                                echo "warning";
+                                                                                                            } elseif (intval($d->status_simper) == 2) {
+                                                                                                                echo "secondary";
+                                                                                                            } elseif (intval($d->status_simper) == 3) {
+                                                                                                                echo "danger";
+                                                                                                            } elseif (intval($d->status_simper) == 3) {
+                                                                                                                echo "success";
+                                                                                                            } elseif (intval($d->status_simper) == 3) {
+                                                                                                                echo "info";
+                                                                                                            } ?>"><?php echo $d->status_name ?></span></td>
+                                                                    <td><span class="badge badge-md badge-<?php if (intval($d->status_test) == 1) {
+                                                                                                                echo "success";
+                                                                                                            } elseif (intval($d->status_test) == 2) {
+                                                                                                                echo "danger";
+                                                                                                            } ?>"><?php echo $d->test_name ?></span></td>
+                                                                    <td><?php echo $d->note ?></td>
                                                                     <td>
                                                                         <a href="/simper/detail-detail/<?php echo $d->id ?>" class="text-dark"><i class="mdi mdi-check-box-outline font-18"></i></a>
                                                                     </td>
@@ -239,7 +257,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-dark">
                     <h6 class="modal-title m-0 text-white" id="exampleModalDark1">
-                        Produk
+                        Kendaraan
                     </h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="la la-times text-white"></i></span>
@@ -283,8 +301,51 @@
                                             </select>
                                         </div>
                                     </div>
+
+                                    <hr>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Status Test</label>
+                                        <label class="col-xl-4 col-lg-3 col-form-label"><b>Test Praktek</b></label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="date" name="practice-test-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-3 col-form-label"><b>Hasil Test Praktek</b></label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="number" name="practice-test-result" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-3 col-form-label"><b>Test Tulis</b></label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="date" name="theory-test-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label"><b>Hasil Test Tulis</b></label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="number" name="theory-test-result" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label"><b>Test Mata</b></label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <input type="date" name="eye-test-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label"><b>Hasil Test Mata</b></label>
+                                        <div class="col-lg-8 col-xl-8">
+                                            <select name="eye-test-result" id="eye-test-result" class="form-control" required>
+                                                <?php foreach ($eye as $t) : ?>
+                                                    <option value="<?php echo $t->id ?>"> <?php echo $t->eye_name ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Status</label>
                                         <div class="col-lg-9 col-xl-8">
                                             <select name="status-test" id="status-test" class="form-control" required>
                                                 <?php foreach ($test as $t) : ?>
@@ -294,49 +355,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-4 col-lg-3 col-form-label">Test Praktek</label>
-                                        <div class="col-lg-8 col-xl-8">
-                                            <input type="date" name="practice-test-date" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-4 col-lg-3 col-form-label">Hasil Test Praktek</label>
-                                        <div class="col-lg-8 col-xl-8">
-                                            <input type="number" name="practice-test-result" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-4 col-lg-3 col-form-label">Test Tulis</label>
-                                        <div class="col-lg-8 col-xl-8">
-                                            <input type="date" name="theory-test-date" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-4 col-lg-4 col-form-label">Hasil Test Tulis</label>
-                                        <div class="col-lg-8 col-xl-8">
-                                            <input type="number" name="theory-test-result" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-4 col-lg-4 col-form-label">Test Mata</label>
-                                        <div class="col-lg-8 col-xl-8">
-                                            <input type="date" name="eye-test-date" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-4 col-lg-4 col-form-label">Hasil Test Mata</label>
-                                        <div class="col-lg-8 col-xl-8">
-                                            <select name="status-test" id="eye-test-result" class="form-control" required>
-                                                <?php foreach ($test as $t) : ?>
-                                                    <option value="<?php echo $t->id ?>"> <?php echo $t->test_name ?> </option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Keterangan</label>
                                         <div class="col-lg-10 col-xl-8">
-                                            <textarea class="form-control" name="note"></textarea>
+                                            <textarea class="form-control" name="note" required></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -358,6 +379,56 @@
         <!--end modal-dialog-->
     </div>
     <!--end modal-->
+
+    <!--end modal-->
+    <div class="modal fade" id="status-violation" tabindex="-1" role="dialog" aria-labelledby="exampleModalDark1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h6 class="modal-title m-0 text-white" id="exampleModalDark1">
+                        Pelanggaran
+                    </h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="la la-times text-white"></i></span>
+                    </button>
+                </div>
+                <!--end modal-header-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <!--end card-header-->
+                            <form method="post" action="/simper/update-violation">
+                                <?php csrf_field() ?>
+                                <input type="hidden" name="id-simper" class="form-control" value="<?php echo $simper->id_simper ?>">
+                                <div class="form-group row">
+                                    <label class="col-xl-4 col-lg-4 col-form-label">Status</label>
+                                    <div class="col-lg-8 col-xl-8">
+                                        <select name="status-violation" class="form-control" required>
+                                            <?php foreach ($violation as $v) : ?>
+                                                <option value="<?php echo $v->id ?>"> <?php echo $v->violation_name ?> </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-9 col-xl-8 offset-lg-3">
+                                        <button type="submit" class="btn btn-dark btn-sm">
+                                            Simpan
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--end modal-footer-->
+        </div>
+        <!--end modal-content-->
+    </div>
+    <!--end modal-dialog-->
+</div>
+<!--end modal-->
 </div>
 <!-- end page content -->
 </div>

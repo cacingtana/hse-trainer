@@ -44,6 +44,15 @@ class ServiceSimper
         }
     }
 
+    function getHeaderByMetgodPostDate($start, $end)
+    {
+        try {
+            return $this->simper->getSimperByPostDate($start, $end);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     function getHeaderById($id)
     {
         try {
@@ -57,6 +66,15 @@ class ServiceSimper
     {
         try {
             return $this->simper->getSimperById($id);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    function updateHeaderViolation($id, $data)
+    {
+        try {
+            return $this->simper->update($id, $data);
         } catch (\Throwable $th) {
             throw $th;
         }

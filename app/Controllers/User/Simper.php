@@ -10,6 +10,7 @@ use App\Core\Services\ServiceSimperDetail;
 use App\Models\ModelVehicle;
 use App\Models\ModelStatusRequest;
 use App\Models\ModelStatusTest;
+use App\Models\ModelRefEye;
 use App\Models\ModelStatusViolation;
 
 class Simper extends BaseController
@@ -23,6 +24,7 @@ class Simper extends BaseController
     protected $statusRequest;
     protected $statusViolation;
     protected $statusTest;
+    protected $statusEye;
 
     public function __construct()
     {
@@ -34,14 +36,22 @@ class Simper extends BaseController
         $this->statusRequest = new ModelStatusRequest();
         $this->statusViolation = new ModelStatusViolation();
         $this->statusTest = new ModelStatusTest();
+        $this->statusEye = new ModelRefEye();
     }
 
     public function index()
     {
-        $this->data = [
-            'employee' => $this->serviceEmployee->getAllEmployee(),
-            'simper' => $this->simper->getHeader(),
-        ];
+        if ($this->request->getPost()) {
+            $this->data = [
+                'employee' => $this->serviceEmployee->getAllEmployee(),
+                'simper' => $this->simper->getHeaderByMetgodPostDate($this->request->getPost('start-date'), $this->request->getPost('end-date')),
+            ];
+        } else {
+            $this->data = [
+                'employee' => $this->serviceEmployee->getAllEmployee(),
+                'simper' => $this->simper->getHeader(),
+            ];
+        }
         return view('user/simper/v_simper', $this->data);
     }
 
@@ -70,17 +80,21 @@ class Simper extends BaseController
             session()->setFlashdata('msg', ["danger", "Unit sudah terdaftar"]);
             return redirect()->to('/simper/detail/' . $this->request->getPost('id-simper'));
         }
+
         $this->data = [
             'id_simper' => $this->request->getPost('id-simper'),
             'vehicle_id' => $this->request->getPost('id-vehicle'),
             'issue_date' => $this->request->getPost('issue-date'),
-            'note' => $this->request->getPost('note'),
+            "theory_test_date" => $this->request->getPost('theory-test-date'),
+            "theory_test_value" => $this->request->getPost('theory-test-result'),
+            "practice_test_date" => $this->request->getPost('practice-test-date'),
+            "practice_test_value" => $this->request->getPost('practice-test-result'),
+            "eye_test_date" => $this->request->getPost('eye-test-date'),
+            "eye_test_value" => $this->request->getPost('eye-test-result'),
             'status_simper' => $this->request->getPost('status-simper'),
             'status_test' => $this->request->getPost('status-test'),
-            'status_violaton' => "2",
+            'note' => $this->request->getPost('note'),
         ];
-
-
 
         $isSuccess = $this->simperDetail->storeDetail($this->data);
         if ($isSuccess) {
@@ -94,14 +108,15 @@ class Simper extends BaseController
     public function detail($idEmp)
     {
         $this->data = [
+            'violation' => $this->statusViolation->asObject()->findAll(),
             'test' => $this->statusTest->asObject()->findAll(),
             'status' => $this->statusRequest->asObject()->findAll(),
             'vehicle' => $this->vehicle->asObject()->findAll(),
             'simper' => $this->simper->getHeaderById($idEmp),
             'detail' => $this->simperDetail->getSimperDetailById($idEmp),
+            'eye' => $this->statusEye->asObject()->findAll(),
         ];
 
-        //dd($this->data);
         return view('user/simper/v_detail_simper', $this->data);
     }
 
@@ -109,11 +124,12 @@ class Simper extends BaseController
     {
         $this->data = [
             'test' => $this->statusTest->asObject()->findAll(),
-            'violation' => $this->statusViolation->asObject()->findAll(),
+            'eye' => $this->statusEye->asObject()->findAll(),
             'status' => $this->statusRequest->asObject()->findAll(),
             'vehicle' => $this->vehicle->asObject()->findAll(),
             'detail' => $this->simperDetail->getSimperDetailDetailById($id),
         ];
+
         return view('user/simper/v_detail', $this->data);
     }
 
@@ -122,14 +138,33 @@ class Simper extends BaseController
         $this->data = [
             'vehicle_id' => $this->request->getPost('id-vehicle'),
             'issue_date' => $this->request->getPost('issue-date'),
-            'note' => $this->request->getPost('note'),
+            "theory_test_date" => $this->request->getPost('theory-test-date'),
+            "theory_test_value" => $this->request->getPost('theory-test-result'),
+            "practice_test_date" => $this->request->getPost('practice-test-date'),
+            "practice_test_value" => $this->request->getPost('practice-test-result'),
+            "eye_test_date" => $this->request->getPost('eye-test-date'),
+            "eye_test_value" => $this->request->getPost('eye-test-result'),
             'status_simper' => $this->request->getPost('status-simper'),
             'status_test' => $this->request->getPost('status-test'),
-            'status_violation' => $this->request->getPost('status-violation'),
+            'note' => $this->request->getPost('note'),
         ];
         $isSuccess = $this->simperDetail->updateDetail($this->request->getPost('id-detail'), $this->data);
         if ($isSuccess) {
             session()->setFlashdata('msg', ["success", "Data berhasil di tambahkan"]);
+        } else {
+            session()->setFlashdata('msg', ["danger", "Gagal"]);
+        }
+        return redirect()->to('/simper/detail/' . $this->request->getPost('id-simper'));
+    }
+
+    public function updateViolation()
+    {
+        $this->data = [
+            'status_violation' => $this->request->getPost('status-violation'),
+        ];
+        $isSuccess = $this->simper->updateHeaderViolation($this->request->getPost('id-simper'), $this->data);
+        if ($isSuccess) {
+            session()->setFlashdata('msg', ["success", "Data pelanggaran berhasil di ubah"]);
         } else {
             session()->setFlashdata('msg', ["danger", "Gagal"]);
         }

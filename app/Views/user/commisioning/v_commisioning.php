@@ -34,6 +34,24 @@
             </div>
             <!--end row-->
 
+            <!-- Session flash -->
+            <?php if (session()->getFlashdata('msg')) : ?>
+                <?php $data =  session()->getFlashdata('msg'); ?>
+                <div class="alert icon-custom-alert alert-outline-<?php echo $data[0] ?>" role="alert">
+                    <i class="mdi mdi-check-all alert-icon"></i>
+                    <div class="alert-text">
+                        <strong> </strong> <?php echo $data[1] ?>
+                    </div>
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="mdi mdi-close text-<?php echo $data[0] ?> font-16"></i></span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif ?>
+            <!-- Session flash -->
+
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">

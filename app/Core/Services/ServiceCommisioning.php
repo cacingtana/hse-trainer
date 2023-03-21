@@ -28,6 +28,15 @@ class ServiceCommisioning
         return $this->commisioning->commisioningNumber();
     }
 
+    function findById($idMachine)
+    {
+        try {
+            return $this->commisioning->findById($idMachine);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     function getCommisining()
     {
         return $this->commisioning->getAllCommisioning();

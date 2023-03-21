@@ -11,6 +11,8 @@ use App\Models\ModelPosition;
 use App\Models\ModelSex;
 use App\Models\ModelStatus;
 use App\Core\Services\ServiceAuth;
+use App\Models\ModelRefTypeEmployee;
+
 
 class Employee extends BaseController
 {
@@ -23,6 +25,8 @@ class Employee extends BaseController
     protected $sex;
     protected $status;
     protected $userActive;
+    protected $typeEmployee;
+
 
     public function __construct()
     {
@@ -34,6 +38,7 @@ class Employee extends BaseController
         $this->departments = new ModelDepartments();
         $this->position = new ModelPosition();
         $this->userActive = new ServiceAuth();
+        $this->typeEmployee = new ModelRefTypeEmployee();
     }
     public function index()
     {
@@ -44,6 +49,7 @@ class Employee extends BaseController
             'dept' => $this->departments->asObject()->findAll(),
             'position' => $this->position->asObject()->findAll(),
             'employee' => $this->serviceEmployee->getAllEmployee(),
+            'typeEmployee' => $this->typeEmployee->asObject()->findAll(),
         ];
         return view('admin/employee/v_employee', $this->data);
     }
@@ -58,6 +64,7 @@ class Employee extends BaseController
 
         $this->data = [
             'id_emp' => $this->serviceEmployee->generateId('id-emp'),
+            'type_emp' => $this->serviceEmployee->generateId('type-emp'),
             'nik' => $this->request->getPost('nik'),
             'nip' => $this->request->getPost('nip'),
             'name_emp' => $this->request->getPost('name-emp'),
@@ -89,6 +96,7 @@ class Employee extends BaseController
             'position' => $this->position->asObject()->findAll(),
             'employee' => $this->serviceEmployee->getEmployeeId($id),
             'status' => $this->serviceReference->getStatus(),
+            'typeEmployee' => $this->typeEmployee->asObject()->findAll(),
         ];
 
         return view('admin/employee/v_detail_employee', $this->data);

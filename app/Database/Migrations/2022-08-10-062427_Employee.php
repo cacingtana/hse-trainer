@@ -20,6 +20,10 @@ class Employee extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,
             ],
+            'type_emp'      => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+            ],
             'nik'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,

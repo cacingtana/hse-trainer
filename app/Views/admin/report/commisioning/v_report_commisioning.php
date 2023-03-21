@@ -29,39 +29,39 @@
             </div>
             <!--end row-->
 
-
+            <!--end row--><!-- end page title end breadcrumb -->
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <!--end card-header-->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label text-right">Dari</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" />
-                                        </div>
-                                    </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h5 class="mt-0">
+
+                                <span class="badge badge-pink"></span>
+                            </h5>
+                        </li>
+                    </ul>
+                </div>
+                <!--end col-->
+                <div class="col-lg-6 text-right">
+                    <div class="text-right">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <div class="input-group">
+                                    <input type="date" id="example-input1-group2" name="start-date" class="form-control form-control-sm" />
                                 </div>
-                                <div class="col-lg-5">
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label text-right">Sampai</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" />
-                                        </div>
-                                    </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <div class="input-group">
+                                    <input type="date" id="example-input1-group2" name="end-date" class="form-control form-control-sm" />
                                 </div>
-                                <div class="col-lg-2">
-                                    <div class="form-group row">
-                                        <div class="button-items float-right"><button type="button" class="btn btn-primary btn-rounded btn-outline waves-effect waves-light">Cari</button></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end card-body-->
+                            </li>
+                            <li class="list-inline-item">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </li>
+                        </ul>
                     </div>
-                    <!--end card-->
                 </div>
                 <!--end col-->
             </div>

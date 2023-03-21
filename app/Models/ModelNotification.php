@@ -16,7 +16,10 @@ class ModelNotification extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'notification_id',
+        'employee_id',
         'message',
+        'start_at',
+        'expire_at',
         'created_at',
         'updated_at',
     ];
