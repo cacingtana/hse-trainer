@@ -4,17 +4,22 @@ namespace App\Core\Services;
 
 use App\Models\ModelNotification;
 
-class ServiceManagementAccess
+class ServiceNotification
 {
     protected $data = [];
     protected $notif;
+    protected $userActive;
 
     function __construct()
     {
         $this->notif = new ModelNotification();
     }
 
-    function storeNotification()
+    function storeCommisioningNotification($data)
+    {
+    }
+
+    function cekExpireNotification()
     {
     }
 }

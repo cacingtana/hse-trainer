@@ -27,6 +27,11 @@ class ModelAuthentication extends Model
     // Dates
     protected $useTimestamps = false;
 
+    public function update($id = null, $data = null): bool
+    {
+        return $this->db->table($this->table)->update($data, ['username' => $id]);
+    }
+
     function getUserWithAuthentication($username)
     {
         $search = $this->db->escape($username);

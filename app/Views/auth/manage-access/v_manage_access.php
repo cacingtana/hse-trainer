@@ -13,12 +13,8 @@
                                 <h4 class="page-title">Manajemen Akses User</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Dastyle</a>
+                                        <a href="javascript:void(0);">User</a>
                                     </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Apps</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">Files</li>
                                 </ol>
                             </div>
                             <!--end col-->
@@ -55,7 +51,7 @@
                 <!--end card-header-->
                 <div class="card-body">
                     <div class="general-label">
-                        <form class="form" method="post" action="/inv-back/manage-access/store-credential">
+                        <form class="form" method="post" action="/inv-back/manage-access/update-credential">
                             <?php csrf_field() ?>
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputEmail2">Username</label>
@@ -67,7 +63,7 @@
                                 <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Password" name="pass-word" value="<?php echo $user->password; ?>" />
                             </div>
                             <button type="submit" class="btn btn-primary">
-                                Simpan
+                                Update
                             </button>
                         </form>
                     </div>

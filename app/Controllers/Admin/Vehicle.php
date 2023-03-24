@@ -68,27 +68,23 @@ class Vehicle extends BaseController
     public function detail($id)
     {
         $this->data = [
-            'status' => $this->modelStatus->asObject()->findAll(),
-            'status' => $this->serviceReference->getStatus(),
+            'vehicle' => $this->vehicle->asObject()->where('id', $id)->first(),
         ];
-        return view('admin/product/v_detail_product', $this->data);
+        return view('admin/vehicle/v_detail_vehicle', $this->data);
     }
 
     public function update()
     {
         $this->data = [
-            'productId' => $this->request->getPost('product-id'),
-            'name' => $this->request->getPost('product-name'),
-            'description' => $this->request->getPost('product-description'),
-            'status' => $this->request->getPost('product-status'),
-            'categoryId' => $this->request->getPost('product-category'),
+            'unit_name' => $this->request->getPost('unit-name'),
+            'note' => $this->request->getPost('note'),
         ];
-        $isSuccess = $this->vehicle->update($this->data);
+        $isSuccess = $this->vehicle->update($this->request->getPost('vehicle-id'), $this->data);
         if ($isSuccess) {
-            session()->setFlashdata('msg', ["success", "Data produk berhasil di update"]);
+            session()->setFlashdata('msg', ["success", "Data unit berhasil di update"]);
         } else {
             session()->setFlashdata('msg', ["danger", "Gagal"]);
         }
-        return redirect()->to('/inv-back/product');
+        return redirect()->to('/inv-back/vehicle');
     }
 }

@@ -84,7 +84,6 @@
                                             <td><?php echo $v->note ?></td>
                                             <td>
                                                 <a href="/inv-back/vehicle/detail/<?php echo $v->id ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
-                                                <a href="/inv-back/vehicle/delete/<?php echo $v->id ?>"><button type="button" id="delete-user" class="btn btn-soft-pink btn-icon-circle ml-2"><i class="las la-trash text-danger font-18"></i></button></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
