@@ -46,6 +46,24 @@ class ModelSimper extends Model
         return  "A-" . $tgl . $kode;
     }
 
+    ////////////////////////////////
+
+    function getSimperHeaderAndDetail()
+    {
+        $data = [];
+        $query = "SELECT a.*, b.name_emp, b.date_expired_sim_sio, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 
+                    JOIN employee b on a.employee_id = b.id_emp
+                    JOIN departments c on b.ref_department_id = c.id
+                    JOIN ref_coorporate d on b.ref_coorporate_id = d.id
+                    JOIN position e on b.ref_position_id = e.id";
+        foreach ($this->db->query($query)->getResultObject() as $k) {
+            $query = "SELECT a.* FROM simper_detail a WHERE a.id_simper = $k->id_simper";
+            array_push($data, $query);
+        }
+    }
+
+    ////////////////////////////////
+
     function getSimper()
     {
         $query = "SELECT a.*, b.name_emp, b.date_expired_sim_sio, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 

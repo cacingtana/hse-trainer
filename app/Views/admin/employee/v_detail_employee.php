@@ -42,7 +42,7 @@
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h4 class="card-title">Form Update Pelanggan</h4>
+                                    <h4 class="card-title">Form Update Data Karyawan</h4>
                                     <p class="text-muted mb-0">
 
                                     </p>
@@ -55,7 +55,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form method="post" action="/inv-back/customer/update">
+                                    <form method="post" action="/inv-back/employee/update">
                                         <?php csrf_field() ?>
                                         <div class="form-group">
                                             <label for="projectName">NIK</label>
@@ -63,25 +63,34 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="far fa-user"></i></span>
                                                 </div>
-                                                <input type="text" id="example-input1-group1" value="<?php echo $employee->nik ?>" class="form-control" disabled>
+                                                <input type="text" name="nik" value="<?php echo $employee->nik ?>" class="form-control">
                                                 <input type="hidden" name="employee-id" value="<?php echo $employee->id_emp ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="projectName">ID CARD</label>
-                                            <input type="text" class="form-control" name="name" value="<?php echo $employee->nip ?>" />
+                                            <input type="text" class="form-control" name="nip" value="<?php echo $employee->nip ?>" />
                                         </div>
                                         <div class="form-group">
                                             <label for="projectName">Nama</label>
-                                            <input type="text" class="form-control" name="name" value="<?php echo $employee->name_emp ?>" />
+                                            <input type="text" class="form-control" name="name-emp" value="<?php echo $employee->name_emp ?>" />
                                         </div>
                                         <div class="form-group">
                                             <label for="projectName">SIM / SIO</label>
-                                            <input type="text" class="form-control" name="name" value="<?php echo $employee->sim_sio ?>" />
+                                            <input type="text" class="form-control" name="sim-sio" value="<?php echo $employee->sim_sio ?>" />
                                         </div>
                                         <div class="form-group">
                                             <label for="projectName">License Number</label>
-                                            <input type="text" class="form-control" name="name" value="<?php echo $employee->license_number ?>" />
+                                            <input type="text" class="form-control" name="license-number" value="<?php echo $employee->license_number ?>" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="example-email-input">Jenis Kelamin</label>
+                                            <select class="form-control" name="sex" required>
+                                                <?php foreach ($sex as $cat) : ?>
+                                                    <option value="<?php echo $cat->id ?>"><?php echo $cat->sex_name ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
 
                                         <div class="form-group">
@@ -106,8 +115,7 @@
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="pro-start-date">Unit Business</label>
                                                     <div class="col-sm-10">
-                                                        <select class="custom-select" name="bu">
-                                                            <option>--Pilih--</option>
+                                                        <select class="custom-select" name="bu" required>
                                                             <?php foreach ($bu as $s) : ?>
                                                                 <option value="<?php echo $s->id ?>" <?php if ($employee->ref_coorporate_id == $s->id) {
                                                                                                             echo "selected";
@@ -119,8 +127,7 @@
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="pro-start-date">Warga Negara</label>
                                                     <div class="col-sm-10">
-                                                        <select class="custom-select" name="bu">
-                                                            <option>--Pilih--</option>
+                                                        <select class="custom-select" name="type-emp" required>
                                                             <?php foreach ($typeEmployee as $s) : ?>
                                                                 <option value="<?php echo $s->id ?>" <?php if ($employee->type_emp == $s->id) {
                                                                                                             echo "selected";
@@ -132,8 +139,7 @@
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="pro-start-date">Departemen</label>
                                                     <div class="col-sm-10">
-                                                        <select class="custom-select" name="dept">
-                                                            <option>--Pilih--</option>
+                                                        <select class="custom-select" name="dept" required>
                                                             <?php foreach ($dept as $s) : ?>
                                                                 <option value="<?php echo $s->id ?>" <?php if ($employee->ref_department_id == $s->id) {
                                                                                                             echo "selected";
@@ -145,8 +151,7 @@
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="pro-start-date">Posisi</label>
                                                     <div class="col-sm-10">
-                                                        <select class="custom-select" name="position">
-                                                            <option>--Pilih--</option>
+                                                        <select class="custom-select" name="position" required>
                                                             <?php foreach ($position as $s) : ?>
                                                                 <option value="<?php echo $s->id ?>" <?php if ($employee->ref_position_id == $s->id) {
                                                                                                             echo "selected";
@@ -158,8 +163,7 @@
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="pro-start-date">Status</label>
                                                     <div class="col-sm-10">
-                                                        <select class="custom-select" name="status">
-                                                            <option>--Pilih--</option>
+                                                        <select class="custom-select" name="status" required>
                                                             <?php foreach ($status as $s) : ?>
                                                                 <option value="<?php echo $s->id ?>" <?php if ($employee->status_emp == $s->id) {
                                                                                                             echo "selected";

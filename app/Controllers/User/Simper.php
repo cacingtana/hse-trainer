@@ -52,6 +52,8 @@ class Simper extends BaseController
                 'simper' => $this->simper->getHeader(),
             ];
         }
+
+        //dd($this->data);
         return view('user/simper/v_simper', $this->data);
     }
 

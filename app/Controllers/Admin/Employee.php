@@ -64,7 +64,7 @@ class Employee extends BaseController
 
         $this->data = [
             'id_emp' => $this->serviceEmployee->generateId('id-emp'),
-            'type_emp' => $this->serviceEmployee->generateId('type-emp'),
+            'type_emp' => $this->request->getPost('type-emp'),
             'nik' => $this->request->getPost('nik'),
             'nip' => $this->request->getPost('nip'),
             'name_emp' => $this->request->getPost('name-emp'),
@@ -96,6 +96,7 @@ class Employee extends BaseController
             'position' => $this->position->asObject()->findAll(),
             'employee' => $this->serviceEmployee->getEmployeeId($id),
             'status' => $this->serviceReference->getStatus(),
+            'sex' => $this->sex->asObject()->findAll(),
             'typeEmployee' => $this->typeEmployee->asObject()->findAll(),
         ];
 
@@ -105,15 +106,22 @@ class Employee extends BaseController
     public function update()
     {
         $this->data = [
-            'customerId' => $this->request->getPost('customer-id'),
-            'company' => $this->request->getPost('company'),
-            'pic' => $this->request->getPost('pic'),
-            'address' => $this->request->getPost('address'),
-            'phone' => $this->request->getPost('phone'),
-            'email' => $this->request->getPost('email'),
-            'customerStatus' => $this->request->getPost('customer-status'),
+            'type_emp' => $this->request->getPost('type-emp'),
+            'nik' => $this->request->getPost('nik'),
+            'nip' => $this->request->getPost('nip'),
+            'name_emp' => $this->request->getPost('name-emp'),
+            'sex' => $this->request->getPost('sex'),
+            'ref_department_id' => $this->request->getPost('dept'),
+            'ref_position_id' => $this->request->getPost('position'),
+            'sim_sio' => $this->request->getPost('sim-sio'),
+            'license_number' => $this->request->getPost('license-number'),
+            'date_expired_request' => $this->request->getPost('date-expired-request'),
+            'date_expired_sim_sio' => $this->request->getPost('date-expired-sim-sio'),
+            'status_emp' => $this->request->getPost('status'),
+            'ref_coorporate_id' => $this->request->getPost('bu'),
+            'ref_user_id' => $this->userActive->checkStatusLogin()['uid'],
         ];
-        $isSuccess = $this->serviceEmployee->updateEmployee($this->data);
+        $isSuccess = $this->serviceEmployee->updateEmployee($this->request->getPost('employee-id'), $this->data);
         if ($isSuccess) {
             session()->setFlashdata('msg', ["success", "Data customer berhasil di update"]);
         } else {

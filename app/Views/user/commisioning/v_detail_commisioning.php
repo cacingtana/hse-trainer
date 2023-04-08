@@ -68,7 +68,8 @@
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
-                                                <i data-feather="tag" class="align-self-center text-muted icon-md"></i>
+                                                <a href="#" class="btn btn-sm btn-outline-primary transparant" data-toggle="modal" data-target="#no-unit">
+                                                    <i data-feather="tag" class="align-self-center text-muted icon-md"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +90,8 @@
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
-                                                <i data-feather="package" class="align-self-center text-muted icon-md"></i>
+                                                <a href="#" class="btn btn-sm btn-outline-primary transparant" data-toggle="modal" data-target="#no-mesin">
+                                                    <i data-feather="tag" class="align-self-center text-muted icon-md"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -343,6 +345,95 @@
         <!--end modal-dialog-->
     </div>
     <!--end modal-->
+
+
+    <!--end modal-->
+    <div class="modal fade" id="no-unit" tabindex="-1" role="dialog" aria-labelledby="exampleModalDark1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h6 class="modal-title m-0 text-white" id="exampleModalDark1">
+                        No Unit
+                    </h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="la la-times text-white"></i></span>
+                    </button>
+                </div>
+                <!--end modal-header-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <!--end card-header-->
+                            <form method="post" action="/commisioning/update-no-unit">
+                                <?php csrf_field() ?>
+                                <input type="hidden" name="id-commisioning" class="form-control" value="<?php echo $header->id_commisioning ?>">
+                                <div class="form-group row">
+                                    <label class="col-xl-4 col-lg-4 col-form-label">Status</label>
+                                    <div class="col-lg-8 col-xl-8">
+                                        <input type="text" name="no-unit" class="form-control" value="<?php echo $header->no_unit ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-9 col-xl-8 offset-lg-3">
+                                        <button type="submit" class="btn btn-dark btn-sm">
+                                            Update
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--end modal-footer-->
+        </div>
+        <!--end modal-content-->
+    </div>
+    <!--end modal-dialog-->
+
+    <!--end modal-->
+    <div class="modal fade" id="no-mesin" tabindex="-1" role="dialog" aria-labelledby="exampleModalDark1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h6 class="modal-title m-0 text-white" id="exampleModalDark1">
+                        No Mesin
+                    </h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="la la-times text-white"></i></span>
+                    </button>
+                </div>
+                <!--end modal-header-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <!--end card-header-->
+                            <form method="post" action="/commisioning/update-no-mesin">
+                                <?php csrf_field() ?>
+                                <input type="hidden" name="id-commisioning" class="form-control" value="<?php echo $header->id_commisioning ?>">
+                                <div class="form-group row">
+                                    <label class="col-xl-4 col-lg-4 col-form-label">Status</label>
+                                    <div class="col-lg-8 col-xl-8">
+                                        <input type="text" name="no-mesin" class="form-control" value="<?php echo $header->no_mesin ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-9 col-xl-8 offset-lg-3">
+                                        <button type="submit" class="btn btn-dark btn-sm">
+                                            Update
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--end modal-footer-->
+        </div>
+        <!--end modal-content-->
+    </div>
+    <!--end modal-dialog-->
 </div>
 <!-- end page content -->
 </div>

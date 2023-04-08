@@ -26,6 +26,11 @@ class ModelCommisioning extends Model
     // Dates
     protected $useTimestamps = false;
 
+    public function update($id = null, $data = null): bool
+    {
+        return $this->db->table($this->table)->update($data, ['id_commisioning' => $id]);
+    }
+
     function findById($idMachine)
     {
         $search = $this->db->escape($idMachine);

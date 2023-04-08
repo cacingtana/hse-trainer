@@ -29,7 +29,7 @@ class ModelAuthentication extends Model
 
     public function update($id = null, $data = null): bool
     {
-        return $this->db->table($this->table)->update($data, ['username' => $id]);
+        return $this->db->table($this->table)->update($data, ['ref_user_id' => $id]);
     }
 
     function getUserWithAuthentication($username)

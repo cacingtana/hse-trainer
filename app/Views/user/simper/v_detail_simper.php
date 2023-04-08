@@ -80,7 +80,6 @@
                                             <div class="report-main-icon bg-light-alt">
                                                 <a href="#" class="btn btn-sm btn-outline-primary transparant" data-toggle="modal" data-target="#status-violation">
                                                     <i data-feather="tag" class="align-self-center text-muted icon-md"></i></a>
-
                                             </div>
                                         </div>
                                     </div>

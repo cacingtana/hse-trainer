@@ -50,10 +50,10 @@ class ModelEmployee extends Model
     public function getAllEmployee()
     {
         $query = "SELECT a.*, b.dept_name, c.type_employee, d.coorporate_name, e.position_name FROM employee a 
-                    JOIN departments b on a.ref_department_id = b.id
-                    JOIN ref_type_employee c on a.type_emp = b.id
-                    JOIN ref_coorporate d on a.ref_coorporate_id = d.id
-                    JOIN position e on a.ref_position_id = e.id";
+                    LEFT JOIN departments b on a.ref_department_id = b.id
+                    LEFT JOIN ref_type_employee c on a.type_emp = c.id
+                    LEFT JOIN ref_coorporate d on a.ref_coorporate_id = d.id
+                    LEFT JOIN position e on a.ref_position_id = e.id ORDER BY a.id";
         return  $this->db->query($query)->getResultObject();
     }
 

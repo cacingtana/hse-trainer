@@ -66,6 +66,7 @@ class ServiceManagementAccess
         try {
             $passwordHash =  password_hash($dataUser['passWord'], PASSWORD_BCRYPT);
             $this->user = [
+                'username' => $dataUser['userName'],
                 'password' => $passwordHash,
             ];
             return $this->modelAuthentication->update($dataUser['userId'], $this->user);

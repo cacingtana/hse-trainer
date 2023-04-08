@@ -3,10 +3,12 @@
 namespace App\Core\Services;
 
 use App\Models\ModelUser;
+use App\Models\ModelAuthentication;
 
 class ServiceUser
 {
     protected $modelUser;
+    protected $modelCredential;
     protected $user = [];
 
     protected $active = 1;
@@ -14,6 +16,7 @@ class ServiceUser
     function __construct()
     {
         $this->modelUser = new ModelUser();
+        $this->modelCredential = new ModelAuthentication();
     }
 
     function getUsers()
@@ -44,8 +47,10 @@ class ServiceUser
             if ($cekEmail) {
                 return false;
             }
+
+            $idUser = $this->modelUser->userNumber();
             $this->user = [
-                'users_id' => $this->modelUser->userNumber(),
+                'users_id' => $idUser,
                 'first_name' => $dataUser['frontName'],
                 'last_name' => $dataUser['backName'],
                 'address' => $dataUser['address'],
@@ -55,9 +60,12 @@ class ServiceUser
                 'ref_role_id' => $dataUser['roleUser'],
             ];
 
-            // dd($this->user);
             $isSuccess = $this->modelUser->save($this->user);
             if ($isSuccess) {
+                $data = [
+                    'ref_user_id' => $idUser,
+                ];
+                $this->modelCredential->save($data);
                 return true;
             }
         } catch (\Throwable $th) {

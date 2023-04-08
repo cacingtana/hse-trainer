@@ -56,6 +56,16 @@ class ServiceCommisioning
         }
     }
 
+    public function update($data, $id)
+    {
+        try {
+            return $this->commisioning->update($id, $data);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+
     function getReportCommisioning()
     {
         try {

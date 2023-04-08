@@ -75,6 +75,7 @@
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Departemen</th>
+                                        <th>Posisi</th>
                                         <th>Unit Kerja</th>
                                         <th>Jabatan</th>
                                         <th>Status</th>

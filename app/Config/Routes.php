@@ -85,6 +85,9 @@ $routes->post('/commisioning/store-detail-detail', 'User\Commisioning::update_de
 $routes->post('/commisioning/add-to-cart', 'User\Commisioning::storeCommisioningDetail', ['filter' => 'authfilter']);
 $routes->add('/commisioning/delete/(:segment)', 'User\Commisioning::delete/$1', ['filter' => 'authfilter']);
 
+$routes->post('/commisioning/update-no-unit', 'User\Commisioning::update_no_unit', ['filter' => 'authfilter']);
+$routes->post('/commisioning/update-no-mesin', 'User\Commisioning::update_no_mesin', ['filter' => 'authfilter']);
+
 //RestFull
 $routes->get('/transaction/get-product/(:segment)', 'Restful\Products::getProductId/$1');
 

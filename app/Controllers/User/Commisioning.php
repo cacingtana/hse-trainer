@@ -43,7 +43,6 @@ class Commisioning extends BaseController
             'bu' => $this->coorporate->asObject()->findAll(),
             'dept' => $this->departments->asObject()->findAll(),
         ];
-
         return view('user/commisioning/v_commisioning', $this->data);
     }
 
@@ -140,5 +139,34 @@ class Commisioning extends BaseController
             session()->setFlashdata('msg', ["danger", "Gagal"]);
         }
         return redirect()->to('/commisioning/detail-detail/' . $this->request->getPost('id-commisioning'));
+    }
+
+    function update_no_unit()
+    {
+        $this->data = [
+            "no_unit" => $this->request->getPost('no-unit'),
+        ];
+        $isSuccess = $this->commisioning->update($this->data, $this->request->getPost('id-commisioning'));
+        if ($isSuccess) {
+            session()->setFlashdata('msg', ["success", "Data Commisioning berhasil di update"]);
+        } else {
+            session()->setFlashdata('msg', ["danger", "Gagal"]);
+        }
+
+        return redirect()->to('/commisioning/detail/' . $this->request->getPost('id-commisioning'));
+    }
+
+    function update_no_mesin()
+    {
+        $this->data = [
+            "no_mesin" => $this->request->getPost('no-mesin'),
+        ];
+        $isSuccess = $this->commisioning->update($this->data, $this->request->getPost('id-commisioning'));
+        if ($isSuccess) {
+            session()->setFlashdata('msg', ["success", "Data Commisioning berhasil di update"]);
+        } else {
+            session()->setFlashdata('msg', ["danger", "Gagal"]);
+        }
+        return redirect()->to('/commisioning/detail/' . $this->request->getPost('id-commisioning'));
     }
 }

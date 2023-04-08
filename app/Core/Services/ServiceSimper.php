@@ -44,6 +44,19 @@ class ServiceSimper
         }
     }
 
+    ////////////////////////////////////
+
+    function getHeaderJoinDetail()
+    {
+        try {
+            return $this->simper->getSimper();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    ///////////////////////////////////
+
     function getHeaderByMetgodPostDate($start, $end)
     {
         try {

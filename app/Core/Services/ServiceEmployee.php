@@ -80,23 +80,12 @@ class ServiceEmployee
         }
     }
 
-    function updateEmployee($data)
+    function updateEmployee($id, $data)
     {
         try {
-            $this->data = [
-                'company_name' => $data['company'],
-                'pic' => $data['pic'],
-                'customer_address' => $data['address'],
-                'phone' => $data['phone'],
-                'email' => $data['email'],
-                'customer_status' => $data['customerStatus'],
-                'ref_user_id' =>  $this->userActive->checkStatusLogin()['uid'],
-                'updated_at' =>  $this->createDate->toDateTimeString(),
-            ];
-            $this->modelEmployee->update($data['customerId'], $this->data);
-            return true;
+            return $this->modelEmployee->update($id, $data);
         } catch (\Throwable $th) {
-            throw $th;
+            dd($th);
         }
     }
 }
