@@ -64,7 +64,7 @@
                             <li class="list-inline-item">
                                 <a href="/inv-back/report/simper/detail">
                                     <button type="button" class="btn btn-primary btn-sm">
-                                        Export
+                                        Export All
                                     </button>
                                 </a>
                             </li>
