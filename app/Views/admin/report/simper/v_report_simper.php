@@ -60,6 +60,14 @@
                                     <i class="fas fa-search"></i>
                                 </button>
                             </li>
+
+                            <li class="list-inline-item">
+                                <a href="/inv-back/report/simper/detail">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        Export
+                                    </button>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -95,20 +103,20 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($simper as $s) : ?>
+                                    for ($i = 0; $i < count($simper); $i++) { ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $s->nik ?></td>
-                                            <td><?php echo $s->nip ?></td>
-                                            <td><?php echo $s->name_emp ?></td>
-                                            <td><?php echo $s->dept_name ?></td>
-                                            <td><?php echo $s->position_name ?></td>
-                                            <td><?php echo $s->sim_sio ?></td>
-                                            <td><?php echo $s->license_number ?></td>
-                                            <td><?php echo $s->date_expired_request ?></td>
-                                            <td><?php echo $s->date_expired_sim_sio ?></td>
+                                            <td><?php echo $simper[$i]['header']->nik ?></td>
+                                            <td><?php echo $simper[$i]['header']->nip ?></td>
+                                            <td><?php echo $simper[$i]['header']->name_emp ?></td>
+                                            <td><?php echo $simper[$i]['header']->dept_name ?></td>
+                                            <td><?php echo $simper[$i]['header']->position_name ?></td>
+                                            <td><?php echo $simper[$i]['header']->sim_sio ?></td>
+                                            <td><?php echo $simper[$i]['header']->license_number ?></td>
+                                            <td><?php echo $simper[$i]['header']->date_expired_request ?></td>
+                                            <td><?php echo $simper[$i]['header']->date_expired_sim_sio ?></td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php  } ?>
                                 </tbody>
                             </table>
                         </div>

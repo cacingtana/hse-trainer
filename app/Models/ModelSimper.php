@@ -51,15 +51,24 @@ class ModelSimper extends Model
     function getSimperHeaderAndDetail()
     {
         $data = [];
-        $query = "SELECT a.*, b.name_emp, b.date_expired_sim_sio, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 
+        $query = "SELECT a.*, b.name_emp, b.date_expired_sim_sio, b.license_number, b.sim_sio, date_expired_request, date_expired_sim_sio, c.dept_name, b.nik, b.nip , d.coorporate_name, e.position_name FROM simper a 
                     JOIN employee b on a.employee_id = b.id_emp
                     JOIN departments c on b.ref_department_id = c.id
                     JOIN ref_coorporate d on b.ref_coorporate_id = d.id
                     JOIN position e on b.ref_position_id = e.id";
-        foreach ($this->db->query($query)->getResultObject() as $k) {
-            $query = "SELECT a.* FROM simper_detail a WHERE a.id_simper = $k->id_simper";
-            array_push($data, $query);
+
+        $result = $this->db->query($query)->getResultObject();
+
+        for ($i = 0; $i < count($result); $i++) {
+            $temp = $result[$i]->id_simper;
+
+            $sql = "SELECT * FROM simper_detail WHERE id_simper = '$temp'";
+            array_push($data, [
+                'header' => $result[$i],
+                'detail' =>  $this->db->query($sql)->getResultObject(),
+            ]);
         }
+        return $data;
     }
 
     ////////////////////////////////

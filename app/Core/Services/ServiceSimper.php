@@ -110,4 +110,15 @@ class ServiceSimper
             throw $th;
         }
     }
+
+
+    //Testing
+    function getReportSimperHeaderDetail()
+    {
+        try {
+            return $this->simper->getSimperHeaderAndDetail();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

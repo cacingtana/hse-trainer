@@ -157,6 +157,9 @@ $routes->add('/inv-back/departments/delete/(:segment)', 'Admin\Reference\Departm
 
 //Report
 $routes->get('/inv-back/report/simper', 'Admin\Report\Simper::index', ['filter' => 'authfilter']);
+
+$routes->get('/inv-back/report/simper/detail', 'Admin\Report\Simper::detail_report_simper', ['filter' => 'authfilter']);
+
 $routes->get('/inv-back/report/commisioning', 'Admin\Report\Commisioning::index', ['filter' => 'authfilter']);
 
 /*
