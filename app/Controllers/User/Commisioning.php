@@ -43,6 +43,8 @@ class Commisioning extends BaseController
             'bu' => $this->coorporate->asObject()->findAll(),
             'dept' => $this->departments->asObject()->findAll(),
         ];
+
+        // dd($this->data);
         return view('user/commisioning/v_commisioning', $this->data);
     }
 

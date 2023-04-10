@@ -68,6 +68,10 @@ class Employee extends Migration
                 'type'           => 'INT',
                 'constraint'     => 11,
             ],
+            'images_emp'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+            ],
             'ref_coorporate_id'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,
