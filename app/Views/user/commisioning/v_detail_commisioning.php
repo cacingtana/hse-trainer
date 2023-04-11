@@ -305,6 +305,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Expire Probation</label>
+                                        <div class="col-lg-9 col-xl-8">
+                                            <input type="date" name="date-expired-request" class="form-control" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Informasi</label>
                                         <div class="col-lg-9 col-xl-8">
                                             <textarea class="form-control" name="information"></textarea>

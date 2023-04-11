@@ -56,11 +56,21 @@ class Employee extends BaseController
 
     public function store()
     {
-
         if ($this->serviceEmployee->findById($this->request->getPost('nik'))) {
             session()->setFlashdata('msg', ["danger", "Karyawan sudah terdaftar"]);
             return redirect()->to('/inv-back/employee');
         }
+
+        $img = $this->request->getFile('images');
+
+        $imgDefault = "";
+        if (!$img->getName()) {
+            $imgDefault = "default.jpg";
+        } else {
+            $imgDefault = $img->getRandomName();
+            $img->move(FCPATH . 'photo', $imgDefault);
+        }
+
 
         $this->data = [
             'id_emp' => $this->serviceEmployee->generateId('id-emp'),
@@ -76,9 +86,11 @@ class Employee extends BaseController
             // 'date_expired_request' => $this->request->getPost('date-expired-request'),
             'date_expired_sim_sio' => $this->request->getPost('date-expired-sim-sio'),
             'status_emp' => $this->request->getPost('status-emp'),
+            'images_emp' => $imgDefault,
             'ref_coorporate_id' => $this->request->getPost('ref-coorporate-id'),
             'ref_user_id' => $this->userActive->checkStatusLogin()['uid'],
         ];
+
         $isSuccess = $this->serviceEmployee->storeEmployee($this->data);
         if ($isSuccess) {
             session()->setFlashdata('msg', ["success", "Data Karyawan berhasil di simpan"]);

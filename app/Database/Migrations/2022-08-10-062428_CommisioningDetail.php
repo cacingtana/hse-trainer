@@ -32,6 +32,10 @@ class CommisioningDetail extends Migration
                 'type'           => 'DATE',
                 'DEFAULT'     => NULL,
             ],
+            'date_expired_request' => [
+                'type'           => 'DATE',
+                'DEFAULT'        => NULL,
+            ],
             'hm_km'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,

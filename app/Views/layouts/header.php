@@ -94,15 +94,10 @@
                         </li>
 
                         <li class="has-submenu">
-                            <a href=""><span><i data-feather="grid" class="align-self-center hori-menu-icon"></i>Pengajuan</span></a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="/simper"><i class="ti ti-minus"></i>Simper</a>
-                                </li>
-                                <li>
-                                    <a href="/commisioning"><i class="ti ti-minus"></i>Commisioning</a>
-                                </li>
-                            </ul>
+                            <a href="/simper"><span><i data-feather="grid" class="align-self-center hori-menu-icon"></i>Simper</span></a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/commisioning"><span><i data-feather="grid" class="align-self-center hori-menu-icon"></i>Commisioning</span></a>
                         </li>
                         <li class="has-submenu">
                             <a href="#"><span><i data-feather="box" class="align-self-center hori-menu-icon"></i>Report</span></a>

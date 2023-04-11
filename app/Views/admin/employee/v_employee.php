@@ -138,7 +138,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form method="post" action="/inv-back/employee/store">
+                            <form method="post" action="/inv-back/employee/store" enctype="multipart/form-data">
                                 <?php csrf_field() ?>
                                 <div class="card-body">
                                     <div class="row">
@@ -175,6 +175,12 @@
                                                 <label for="example-email-input" class="col-sm-2 col-form-label text-right">ID CARD</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="text" name="nip" required autocomplete="off" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-email-input" class="col-sm-2 col-form-label text-right">Foto</label>
+                                                <div class="col-sm-10">
+                                                    <input type="file" name="images" />
                                                 </div>
                                             </div>
                                             <div class="form-group row">

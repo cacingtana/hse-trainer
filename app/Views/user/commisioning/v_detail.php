@@ -81,6 +81,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">Expire Probation</label>
+                                <div class="col-lg-9 col-xl-8">
+                                    <input type="date" name="date-expired-request" class="form-control" required autocomplete="off" value="<?php echo $detail->date_expired_request ?>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label">HM / KM</label>
                                 <div class="col-lg-9 col-xl-8">
                                     <input type="text" name="hm-km" class="form-control" value="<?php echo $detail->hm_km ?>">

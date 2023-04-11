@@ -27,6 +27,7 @@ class ModelEmployee extends Model
         'date_expired_request',
         'date_expired_sim_sio',
         'status_emp',
+        'images_emp',
         'ref_coorporate_id',
         'ref_user_id',
         'created_at',

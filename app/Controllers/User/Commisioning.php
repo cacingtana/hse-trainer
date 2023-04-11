@@ -84,6 +84,7 @@ class Commisioning extends BaseController
             "type_commisioning" => $this->request->getPost('type'),
             "date_commisioning" => $this->request->getPost('start-date'),
             "date_expired_commisioning" => $this->request->getPost('end-date'),
+            'date_expired_request' => $this->request->getPost('date-expired-request'),
             "hm_km" => $this->request->getPost('hm-km'),
             "plant" => $this->request->getPost('plant'),
             "safety" => $this->request->getPost('safety'),
@@ -92,6 +93,8 @@ class Commisioning extends BaseController
             "note" => $this->request->getPost('note'),
             "status_test" => $this->request->getPost('status-test'),
         ];
+
+        //dd($this->data);
         $isSuccess = $this->commisioningDetail->storeDetail($this->data);
         if ($isSuccess) {
             session()->setFlashdata('msg', ["success", "Data Commisioning berhasil di simpan"]);
@@ -117,6 +120,8 @@ class Commisioning extends BaseController
             'test' => $this->statusTest->asObject()->findAll(),
             'detail' => $this->commisioningDetail->getCommisioningDetailDetailById($id),
         ];
+
+        //dd($this->data);
         return view('user/commisioning/v_detail', $this->data);
     }
 
@@ -125,6 +130,7 @@ class Commisioning extends BaseController
         $this->data = [
             "date_commisioning" => $this->request->getPost('start-date'),
             "date_expired_commisioning" => $this->request->getPost('end-date'),
+            'date_expired_request' => $this->request->getPost('date-expired-request'),
             "hm_km" => $this->request->getPost('hm-km'),
             "plant" => $this->request->getPost('plant'),
             "safety" => $this->request->getPost('safety'),

@@ -162,6 +162,10 @@ $routes->get('/inv-back/report/simper/detail', 'Admin\Report\Simper::detail_repo
 
 $routes->get('/inv-back/report/commisioning', 'Admin\Report\Commisioning::index', ['filter' => 'authfilter']);
 
+//Print card
+$routes->get('/inv-back/print', 'User\Print\PdfController::index', ['filter' => 'authfilter']);
+$routes->get('/inv-back/print/simper', 'User\Print\PdfController::htmlToPDF', ['filter' => 'authfilter']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

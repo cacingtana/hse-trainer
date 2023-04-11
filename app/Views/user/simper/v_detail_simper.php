@@ -237,7 +237,7 @@
                         <div class="form-group mb-0 row float-right">
                             <div class="col-sm-12">
                                 <input type="hidden" name="order-id" value="" />
-                                <button type="submit" class="btn btn-primary btn-md"> Cetak <i class="fas fa-sign-in-alt ml-1"></i></button>
+                                <a href="/inv-back/print"><button type="button" class="btn btn-primary btn-md"> Cetak <i class="fas fa-sign-in-alt ml-1"></i></button></a>
                             </div>
                         </div>
                         <!--end card-body-->

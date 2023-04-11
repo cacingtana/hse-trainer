@@ -8,7 +8,8 @@
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0",
         "firebase/php-jwt": "^6.3",
-        "jason-napolitano/codeigniter4-cart-module": "^1.1"
+        "jason-napolitano/codeigniter4-cart-module": "^1.1",
+        "dompdf/dompdf": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

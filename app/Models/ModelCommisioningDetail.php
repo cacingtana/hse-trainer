@@ -18,6 +18,7 @@ class ModelCommisioningDetail extends Model
         "type_commisioning",
         "date_commisioning",
         "date_expired_commisioning",
+        "date_expired_request",
         "hm_km",
         "plant",
         "safety",
@@ -49,14 +50,14 @@ class ModelCommisioningDetail extends Model
         $search = $this->db->escape($idCommisioning);
         $query = "SELECT a.*, b.*, c.test_name FROM commisioning_detail a 
                     JOIN commisioning b on a.commisioning_id = b.id_commisioning
-                    JOIN ref_status_test c on a.status_test = c.id WHERE a.commisioning_id=$search";
+                    JOIN ref_status_test c on a.status_test = c.id WHERE a.commisioning_id=$search ORDER BY a.id";
         return  $this->db->query($query)->getResultObject();
     }
 
     public function getCommisioningDetailDetailById($id)
     {
         $search = $this->db->escape($id);
-        $query = "SELECT * FROM commisioning_detail WHERE id=$search";
+        $query = "SELECT * FROM commisioning_detail WHERE id=$search ORDER BY a.id";
         return  $this->db->query($query)->getRowObject();
     }
 }

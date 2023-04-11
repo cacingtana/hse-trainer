@@ -57,6 +57,11 @@
                                 <div class="col-lg-12">
                                     <form method="post" action="/inv-back/employee/update">
                                         <?php csrf_field() ?>
+
+                                        <div class="form-group">
+                                            <div class="card-body"><a class="user-avatar mr-2" href="#"><img src="/photo/<?php echo $employee->images_emp ?>" alt="user" class="thumb-xxl rounded" width="20px"> </a></div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="projectName">NIK</label>
                                             <div class="input-group">
