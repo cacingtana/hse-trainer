@@ -17,6 +17,7 @@ class ModelSimperDetail extends Model
         'id_simper',
         'vehicle_id',
         'issue_date',
+        'expire_date',
         "theory_test_date",
         "theory_test_value",
         "practice_test_date",
@@ -29,7 +30,7 @@ class ModelSimperDetail extends Model
     ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
 
     function deleteById($id)
     {
@@ -63,7 +64,7 @@ class ModelSimperDetail extends Model
                     JOIN ref_status_request c on a.status_simper = c.id
                     JOIN ref_status_eye d on a.eye_test_value = d.id
                     JOIN ref_status_test e on a.status_test = e.id
-                    JOIN vehicle f on a.vehicle_id = f.id WHERE b.id_simper = $search";
+                    JOIN vehicle f on a.vehicle_id = f.id WHERE b.id_simper = $search ORDER BY a.id";
         return  $this->db->query($query)->getResultObject();
     }
 

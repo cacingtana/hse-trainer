@@ -79,8 +79,6 @@
                                             <th>Posisi</th>
                                             <th>SIM / SIO</th>
                                             <th>Nomor Lisensi</th>
-                                            <th>Tgl Exp Pengajuan</th>
-                                            <th>Tgl Exp SIM/SIO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -96,8 +94,6 @@
                                                 <td><?php echo $simper[$i]['header']->position_name ?></td>
                                                 <td><?php echo $simper[$i]['header']->sim_sio ?></td>
                                                 <td><?php echo $simper[$i]['header']->license_number ?></td>
-                                                <td><?php echo $simper[$i]['header']->date_expired_request ?></td>
-                                                <td><?php echo $simper[$i]['header']->date_expired_sim_sio ?></td>
                                             </tr>
                                             <?php
                                             $noBawah = 2;

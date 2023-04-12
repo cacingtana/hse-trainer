@@ -76,8 +76,6 @@
                                         <th>Nama</th>
                                         <th>Departemen</th>
                                         <th>Posisi</th>
-                                        <th>Unit Kerja</th>
-                                        <th>Jabatan</th>
                                         <th>Status</th>
                                         <th></th>
                                     </tr>
@@ -260,14 +258,14 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-                                            <div class="form-group row">
+                                            <!-- <div class="form-group row">
                                                 <label for="example-number-input" class="col-sm-2 col-form-label text-right">Tanggal Exipre SIM / SIO</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <input type="date" class="form-control" name="date-expired-sim-sio">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group row">
                                                 <label for="example-email-input" class="col-sm-2 col-form-label text-right">Status</label>

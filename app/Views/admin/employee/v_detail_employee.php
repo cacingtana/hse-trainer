@@ -98,21 +98,20 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="row">
-                                                <!--end col-->
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="projectName">Tanggal Expire Probation</label>
-                                                    <input type="date" class="form-control" name="date-expired-request" value="<?php echo $employee->date_expired_request ?>" />
+                                                    <input type="date" class="form-control" name="date-expired-request" value="<? //php echo $employee->date_expired_request 
+                                                                                                                                ?>" />
                                                 </div>
                                                 <div class="col-lg-3 col-6 mb-2 mb-lg-0">
                                                     <label for="projectName">Tanggal Expire SIM/SIO</label>
-                                                    <input type="date" class="form-control" name="date-expired-sim-sio" value="<?php echo $employee->date_expired_sim_sio ?>" />
+                                                    <input type="date" class="form-control" name="date-expired-sim-sio" value="<? //php echo $employee->date_expired_sim_sio 
+                                                                                                                                ?>" />
                                                 </div>
-
                                             </div>
-                                            <!--end row-->
-                                        </div>
+                                        </div> -->
                                         <!--end form-group-->
                                         <div class="form-group">
                                             <div class="row">

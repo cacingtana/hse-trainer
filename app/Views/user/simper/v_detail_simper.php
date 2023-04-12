@@ -115,9 +115,9 @@
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Departemen | Posisi
+                                                Departemen
                                             </p>
-                                            <h5 class="my-0"><?php echo $simper->dept_name ?> | <?php echo $simper->position_name ?></h5>
+                                            <h5 class="my-0"><?php echo $simper->dept_name ?></h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -136,9 +136,9 @@
                                     <div class="row d-flex justify-content-center">
                                         <div class="col">
                                             <p class="text-dark mb-1 font-weight-semibold">
-                                                Expire SIM / SIO
+                                                Posisi
                                             </p>
-                                            <h5 class="my-0"><?php echo $simper->date_expired_sim_sio ?></h5>
+                                            <h5 class="my-0"><?php echo $simper->position_name ?></h5>
                                         </div>
                                         <div class="col-auto align-self-center">
                                             <div class="report-main-icon bg-light-alt">
@@ -185,6 +185,7 @@
                                                                 <th class="border-top-0">No</th>
                                                                 <th class="border-top-0">Unit</th>
                                                                 <th class="border-top-0">Issue Date</th>
+                                                                <th class="border-top-0">Expire Date</th>
                                                                 <th class="border-top-0">Status Simper</th>
                                                                 <th class="border-top-0">Status Test</th>
                                                                 <th class="border-top-0">Keterangan</th>
@@ -199,15 +200,16 @@
                                                                     <td><?php echo $no++ ?></td>
                                                                     <td><?php echo $d->unit_name ?></td>
                                                                     <td><?php echo $d->issue_date ?></td>
+                                                                    <td><?php echo $d->expire_date ?></td>
                                                                     <td><span class="badge badge-md badge-<?php if (intval($d->status_simper) == 1) {
                                                                                                                 echo "warning";
                                                                                                             } elseif (intval($d->status_simper) == 2) {
                                                                                                                 echo "secondary";
                                                                                                             } elseif (intval($d->status_simper) == 3) {
                                                                                                                 echo "danger";
-                                                                                                            } elseif (intval($d->status_simper) == 3) {
+                                                                                                            } elseif (intval($d->status_simper) == 4) {
                                                                                                                 echo "success";
-                                                                                                            } elseif (intval($d->status_simper) == 3) {
+                                                                                                            } elseif (intval($d->status_simper) == 5) {
                                                                                                                 echo "info";
                                                                                                             } ?>"><?php echo $d->status_name ?></span></td>
                                                                     <td><span class="badge badge-md badge-<?php if (intval($d->status_test) == 1) {
@@ -237,7 +239,7 @@
                         <div class="form-group mb-0 row float-right">
                             <div class="col-sm-12">
                                 <input type="hidden" name="order-id" value="" />
-                                <a href="/inv-back/print"><button type="button" class="btn btn-primary btn-md"> Cetak <i class="fas fa-sign-in-alt ml-1"></i></button></a>
+                                <a href="/inv-back/print/<?php echo $simper->id_simper ?>" target="_blank"><button type="button" class="btn btn-primary btn-md"> Cetak <i class="fas fa-sign-in-alt ml-1"></i></button></a>
                             </div>
                         </div>
                         <!--end card-body-->

@@ -28,6 +28,10 @@ class SimperDetail extends Migration
                 'type'           => 'DATE',
                 'constraint'     => null,
             ],
+            'expire_date'      => [
+                'type'           => 'DATE',
+                'constraint'     => null,
+            ],
             'theory_test_date'      => [
                 'type'           => 'DATE',
                 'constraint'     => null,

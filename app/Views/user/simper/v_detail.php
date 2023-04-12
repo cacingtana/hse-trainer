@@ -99,6 +99,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">Expire Date</label>
+                                <div class="col-lg-9 col-xl-8">
+                                    <input type="date" name="expire-date" class="form-control" value="<?php echo $detail->expire_date ?>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label">Status Test</label>
                                 <div class="col-lg-9 col-xl-8">
                                     <select class="custom-select" name="status-test" id="status-test">
@@ -120,38 +126,38 @@
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label"><b>Test Tulis</b></label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="date" name="issue-date" class="form-control" value="<?php echo $detail->theory_test_date ?>">
+                                    <input type="date" name="theory-test-date" class="form-control" value="<?php echo $detail->theory_test_date ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label"><b>Hasil Test Tulis</b></label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="text" name="issue-date" class="form-control" value="<?php echo $detail->theory_test_value ?>">
+                                    <input type="text" name="theory-test-result" class="form-control" value="<?php echo $detail->theory_test_value ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label"><b>Test Praktek</b></label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="date" name="issue-date" class="form-control" value="<?php echo $detail->practice_test_date ?>">
+                                    <input type="date" name="practice-test-date" class="form-control" value="<?php echo $detail->practice_test_date ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label"><b>Hasil Test Praktek</b></label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="text" name="issue-date" class="form-control" value="<?php echo $detail->practice_test_value ?>">
+                                    <input type="text" name="practice-test-result" class="form-control" value="<?php echo $detail->practice_test_value ?>">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label"><b>Test Mata</b></label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <input type="date" name="issue-date" class="form-control" value="<?php echo $detail->eye_test_date ?>">
+                                    <input type="date" name="eye-test-date" class="form-control" value="<?php echo $detail->eye_test_date ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label"><b>Hasil Test Mata</b></label>
                                 <div class="col-lg-9 col-xl-8">
-                                    <select class="custom-select" name="status-violation" id="status-violation">
+                                    <select class="custom-select" name="eye-test-result" id="status-violation">
                                         <?php foreach ($eye as $t) : ?>
                                             <option value="<?php echo $t->id ?>" <?php if (intval($detail->eye_test_value) == intval($t->id)) {
                                                                                         echo "selected";

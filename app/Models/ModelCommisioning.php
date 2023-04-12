@@ -24,7 +24,7 @@ class ModelCommisioning extends Model
     ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
 
     public function update($id = null, $data = null): bool
     {

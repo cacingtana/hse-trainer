@@ -52,8 +52,6 @@ class Simper extends BaseController
                 'simper' => $this->simper->getHeader(),
             ];
         }
-
-        //dd($this->data);
         return view('user/simper/v_simper', $this->data);
     }
 
@@ -131,7 +129,6 @@ class Simper extends BaseController
             'vehicle' => $this->vehicle->asObject()->findAll(),
             'detail' => $this->simperDetail->getSimperDetailDetailById($id),
         ];
-
         return view('user/simper/v_detail', $this->data);
     }
 
@@ -140,6 +137,7 @@ class Simper extends BaseController
         $this->data = [
             'vehicle_id' => $this->request->getPost('id-vehicle'),
             'issue_date' => $this->request->getPost('issue-date'),
+            'expire_date' => $this->request->getPost('expire-date'),
             "theory_test_date" => $this->request->getPost('theory-test-date'),
             "theory_test_value" => $this->request->getPost('theory-test-result'),
             "practice_test_date" => $this->request->getPost('practice-test-date'),
@@ -182,5 +180,15 @@ class Simper extends BaseController
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+
+    function printSimper($idEmp)
+    {
+        $this->data = [
+            'simper' => $this->simper->getHeaderById($idEmp),
+            'detail' => $this->simperDetail->getSimperDetailById($idEmp),
+        ];
+        // dd($this->data);
+        return view('user/simper/v_print_simper', $this->data);
     }
 }

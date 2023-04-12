@@ -110,7 +110,6 @@
                                         <th>Nama</th>
                                         <th>Departemen</th>
                                         <th>Posisi</th>
-                                        <th>Expire SIM/SIO</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -123,7 +122,6 @@
                                             <td><?php echo $s->name_emp ?></td>
                                             <td><?php echo $s->dept_name ?></td>
                                             <td><?php echo $s->position_name ?></td>
-                                            <td><?php echo $s->date_expired_sim_sio ?></td>
                                             <td>
                                                 <a href="/simper/detail/<?php echo $s->id_simper ?>"><button type="button" id="edit-user" class="btn btn-soft-blue btn-icon-circle"><i class="las la-pen text-info font-18"></i></button></a>
                                             </td>
