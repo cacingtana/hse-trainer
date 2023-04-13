@@ -70,8 +70,6 @@ class Employee extends BaseController
             $imgDefault = $img->getRandomName();
             $img->move(FCPATH . 'photo', $imgDefault);
         }
-
-
         $this->data = [
             'id_emp' => $this->serviceEmployee->generateId('id-emp'),
             'type_emp' => $this->request->getPost('type-emp'),

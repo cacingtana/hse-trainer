@@ -68,13 +68,19 @@
                     <td><?php echo $simper->dept_name ?></td>
                 </tr>
                 <tr>
-                    <td><?php echo date('d F Y', strtotime($simper->date_expired_sim_sio)); ?></td>
+                    <td><?php echo date('d F Y'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php echo date('d F Y', strtotime($simper->date_expired_sim_sio)); ?></td>
+                    <?php for ($i = count($detail); $i >= 1; $i--) {
+                        if ($i == 1) { ?>
+                            <td><?php echo date('d F Y', strtotime($detail[$i]->issue_date)); ?></td>
+                    <?php
+                            break;
+                        }
+                    } ?>
                 </tr>
                 <tr>
-                    <td><?php $detail->issue_date ?></td>
+                    <td>No Simper</td>
                 </tr>
             </table>
         </div>
