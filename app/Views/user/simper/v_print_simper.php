@@ -43,21 +43,21 @@
             position: absolute;
             z-index: 6;
             width: 200px;
-            left: 4px;
-            top: -23em;
+            left: 70px;
+            top: -19em;
         }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <img src="/format/format.jpg" alt="depan" width="50%">
+        <img src="/format/<?php echo $simper->coorporate_images; ?>" alt="background" width="50%">
 
-        <!-- <div class="wrapper">
+        <div class="wrapper">
             <div class="gold-box-image">
-                <img src="/format/hpal.jpg" alt="gambar">
+                <img src="/photo/<?php echo $simper->images_emp; ?>" alt="photo" width="50%">
             </div>
-        </div> -->
+        </div>
 
         <div class="wrapper">
             <table style="width:200px;" class="gold-box-3">
@@ -85,8 +85,8 @@
                     <td><?php echo date('d F Y'); ?></td>
                 </tr>
                 <tr>
-                    <?php for ($i = count($detail); $i >= 1; $i--) {
-                        if ($i == 1) { ?>
+                    <?php for ($i = count($detail); $i >= 0; $i--) {
+                        if ($i == 0) { ?>
                             <td><?php echo date('d F Y', strtotime($detail[$i]->issue_date)); ?></td>
                     <?php
                             break;

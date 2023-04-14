@@ -84,12 +84,7 @@
                                                 </td>
                                                 <td class="text-right">
                                                     <div class="dropdown d-inline-block">
-                                                        <a class="dropdown-toggle arrow-none" id="dLabel11" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><i class="las la-ellipsis-v font-20 text-muted"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel11">
-                                                            <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Hapus</a>
-                                                        </div>
-                                                    </div>
+                                                        <a href="/inv-back/coorporate/detail/<?php echo $cpr->id ?>"><i class="las la-pen text-info font-18"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -137,15 +132,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="horizontalInput2" class="col-sm-2 col-form-label">Singkatan</label>
+                                    <label for="horizontalInput2" class="col-sm-2 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="bu-name" required />
+                                        <input type="text" class="form-control" name="singkatan" required />
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="horizontalInput2" class="col-sm-2 col-form-label">Format ID Card</label>
                                     <div class="col-sm-10">
-                                        <input type="file" name="images" />
+                                        <input type="file" name="bu-images" />
                                     </div>
                                 </div>
                                 <div class="row">

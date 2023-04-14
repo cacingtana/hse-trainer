@@ -115,6 +115,18 @@ class Employee extends BaseController
 
     public function update()
     {
+        $image = $this->request->getfile("image");
+        $img = $this->request->getPost("img");
+        $imageDefault = "";
+
+        if ($img == "" && $image->getName() == "") {
+            $imageDefault = "default.jpg";
+        } else if ($image->getName()) {
+            $imageDefault = $image->getRandomName();
+            $image->move(FCPATH . 'photo', $imageDefault);
+        } else {
+            $imageDefault = $img;
+        }
         $this->data = [
             'type_emp' => $this->request->getPost('type-emp'),
             'nik' => $this->request->getPost('nik'),
@@ -128,9 +140,12 @@ class Employee extends BaseController
             // 'date_expired_request' => $this->request->getPost('date-expired-request'),
             // 'date_expired_sim_sio' => $this->request->getPost('date-expired-sim-sio'),
             'status_emp' => $this->request->getPost('status'),
+            'images_emp' => $imageDefault,
             'ref_coorporate_id' => $this->request->getPost('bu'),
             'ref_user_id' => $this->userActive->checkStatusLogin()['uid'],
         ];
+
+        //dd($this->data);
         $isSuccess = $this->serviceEmployee->updateEmployee($this->request->getPost('employee-id'), $this->data);
         if ($isSuccess) {
             session()->setFlashdata('msg', ["success", "Data customer berhasil di update"]);

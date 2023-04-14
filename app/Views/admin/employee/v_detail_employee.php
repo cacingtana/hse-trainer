@@ -55,13 +55,16 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form method="post" action="/inv-back/employee/update">
+                                    <form method="post" action="/inv-back/employee/update" enctype="multipart/form-data">
                                         <?php csrf_field() ?>
 
                                         <div class="form-group">
-                                            <div class="card-body"><a class="user-avatar mr-2" href="#"><img src="/photo/<?php echo $employee->images_emp ?>" alt="user" class="thumb-xxl rounded" width="20px"> </a></div>
+                                            <a class="user-avatar" href="#"><img src="/photo/<?php echo $employee->images_emp ?>" alt="user" width="172px" width="154px"> </a>
+                                            <input type="hidden" name="img" value="<?php echo $employee->images_emp; ?>" />
                                         </div>
-
+                                        <div class="form-group">
+                                            <input type="file" name="image" />
+                                        </div>
                                         <div class="form-group">
                                             <label for="projectName">NIK</label>
                                             <div class="input-group">

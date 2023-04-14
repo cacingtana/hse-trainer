@@ -30,4 +30,10 @@ class ModelRefCoorporate extends Model
     {
         return $this->db->table($this->table)->update($data, ['id' => $id]);
     }
+
+    function findById($id)
+    {
+        $sql = "SELECT * FROM ref_coorporate WHERE id='$id'";
+        return $this->db->query($sql)->getRowObject();
+    }
 }

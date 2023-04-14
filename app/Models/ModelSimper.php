@@ -96,7 +96,7 @@ class ModelSimper extends Model
     function getSimperById($id)
     {
         $search = $this->db->escape($id);
-        $query = "SELECT a.*, b.id_emp, b.name_emp, b.nik, b.nip, b.date_expired_sim_sio, c.dept_name, d.coorporate_name, e.position_name FROM simper a 
+        $query = "SELECT a.*, b.id_emp, b.name_emp, b.nik, b.nip, b.date_expired_sim_sio, b.images_emp, c.dept_name, d.coorporate_name, d.coorporate_images, e.position_name FROM simper a 
                     JOIN employee b on a.employee_id = b.id_emp
                     JOIN departments c on b.ref_department_id = c.id
                     JOIN ref_coorporate d on b.ref_coorporate_id = d.id
