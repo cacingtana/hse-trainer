@@ -38,12 +38,26 @@
             font-size: 12px;
             font-weight: bold;
         }
+
+        .gold-box-image {
+            position: absolute;
+            z-index: 6;
+            width: 200px;
+            left: 4px;
+            top: -23em;
+        }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
         <img src="/format/format.jpg" alt="depan" width="50%">
+
+        <!-- <div class="wrapper">
+            <div class="gold-box-image">
+                <img src="/format/hpal.jpg" alt="gambar">
+            </div>
+        </div> -->
 
         <div class="wrapper">
             <table style="width:200px;" class="gold-box-3">

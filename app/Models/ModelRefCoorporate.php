@@ -16,6 +16,8 @@ class ModelRefCoorporate extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'coorporate_name',
+        'abbreviation',
+        'coorporate_images',
         'ref_user_id',
         'created_at',
         'updated_at',

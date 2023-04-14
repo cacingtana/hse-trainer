@@ -188,7 +188,7 @@ class Simper extends BaseController
             'simper' => $this->simper->getHeaderById($idEmp),
             'detail' => $this->simperDetail->getSimperDetailById($idEmp),
         ];
-        //  dd($this->data);
+        dd($this->data);
         return view('user/simper/v_print_simper', $this->data);
     }
 }

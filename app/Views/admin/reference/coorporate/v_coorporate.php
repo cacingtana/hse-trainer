@@ -128,12 +128,24 @@
                     <!--end card-header-->
                     <div class="card-body">
                         <div class="general-label">
-                            <form action="/inv-back/coorporate/store" method="post">
+                            <form action="/inv-back/coorporate/store" method="post" enctype="multipart/form-data">
                                 <?php csrf_field() ?>
                                 <div class="form-group row">
                                     <label for="horizontalInput2" class="col-sm-2 col-form-label">Unit Business Baru</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="bu-name" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="horizontalInput2" class="col-sm-2 col-form-label">Singkatan</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="bu-name" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="horizontalInput2" class="col-sm-2 col-form-label">Format ID Card</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" name="images" />
                                     </div>
                                 </div>
                                 <div class="row">

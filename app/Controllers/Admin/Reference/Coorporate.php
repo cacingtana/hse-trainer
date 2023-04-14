@@ -27,10 +27,22 @@ class Coorporate extends BaseController
     public function store()
     {
         try {
+            $img = $this->request->getFile('bu-images');
+            $imgDefault = "";
+            if (!$img->getName()) {
+                $imgDefault = "default.jpg";
+            } else {
+                $imgDefault = $img->getRandomName();
+                $img->move(FCPATH . 'format', $imgDefault);
+            }
             $this->data = [
                 'coorporate_name' => $this->request->getPost('bu-name'),
+                'coorporate_images' => $this->request->getPost('bu-images'),
                 'ref_user_id' => $this->userActive->checkStatusLogin()['uid'],
             ];
+
+            dd($this->data);
+
             $isSuccess = $this->modelCoorporate->save($this->data);
             if ($isSuccess) {
                 session()->setFlashdata('msg', ["success", "Data unit business berhasil di simpan"]);

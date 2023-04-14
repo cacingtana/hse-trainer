@@ -20,6 +20,10 @@ class RefCoorporate extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
             ],
+            'coorporate_images'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+            ],
             'ref_user_id'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,

@@ -15,6 +15,7 @@ class ModelStatusRequest extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'status_name',
+        'code_name',
         'created_at',
         'updated_at',
     ];

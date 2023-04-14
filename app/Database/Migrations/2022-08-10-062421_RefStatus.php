@@ -20,6 +20,10 @@ class RefStatus extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 20,
             ],
+            'code_name'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 5,
+            ],
             'created_at' => [
                 'type'           => 'DATETIME',
                 'DEFAULT'        => NULL,

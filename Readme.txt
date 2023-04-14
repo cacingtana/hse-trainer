@@ -7,7 +7,6 @@ Clone the source code,
 
 run php spark serve to show development start
 
-
 ----------------------Alur Program--------------------------
 
 Status Simper
