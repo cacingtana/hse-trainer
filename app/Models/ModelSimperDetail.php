@@ -59,7 +59,7 @@ class ModelSimperDetail extends Model
     function getSimperDetailById($id)
     {
         $search = $this->db->escape($id);
-        $query = "SELECT a.*, c.status_name, d.eye_name, e.test_name, f.unit_name FROM simper_detail a 
+        $query = "SELECT a.*, c.status_name, c.code_name, d.eye_name, e.test_name, f.unit_name FROM simper_detail a 
                     JOIN simper b on a.id_simper = b.id_simper
                     JOIN ref_status_request c on a.status_simper = c.id
                     JOIN ref_status_eye d on a.eye_test_value = d.id

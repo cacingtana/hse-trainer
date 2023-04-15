@@ -10,6 +10,7 @@ class StatusRequest extends Seeder
     {
         $data = [
             'status_name' => 'Training',
+            'code_name' => 'Training',
         ];
 
         // Simple Queries

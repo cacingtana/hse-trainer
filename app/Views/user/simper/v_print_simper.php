@@ -24,7 +24,7 @@
             position: absolute;
             z-index: 6;
             width: 80px;
-            left: 260px;
+            left: 265px;
             top: -25em;
             font-size: 12px;
         }
@@ -85,13 +85,14 @@
                     <td><?php echo date('d F Y'); ?></td>
                 </tr>
                 <tr>
-                    <?php for ($i = count($detail); $i >= 0; $i--) {
-                        if ($i == 0) { ?>
-                            <td><?php echo date('d F Y', strtotime($detail[$i]->issue_date)); ?></td>
                     <?php
-                            //break;
-                        }
-                    } ?>
+                    $data = [];
+                    for ($i = 0; $i < count($detail); $i++) {
+                        array_push($data, date('d F Y', strtotime($detail[$i]->issue_date)));
+                    }
+                    $tanggal = end($data);
+                    ?>
+                    <td><?php echo $tanggal; ?></td>
                 </tr>
                 <tr>
                     <td>PT.<?php echo $simper->coorporate_name ?>-SIM-<?php echo $simper->id ?></td>
@@ -104,6 +105,7 @@
             <table style="width:200px" class="gold-box-2">
                 <?php foreach ($detail as $d) {  ?>
                     <tr style="text-align: center;">
+                        <td><?php echo $d->code_name; ?></td>
                         <td><?php echo $d->unit_name; ?></td>
                         <td><?php echo $d->issue_date; ?></td>
                     </tr>
