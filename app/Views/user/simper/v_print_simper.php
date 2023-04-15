@@ -89,12 +89,12 @@
                         if ($i == 0) { ?>
                             <td><?php echo date('d F Y', strtotime($detail[$i]->issue_date)); ?></td>
                     <?php
-                            break;
+                            //break;
                         }
                     } ?>
                 </tr>
                 <tr>
-                    <td>No Simper</td>
+                    <td>PT.<?php echo $simper->coorporate_name ?>-SIM-<?php echo $simper->id ?></td>
                 </tr>
             </table>
         </div>

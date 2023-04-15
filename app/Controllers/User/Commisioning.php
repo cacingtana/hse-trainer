@@ -111,6 +111,8 @@ class Commisioning extends BaseController
             'header' => $this->commisioning->getCommisioningById($id),
             'detail' => $this->commisioningDetail->getCommisiningDetailById($id),
         ];
+
+        //dd($this->data);
         return view('user/commisioning/v_detail_commisioning', $this->data);
     }
 

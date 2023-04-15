@@ -99,15 +99,15 @@
                                             $noBawah = 2;
                                             for ($j = 0; $j < count($simper[$i]['detail']); $j++) { ?>
                                                 <tr>
+                                                    <td colspan="2"><?php echo $simper[$i]['detail'][$j]->unit_name ?></td>
                                                     <td colspan="2">Tes Praktek : <?php echo $simper[$i]['detail'][$j]->practice_test_date ?></td>
                                                     <td><?php echo $simper[$i]['detail'][$j]->practice_test_value ?></td>
                                                     <td>Tes Tulis : <?php echo $simper[$i]['detail'][$j]->theory_test_date ?></td>
                                                     <td><?php echo $simper[$i]['detail'][$j]->theory_test_value ?></td>
                                                     <td>Tes Mata : <?php echo $simper[$i]['detail'][$j]->eye_test_date ?></td>
-                                                    <td><?php echo $simper[$i]['detail'][$j]->eye_test_value ?></td>
-                                                    <td>Status Simper : <?php echo $simper[$i]['detail'][$j]->status_simper ?></td>
-                                                    <td>Status Test : <?php echo $simper[$i]['detail'][$j]->status_test ?></td>
-                                                    <td>Note : <?php echo $simper[$i]['detail'][$j]->note ?></td>
+                                                    <td><?php echo $simper[$i]['detail'][$j]->eye_name ?></td>
+                                                    <td>Status Simper : <?php echo $simper[$i]['detail'][$j]->status_name ?></td>
+                                                    <td>Note : <?php echo $simper[$i]['detail'][$j]->keterangan ?></td>
                                                 </tr>
                                             <?php  } ?>
                                         <?php  } ?>

@@ -57,7 +57,7 @@ class ModelCommisioningDetail extends Model
     public function getCommisioningDetailDetailById($id)
     {
         $search = $this->db->escape($id);
-        $query = "SELECT * FROM commisioning_detail WHERE id=$search ORDER BY a.id";
+        $query = "SELECT * FROM commisioning_detail WHERE id=$search ORDER BY id";
         return  $this->db->query($query)->getRowObject();
     }
 }

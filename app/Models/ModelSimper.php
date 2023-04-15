@@ -62,7 +62,11 @@ class ModelSimper extends Model
         for ($i = 0; $i < count($result); $i++) {
             $temp = $result[$i]->id_simper;
 
-            $sql = "SELECT * FROM simper_detail WHERE id_simper = '$temp'";
+            $sql = "SELECT *, a.note as keterangan, d.status_name, c.eye_name, b.unit_name FROM simper_detail a 
+            JOIN vehicle b on a.vehicle_id = b.id
+            JOIN ref_status_eye c on a.vehicle_id = c.id
+            JOIN ref_status_request d on a.status_simper = d.id
+            WHERE a.id_simper = '$temp'";
             array_push($data, [
                 'header' => $result[$i],
                 'detail' =>  $this->db->query($sql)->getResultObject(),
